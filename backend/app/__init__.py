@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate 
 
 from .config import Config   
-from app.models import db 
+from app.models import db, User 
 
 app = Flask(__name__)
 app.config.from_object(Config)
