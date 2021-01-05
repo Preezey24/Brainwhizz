@@ -8,6 +8,8 @@ flask = "*"
 flask-sqlalchemy = "*"
 python-dotenv = "*"
 sqlalchemy = "*"
+werkzeug = "*"
+flask-login = "*"
 
 [dev-packages]
 psycopg2-binary = "*"
