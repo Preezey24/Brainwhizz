@@ -12,8 +12,8 @@ def authenticate():
         return current_user.to_dict()
     return {'errors': ['Unauthorized']}, 401
 
-@auth_routes.route('/sign_up', methods=['POST'])
-def sign_up(): 
+@auth_routes.route('/signup', methods=['POST'])
+def signup(): 
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit(): 
