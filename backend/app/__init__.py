@@ -9,7 +9,7 @@ from api.auth_routes import auth_routes
 
 app = Flask(__name__)
 
-#connects application with Flask-Login for auth requirements 
+#connects application with Flask-Login for auth requirements (sessions, csrf) 
 login_manager = LoginManager()
 login_manager.init_app(app)
 
