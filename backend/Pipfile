@@ -12,6 +12,7 @@ werkzeug = "*"
 flask-login = "*"
 alembic = "*"
 flask-migrate = "*"
+flask-wtf = "*"
 
 [dev-packages]
 psycopg2-binary = "*"
