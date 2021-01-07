@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import LoginForm from './components/auth/LoginForm'
 import LogoutButton from './components/auth/LogoutButton';
 import SignUpForm from './components/auth/SignUpForm'; 
-import MathGame from './components/games/MathGame';
+import MathGame from './components/games/math/MathGame';
 
 
 function App() {
