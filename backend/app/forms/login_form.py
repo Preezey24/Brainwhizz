@@ -1,14 +1,18 @@
 from flask_wtf import FlaskForm 
 from wtforms import StringField
-from wtforms.validators import DataRequired, EqualTo, Length  
+from wtforms.validators import DataRequired, ValidationError
+
+from app.models import User 
 
 def check_user(form, field): 
+    print(field.data)
     email = field.data
     user = User.query.filter(User.email == email).first()
     if not user: 
         raise ValidationError('User is not recognized')
 
 def check_password(form, field): 
+    print(field.data)
     password = field.data
     email = form.data['email']
     user = User.query.filter(User.email == email).first()
