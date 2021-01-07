@@ -15,7 +15,7 @@ def authenticate():
 @auth_routes.route('/signup', methods=['POST'])
 def signup(): 
     form = SignUpForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
+    # form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit(): 
         user = User(
             username=form.data['username'],

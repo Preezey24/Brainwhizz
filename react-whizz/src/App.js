@@ -7,7 +7,7 @@ import SignUpForm from './components/auth/SignUpForm'
 function App() {
   return (
     <BrowserRouter>
-      <Route path='/sign_up' component={SignUpForm} />
+      <Route path='/signup' component={SignUpForm} />
       <Route path='/login' component={LoginForm} />
     </BrowserRouter>
   );

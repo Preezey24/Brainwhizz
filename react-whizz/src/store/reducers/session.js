@@ -35,3 +35,20 @@ export const signUp = (user) => async (dispatch) => {
         return console.log(err.message); 
     }
 }; 
+
+const initialState = { user: null }; 
+
+const sessionReducer = (state = initialState, action) => {
+    let newState; 
+    switch (action.type) {
+        case SET_USER: 
+            //create a copy, do not mutate existing to avoid race conditions 
+            newState = Object.assign({}, state); 
+            newState.user = action.payload; 
+            return newState; 
+        default: 
+            return state; 
+    }
+};
+
+export default sessionReducer; 

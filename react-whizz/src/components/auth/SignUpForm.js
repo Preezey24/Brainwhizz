@@ -1,17 +1,19 @@
 import React, { useState } from 'react'; 
-import { BrowserRouter } from 'react-router-dom';
+import { useDispatch } from 'react-redux';  
+import { signUp } from '../../store/reducers/session'
 
 const SignUpForm = () => {
+    const dispatch = useDispatch(); 
     const [username, setUserName] = useState(''); 
     const [email, setEmail] = useState(''); 
     const [password, setPassword] = useState('');
     // validation for whether passwords match is completed on the backend in signup_form.py
     const [confirm, setConfirm] = useState('');
 
-    // const SubmitHandler = async (e) => {
-    //     e.preventDefault(); 
-    //     const user = await signUp(username, email, password, confirm);
-    // }
+    const submitHandler = async (e) => {
+        e.preventDefault(); 
+        return dispatch(signUp({ username, email, password, confirm }));
+    }
 
     const userHandler = e => {
         setUserName(e.target.value); 
@@ -30,7 +32,7 @@ const SignUpForm = () => {
     }
 
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <div>
                 <label>Username</label>
                 <input 
