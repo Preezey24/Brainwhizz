@@ -27,7 +27,7 @@ def signup():
         db.session.add(user)
         db.session.commit()
         login_user(user)
-        return redirect('/')
+        return user.to_dict()
     return form.errors 
     
 
