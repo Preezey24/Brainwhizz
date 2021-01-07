@@ -17,7 +17,7 @@ const removeUser = () => {
 export const signUp = (user) => async (dispatch) => {
     const { username, email, password, confirm } = user; 
     try {
-        const response = fetch('/auth/signup', {
+        const response = await fetch('/auth/signup', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json'
@@ -28,16 +28,49 @@ export const signUp = (user) => async (dispatch) => {
                 password,
                 confirm,
             }),
-        });
+        }); 
         if (response.ok) {
             const data = await response.json(); 
             dispatch(setUser(data)); 
-            return data;  
         }
     } catch (err) {
-        return console.log(err.message); 
+        console.log(err.message);
     }  
 }; 
+
+export const logIn = (user) => async (dispatch) => {
+    const { email, password } = user;
+    try { 
+        const response = await fetch('/auth/login', {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                password,
+            }),
+        });
+        if (response.ok) { 
+            const data = await response.json(); 
+            console.log(data); 
+            dispatch(setUser(data)); 
+        }
+    } catch (err) {
+        console.log(err); 
+    }
+}
+
+export const logout = () => async (dispatch) => {
+    try {
+        const response = await fetch('/auth/logout')
+        if (response.ok) {
+            dispatch(removeUser()); 
+        }
+    } catch (err) {
+        console.log(err); 
+    }
+}
 
 const initialState = { user: null }; 
 
@@ -48,6 +81,10 @@ const sessionReducer = (state = initialState, action) => {
             //create a copy, do not mutate existing to avoid race conditions 
             newState = Object.assign({}, state); 
             newState.user = action.payload; 
+            return newState; 
+        case REMOVE_USER: 
+            newState = Object.assign({}, state); 
+            newState.user = null; 
             return newState; 
         default: 
             return state; 
