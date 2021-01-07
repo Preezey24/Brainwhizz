@@ -1,7 +1,10 @@
-from flask import Flask, Blueprint
+from flask import Flask, request 
 from flask_sqlalchemy import SQLAlchemy 
 from flask_migrate import Migrate
 from flask_login import LoginManager  
+from flask_cors import CORS
+from flask_wtf.csrf import CSRFProtect, generate_csrf
+import os
 
 from .config import Config   
 from app.models import db, User 
@@ -20,3 +23,19 @@ app.register_blueprint(auth_routes)
 
 db.init_app(app)
 Migrate(app, db)
+
+#enable cross domain AJAX calls 
+CORS(app) 
+
+@app.after_request
+def inject_csrf_token(response):
+    response.set_cookie('csrf_token',
+                        generate_csrf(), 
+                        secure=True if os.environ.get(
+                            'FLASK_ENV') == 'production' else False, 
+                        samesite='Strict' if os.environ.get(
+                            'FLASK_ENV') == 'production' else None, 
+                        httponly=True)
+    return response  
+
+# @app.route('/', defaults={'path': ''})

@@ -19,6 +19,9 @@ export const signUp = (user) => async (dispatch) => {
     try {
         const response = fetch('/auth/signup', {
             method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 username,
                 email,
@@ -33,7 +36,7 @@ export const signUp = (user) => async (dispatch) => {
         }
     } catch (err) {
         return console.log(err.message); 
-    }
+    }  
 }; 
 
 const initialState = { user: null }; 
