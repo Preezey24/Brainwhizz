@@ -6,14 +6,38 @@ const MathGame = () => {
     const [questions, setQuestions] = useState(mathProblems())
     const [answers, setAnswers] = useState({}); 
 
-    //update the answers array as answers are typed in
+    //calculate the actual answers for comparison with user input 
+    let ansArr = []; 
+    questions.forEach(question => {
+        let answer = eval(question); 
+        ansArr.push(answer);  
+    });
+
+    //update the input answers array as answers are typed in
     const answerHandler = e => {
         const { id, value } = e.target; 
         setAnswers(answers => ({
             ...answers, 
             [id]: value
         }))  
-    };    
+    };  
+    
+    const submitHandler = () => {
+        let valArr = Object.values(answers); 
+        let exit; 
+        if (valArr.length !== 10) return; 
+        valArr.forEach(val => {
+            if (!val) {
+                exit = 'exit'; 
+                //this return is exiting from the callback, not the entire function
+                return; 
+            }
+        }); 
+        if (exit) {
+            return; 
+        }
+         
+    }
     
     return (
         <>
@@ -26,6 +50,7 @@ const MathGame = () => {
                     </div>
                 )
             })}
+            <button onClick={submitHandler}>Next</button>
         </>
     )
 }
