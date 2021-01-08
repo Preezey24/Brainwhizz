@@ -1,10 +1,13 @@
-/* .container__anime_light {
-
+.main {
+    position: fixed;
+    top: 30%;
+    left: 45%; 
+    height: 80px; 
+    width: 80px; 
+    border-radius: 50%;
+    display: inline-block; 
+    border: solid black; 
 }
-
-.anime_light {
-
-} */
 
 .container__lights {
     position: fixed; 

@@ -1,14 +1,20 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import {useHistory} from 'react-router-dom';
 import Clock from './Clock'; 
 import Modal from './Modal'; 
 import Light from './Light'; 
+import Main from './Main'; 
+import { randColor } from '../../component_utils/memory';
 import './Memory.css'; 
 
 //establish score outside of functional component so that it persists after the components re-renders
 let score = 0;  
 
 const MemoryGame = () => {
+    //memory light color array, that contains the correct answers
+    const [colors, setColors] = useState([]); 
+    const [num, setNum] = useState(0); 
+
     //countdown clock
     const [time, setTime] = useState('02:00'); 
     const [timeUp, setTimeUp] = useState(false);
@@ -17,10 +23,16 @@ const MemoryGame = () => {
     const [isOpen, setIsOpen] = useState(false); 
     const history = useHistory(); 
 
-    //color transitiion on light click
+    //main light color transitions 
+    //test button click 
+    const mainClick = () => {
+        setColors([...colors, randColor()]); 
+        setNum(num+1); 
+    }
+
+    //color transitiion on light click for the user
     const lightClick = (e) => {
         const light = document.getElementById(e.target.id); 
-        console.log(light.id)
         light.animate([{backgroundColor: `${light.id}`}, {backgroundColor: 'white'}, 
                         {backgroundColor: `${light.id}`}], 1500)
     }
@@ -41,6 +53,7 @@ const MemoryGame = () => {
 
     return (
         <>
+            <Main mainClick={mainClick}/>
             <div className={"container__lights"}>
                 <Light lightClick={lightClick} id={'red'} style={{backgroundColor: 'red'}}/>
                 <Light lightClick={lightClick} id={'blue'} style={{backgroundColor: 'blue'}}/>
