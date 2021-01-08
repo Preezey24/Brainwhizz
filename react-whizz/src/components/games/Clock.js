@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react'; 
 import { timeConversion } from '../component_utils/clock_helper'; 
 
-const Clock = (props) => {
-    const [counter, setCounter] = useState(10);
-    // const [time, setTime] = useState('02:00'); 
-    
+const Clock = ({time, setTime, counter, setCounter}) => {   
     useEffect(() => {
         const timer = counter > 0 && setInterval(() => {
             setCounter(counter - 1);  
         }, 1000);
-        props.setTime(timeConversion(counter)); 
+        setTime(timeConversion(counter)); 
         return () => clearInterval(timer); 
     }, [counter]); 
 
@@ -21,7 +18,7 @@ const Clock = (props) => {
                 Time: 
             </span>
             <span>
-                {props.time}  
+                {time}  
             </span>
            </p>
        </div> 

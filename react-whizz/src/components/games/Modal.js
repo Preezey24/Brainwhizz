@@ -1,4 +1,4 @@
-import React, {useState} from 'react'; 
+import React from 'react';
 
 const MODAL_STYLES = {
     position: 'fixed', 
@@ -20,15 +20,15 @@ const OVERLAY_STYLE = {
     zIndex: 1000, 
 }
 
-const Modal = ({open, playAgain, score}) => {
-    if (!open) return null; 
-
+const Modal = ({open, playAgain, score, exitGame}) => {
+    if (!open) return null;    
+    
     return (
         <>
             <div style={OVERLAY_STYLE} />
             <div style={MODAL_STYLES}>
                 <button onClick={playAgain}>Play Again</button>
-                <button>Home Page</button>
+                <button onClick={exitGame}>Home Page</button>
                 <p>{score}</p>
             </div>
         </>

@@ -4,6 +4,7 @@ import LoginForm from './components/auth/LoginForm'
 import LogoutButton from './components/auth/LogoutButton';
 import SignUpForm from './components/auth/SignUpForm'; 
 import MathGame from './components/games/math/MathGame';
+import MemoryGame from './components/games/memory/MemoryGame';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Route path='/login' component={LoginForm} />
       <Route path='/logout' component={LogoutButton} />
       <Route path='/math' component={MathGame} /> 
+      <Route path='/memory' component={MemoryGame} /> 
     </BrowserRouter>
   );
 }

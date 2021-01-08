@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'; 
+import React, {useState, useEffect} from 'react';
+import {useHistory} from 'react-router-dom'; 
 import Clock from '../Clock'; 
 import Modal from '../Modal'; 
 import mathProblems from '../../component_utils/math_tables'
@@ -13,8 +14,10 @@ const MathGame = () => {
     //countdown clock
     const [time, setTime] = useState('02:00'); 
     const [timeUp, setTimeUp] = useState(false);
+    const [counter, setCounter] = useState(10);
     //modal states 
     const [isOpen, setIsOpen] = useState(false);  
+    const history = useHistory(); 
 
     //calculate the actual answers for comparison with user input 
     let ansArr = []; 
@@ -82,11 +85,17 @@ const MathGame = () => {
         setTime('02:00');
         setTimeUp(false); 
         setIsOpen(false); 
+        setCounter(10)
+    }
+
+    // when button is clicked on modal to quit game 
+    const exitGame = () => { 
+        history.push('/')
     }
     
     return (
         <>
-            <Clock time={time} setTime={setTime} />
+            <Clock time={time} setTime={setTime} counter={counter} setCounter={setCounter} />
             {questions.map((question, i) => {
                 return (
                     <div key={i}>
@@ -98,7 +107,7 @@ const MathGame = () => {
             <button onClick={submitHandler}>Next</button>
             {timeUp &&
                 <div>
-                    <Modal open={isOpen} score={score} playAgain={playAgain} />
+                    <Modal open={isOpen} score={score} playAgain={playAgain} exitGame={exitGame}/>
                 </div> 
             }
         </>
