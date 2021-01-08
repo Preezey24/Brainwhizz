@@ -5,6 +5,7 @@ const MODAL_STYLES = {
     top: '50%', 
     left: '50%', 
     transform: 'translate(-50%, -50%)', 
+    backgroundColor: 'red', 
     padding: '50px', 
     zIndex: 1000
 }
@@ -19,15 +20,16 @@ const OVERLAY_STYLE = {
     zIndex: 1000, 
 }
 
-const Modal = ({open, onClose}) => {
+const Modal = ({open, playAgain, score}) => {
     if (!open) return null; 
 
     return (
         <>
             <div style={OVERLAY_STYLE} />
             <div style={MODAL_STYLES}>
-                <button onClick={onClose}>Play Again</button>
+                <button onClick={playAgain}>Play Again</button>
                 <button>Home Page</button>
+                <p>{score}</p>
             </div>
         </>
     )

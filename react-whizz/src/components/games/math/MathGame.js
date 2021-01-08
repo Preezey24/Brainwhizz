@@ -72,7 +72,17 @@ const MathGame = () => {
             setTime(null); 
             setIsOpen(true); 
         }
-    }, [time])
+    }, [time]);
+
+    //when button is clicked on modal to play again 
+    const playAgain = () => {
+        //reset everything for new game
+        setAnswers({}); 
+        setQuestions(mathProblems()); 
+        setTime('02:00');
+        setTimeUp(false); 
+        setIsOpen(false); 
+    }
     
     return (
         <>
@@ -88,7 +98,7 @@ const MathGame = () => {
             <button onClick={submitHandler}>Next</button>
             {timeUp &&
                 <div>
-                    <Modal open={isOpen} onClose={() => setIsOpen(false)} />
+                    <Modal open={isOpen} score={score} playAgain={playAgain} />
                 </div> 
             }
         </>
