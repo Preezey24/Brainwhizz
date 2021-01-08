@@ -1,13 +1,20 @@
-import React, {useState} from 'react'; 
+import React, {useState, useEffect} from 'react'; 
 import Clock from '../Clock'; 
+import Modal from '../Modal'; 
 import mathProblems from '../../component_utils/math_tables'
 
 //establish score outside of functional component so that it persists after the components re-renders
 let score = 0;  
 
 const MathGame = () => {
+    //math questions & answers 
     const [questions, setQuestions] = useState(mathProblems())
-    const [answers, setAnswers] = useState({}); 
+    const [answers, setAnswers] = useState({});
+    //countdown clock
+    const [time, setTime] = useState('02:00'); 
+    const [timeUp, setTimeUp] = useState(false);
+    //modal states 
+    const [isOpen, setIsOpen] = useState(false);  
 
     //calculate the actual answers for comparison with user input 
     let ansArr = []; 
@@ -25,6 +32,7 @@ const MathGame = () => {
         }))  
     };  
     
+    //when button is clicked to move onto the next set of math questions 
     const submitHandler = () => {
         //complete validation that all inputs are filled out before advancing
         let valArr = Object.values(answers); 
@@ -32,7 +40,7 @@ const MathGame = () => {
         if (valArr.length !== 10) return; 
         valArr.forEach(val => {
             if (!val) {
-                exit = 'exit'; 
+                exit = true; 
                 //this return is exiting from the callback, not the entire function
                 return; 
             }
@@ -55,10 +63,20 @@ const MathGame = () => {
         setAnswers({}); 
         setQuestions(mathProblems());        
     }
+
+    //when time runs out and the modal appears, showing your score and asking whether you want to play again
+    //useEffect was used to combat constant re-rendering of the page as state changed
+    useEffect(() => {
+        if (time === '00:00') {
+            setTimeUp(true); 
+            setTime(null); 
+            setIsOpen(true); 
+        }
+    }, [time])
     
     return (
         <>
-            <Clock />
+            <Clock time={time} setTime={setTime} />
             {questions.map((question, i) => {
                 return (
                     <div key={i}>
@@ -67,7 +85,12 @@ const MathGame = () => {
                     </div>
                 )
             })}
-            <button type="reset" onClick={submitHandler}>Next</button>
+            <button onClick={submitHandler}>Next</button>
+            {timeUp &&
+                <div>
+                    <Modal open={isOpen}/>
+                </div> 
+            }
         </>
     )
 }
