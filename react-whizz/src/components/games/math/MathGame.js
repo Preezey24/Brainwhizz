@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom'; 
-import Clock from '../Clock'; 
-import Modal from '../Modal'; 
+import Clock from './Clock'; 
+import Modal from './Modal'; 
 import mathProblems from '../../component_utils/math_tables'
 
 //establish score outside of functional component so that it persists after the components re-renders

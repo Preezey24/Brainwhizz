@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'; 
-import { timeConversion } from '../component_utils/clock_helper'; 
+import React, { useEffect } from 'react'; 
+import { timeConversion } from '../../component_utils/clock_helper'; 
 
 const Clock = ({time, setTime, counter, setCounter}) => {   
     useEffect(() => {

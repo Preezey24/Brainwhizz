@@ -1,0 +1,18 @@
+.container__lights {
+    position: absolute; 
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.light {
+    height: 50px; 
+    width: 50px; 
+    border-radius: 50%;
+    display: inline-block; 
+    border: solid black; 
+}
+
+span.light {
+    margin: 0 10px; 
+}
