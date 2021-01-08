@@ -88,7 +88,7 @@ const MathGame = () => {
             <button onClick={submitHandler}>Next</button>
             {timeUp &&
                 <div>
-                    <Modal open={isOpen}/>
+                    <Modal open={isOpen} onClose={() => setIsOpen(false)} />
                 </div> 
             }
         </>
