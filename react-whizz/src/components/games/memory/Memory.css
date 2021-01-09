@@ -1,8 +1,21 @@
+.main {
+    position: fixed;
+    top: 30%;
+    left: 45%; 
+    height: 80px; 
+    width: 80px; 
+    border-radius: 50%;
+    display: inline-block; 
+    border: solid black; 
+    animation: main 3s; 
+}
+
 .container__lights {
-    position: absolute; 
+    position: fixed; 
     top: 50%;
     left: 50%; 
     transform: translate(-50%, -50%);
+    display: none; 
 }
 
 .light {
@@ -15,4 +28,8 @@
 
 span.light {
     margin: 0 10px; 
+}
+
+.button__go {
+    display: none; 
 }
