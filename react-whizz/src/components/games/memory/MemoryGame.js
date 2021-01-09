@@ -12,13 +12,13 @@ let score = 0;
 
 const MemoryGame = () => {
     //memory light color array, that contains the correct answers
-    const [colors, setColors] = useState([]); 
+    const [colors, setColors] = useState(['red', 'blue']); 
     const [num, setNum] = useState(0); 
 
     //countdown clock
     const [time, setTime] = useState('02:00'); 
     const [timeUp, setTimeUp] = useState(false);
-    const [counter, setCounter] = useState(10);
+    const [counter, setCounter] = useState(0);
     //modal states 
     const [isOpen, setIsOpen] = useState(false); 
     const history = useHistory(); 

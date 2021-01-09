@@ -28,21 +28,3 @@
 span.light {
     margin: 0 10px; 
 }
-
-@keyframes main {
-    0% {
-        background: orange;
-    }
-    100% {
-        background: black; 
-    }
-}
-
-@keyframes main {
-    0% {
-        background: orange;
-    }
-    100% {
-        background: black; 
-    }
-}
