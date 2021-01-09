@@ -7,7 +7,7 @@
     border-radius: 50%;
     display: inline-block; 
     border: solid black; 
-    animation: main 5s; 
+    animation: main 3s; 
 }
 
 .container__lights {

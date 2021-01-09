@@ -12,7 +12,7 @@ let score = 0;
 
 const MemoryGame = () => {
     //memory light color array, that contains the correct answers
-    const [colors, setColors] = useState(['red', 'blue']); 
+    const [colors, setColors] = useState([]); 
     const [num, setNum] = useState(0); 
 
     //countdown clock
@@ -26,7 +26,11 @@ const MemoryGame = () => {
     //main light color transitions 
     //test button click 
     const mainClick = () => {
-        setColors([...colors, randColor()]); 
+        let nextColor = randColor(); 
+        while (nextColor === colors[colors.length-1]) {
+            nextColor = randColor(); 
+        }
+        setColors([...colors, nextColor]); 
         setNum(num+1); 
     }
 
