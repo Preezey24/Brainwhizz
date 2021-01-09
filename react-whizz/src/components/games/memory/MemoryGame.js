@@ -53,7 +53,7 @@ const MemoryGame = () => {
 
     return (
         <>
-            <Main mainClick={mainClick}/>
+            <Main mainClick={mainClick} colors={colors}/>
             <div className={"container__lights"}>
                 <Light lightClick={lightClick} id={'red'} style={{backgroundColor: 'red'}}/>
                 <Light lightClick={lightClick} id={'blue'} style={{backgroundColor: 'blue'}}/>
