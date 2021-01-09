@@ -31,10 +31,11 @@ const MemoryGame = () => {
         setColors([...colors, nextColor]); 
         setScore((score+1)); 
         setCounter(3); 
-        // setUserAns([]); 
         answerArr = []; 
         const container = document.getElementById('lights'); 
         container.setAttribute('style', 'display: none;'); 
+        const button = document.getElementById('go'); 
+        button.setAttribute('style', 'display: none;'); 
     }
 
     //have the lights appear for the user to select after color transitions complete
@@ -59,6 +60,11 @@ const MemoryGame = () => {
                 setIsOpen(true); 
             }
         });
+        //make button appear for next round
+        if (answerArr.length === colors.length) {
+            const button = document.getElementById('go'); 
+            button.setAttribute('style', 'display: block;'); 
+        }
     };
 
     //when button is clicked on modal to play again 
@@ -69,7 +75,6 @@ const MemoryGame = () => {
         setCounter(3)
         setScore(0); 
         setColors([]); 
-        // setUserAns([]);
     }
 
     // when button is clicked on modal to quit game 
@@ -87,6 +92,7 @@ const MemoryGame = () => {
                 <Light lightClick={lightClick} id={'yellow'} style={{backgroundColor: 'yellow'}}/>
                 <Light lightClick={lightClick} id={'purple'} style={{backgroundColor: 'purple'}}/>
             </div>
+            <button onClick={mainClick} id={'go'} className={"button__go"}>Go</button>  
             <Clock time={time} setTime={setTime} counter={counter} setCounter={setCounter}/>
             <div>
                 <Modal open={isOpen} score={score} playAgain={playAgain} exitGame={exitGame}/>

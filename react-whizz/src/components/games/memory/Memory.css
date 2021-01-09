@@ -29,3 +29,7 @@
 span.light {
     margin: 0 10px; 
 }
+
+.button__go {
+    display: none; 
+}

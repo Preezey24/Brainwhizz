@@ -22,8 +22,7 @@ const Main = ({mainClick, colors}) => {
     const keyFrameColors = keyFrameUpdate(colors);
     
     return (
-        <>
-            <button onClick={mainClick}>Click me</button>          
+        <>        
             <div className={"main"}>
                 <Style> 
                 {`${keyFrameColors}`}
