@@ -7,23 +7,21 @@ import Main from './Main';
 import { randColor } from '../../component_utils/memory';
 import './Memory.css'; 
 
-//establish score outside of functional component so that it persists after the components re-renders
-let score = 0;  
+//so data persists passed certain re-rendering
+let answerArr = []; 
 
 const MemoryGame = () => {
     //memory light color array, that contains the correct answers
     const [colors, setColors] = useState([]); 
-    const [num, setNum] = useState(0); 
+    const [score, setScore] = useState(0);  
 
     //countdown clock
     const [time, setTime] = useState('02:00'); 
-    const [timeUp, setTimeUp] = useState(false);
-    const [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState(3);
     //modal states 
     const [isOpen, setIsOpen] = useState(false); 
     const history = useHistory(); 
 
-    //main light color transitions 
     //test button click 
     const mainClick = () => {
         let nextColor = randColor(); 
@@ -31,34 +29,58 @@ const MemoryGame = () => {
             nextColor = randColor(); 
         }
         setColors([...colors, nextColor]); 
-        setNum(num+1); 
+        setScore((score+1)); 
+        setCounter(3); 
+        // setUserAns([]); 
+        answerArr = []; 
+        const container = document.getElementById('lights'); 
+        container.setAttribute('style', 'display: none;'); 
     }
 
+    //have the lights appear for the user to select after color transitions complete
+    useEffect(() => {
+        if (time === '00:00') {
+            const container = document.getElementById('lights'); 
+            container.setAttribute('style', 'display: block;'); 
+        }
+    }, [time])
+
     //color transitiion on light click for the user
+    //make comparison between correct answer and user answer 
     const lightClick = (e) => {
         const light = document.getElementById(e.target.id); 
         light.animate([{backgroundColor: `${light.id}`}, {backgroundColor: 'white'}, 
-                        {backgroundColor: `${light.id}`}], 1500)
-    }
+                        {backgroundColor: `${light.id}`}], 1500); 
+        answerArr.push(light.id);  
+        //check answer
+        answerArr.forEach((answer, i) => {
+            if (answer !== colors[i]) {
+                setScore(score*10); 
+                setIsOpen(true); 
+            }
+        });
+    };
 
     //when button is clicked on modal to play again 
     const playAgain = () => {
         //reset everything for new game
         setTime('02:00');
-        setTimeUp(false); 
         setIsOpen(false); 
-        setCounter(10)
+        setCounter(3)
+        setScore(0); 
+        setColors([]); 
+        // setUserAns([]);
     }
 
     // when button is clicked on modal to quit game 
     const exitGame = () => { 
         history.push('/')
     }
-
+    
     return (
         <>
             <Main mainClick={mainClick} colors={colors}/>
-            <div className={"container__lights"}>
+            <div className={"container__lights"} id={'lights'}>
                 <Light lightClick={lightClick} id={'red'} style={{backgroundColor: 'red'}}/>
                 <Light lightClick={lightClick} id={'blue'} style={{backgroundColor: 'blue'}}/>
                 <Light lightClick={lightClick} id={'green'} style={{backgroundColor: 'green'}}/>
