@@ -7,6 +7,7 @@
     border-radius: 50%;
     display: inline-block; 
     border: solid black; 
+    animation: main 5s; 
 }
 
 .container__lights {
@@ -26,6 +27,15 @@
 
 span.light {
     margin: 0 10px; 
+}
+
+@keyframes main {
+    0% {
+        background: orange;
+    }
+    100% {
+        background: black; 
+    }
 }
 
 @keyframes main {

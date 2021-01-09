@@ -8,31 +8,34 @@ function changePercent(length) {
 }
 
 const Main = ({mainClick, colors}) => {
+    //establish text string to be input into style tag with dynamic update to steps 
+    function keyFrameUpdate(colorArr) {
+        let keyFrame = "@keyframes main {"; 
+        let step = 0;
+        let transition = 100/colors.length;
+        colorArr.forEach((color, i) => {
+           keyFrame+=`${step+transition} { background: ${color} }`
+        })
+    }
+
 
     return (
         <>
-            <span className={"main"} />
-            <button onClick={mainClick}>Click me</button>
-            {colors.map(color => {
-                return (
-                    <div className={`${color}`}>
-                        <Style>{` \
-                        .${color} {\
-                            color: ${color};\
-                        }`}</Style>
-                        HELLO
-                        {colors.length}
-                    </div>
-                )
-            })}
-            <div className={`${color}`}>
-                <Style>{` \
-                .${color} {\
-                    color: ${color};\
-                }`}</Style>
+            <button onClick={mainClick}>Click me</button>          
+            <span className={"main"} >
+                <Style>{` 
+                @keyframes main {
+                    0% {
+                        background: orange;
+                    }
+                    100% {
+                        background: black; 
+                    }
+                }
+                `}</Style>
                 HELLO
                 {colors.length}
-            </div>
+            </span>
         </>
     )
 }
