@@ -15,6 +15,11 @@ app = Flask(__name__)
 #connects application with Flask-Login for auth requirements (sessions, csrf) 
 login_manager = LoginManager()
 login_manager.init_app(app)
+#every call to the backend, reload the user object on the response 
+@login_manager.user_loader 
+def load_user(id):
+    return User.query.get(int(id))
+
 
 #configure class Config with DB URI etc. 
 app.config.from_object(Config)

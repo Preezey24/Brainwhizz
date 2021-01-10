@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
-import { useDispatch, useSelector } from 'react-redux'; 
+import { useSelector } from 'react-redux'; 
+import LogoutButton from '../auth/LogoutButton'
 import './ProfileButton.css';
 
 const ProfileButton = () => { 
@@ -33,7 +34,7 @@ const ProfileButton = () => {
                    <li>{user.username}</li>
                    <li>{user.email}</li>
                    <li>
-                       <button>Log Out</button>
+                       <LogoutButton />
                    </li>
                </ul>
            )}

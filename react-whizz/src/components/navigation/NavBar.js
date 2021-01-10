@@ -14,7 +14,7 @@ const Navigation = () => {
     if (sessionUser) {
         sessionLinks = (
             <>
-                <ProfileButton user={sessionUser}/>
+                <ProfileButton/>
             </>
         );
     } else {
