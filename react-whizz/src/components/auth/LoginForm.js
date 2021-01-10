@@ -44,7 +44,7 @@ const LoginForm = () => {
                 Log In 
             </button>
         </form>
-    )
+    );
 }
 
 export default LoginForm; 

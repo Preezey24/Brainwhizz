@@ -14,10 +14,9 @@ function App() {
     <>
       <NavBar />
       <Switch>
-        <Route exact path='/' component={SplashAuth} />
-        <Route path='/signup' component={SignUpForm} />
-        <Route path='/login' component={LoginForm} />
-        <Route path='/logout' component={LogoutButton} />
+        <Route exact path='/'>
+          <SplashAuth/>
+        </Route>
         <Route path='/math' component={MathGame} /> 
         <Route path='/memory' component={MemoryGame} /> 
       </Switch>

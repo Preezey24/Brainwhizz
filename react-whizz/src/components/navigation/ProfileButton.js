@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'; 
-import { useDispatch } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux'; 
 import './ProfileButton.css';
 
 const ProfileButton = () => { 
    const [showMenu, setShowMenu] = useState(false); 
+   const user = useSelector(state => state.session.user); 
    
    const openMenu = () => {
        if (showMenu) return; 
@@ -29,8 +30,8 @@ const ProfileButton = () => {
            </button>
            {showMenu && (
                <ul>
-                   <li>Username</li>
-                   <li>Email</li>
+                   <li>{user.username}</li>
+                   <li>{user.email}</li>
                    <li>
                        <button>Log Out</button>
                    </li>

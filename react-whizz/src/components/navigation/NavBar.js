@@ -38,7 +38,7 @@ const Navigation = () => {
                     </NavLink>
                 </button>
             </div>
-            {/* {isLoaded && sessionLinks} */}
+            {sessionLinks}
         </div>
     )
 }; 

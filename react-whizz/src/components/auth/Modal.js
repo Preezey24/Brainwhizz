@@ -20,13 +20,14 @@ const OVERLAY_STYLE = {
     zIndex: 1000, 
 }
 
-const Modal = ({open, onClose}) => {
+const Modal = ({open, onClose, children}) => {
     if (!open) return null;    
     
     return (
         <>
             <div style={OVERLAY_STYLE} />
             <div style={MODAL_STYLES}>
+                {children}
                 <button onClick={onClose}>Home Page</button>
             </div>
         </>
