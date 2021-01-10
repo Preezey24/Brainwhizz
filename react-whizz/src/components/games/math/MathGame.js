@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom'; 
+import { useSelector } from 'react-redux'; 
 import Clock from './Clock'; 
 import Modal from './Modal'; 
 import mathProblems from '../../component_utils/math_tables'
@@ -8,6 +9,13 @@ import mathProblems from '../../component_utils/math_tables'
 let score = 0;  
 
 const MathGame = () => {
+    const history = useHistory(); 
+    //validate user is authenticated
+    const user = useSelector(state => state.session.user);
+    if (!user) {
+        history.push('/'); 
+    }; 
+
     //math questions & answers 
     const [questions, setQuestions] = useState(mathProblems())
     const [answers, setAnswers] = useState({});
@@ -17,7 +25,6 @@ const MathGame = () => {
     const [counter, setCounter] = useState(10);
     //modal states 
     const [isOpen, setIsOpen] = useState(false);  
-    const history = useHistory(); 
 
     //calculate the actual answers for comparison with user input 
     let ansArr = []; 

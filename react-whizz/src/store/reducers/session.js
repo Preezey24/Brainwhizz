@@ -1,5 +1,7 @@
 const SET_USER = 'session/setUser'; 
 const REMOVE_USER = 'session/removeUser'; 
+const SET_ERRORS = 'session/setErrors';
+const REMOVE_ERRORS = 'session/removeErrors'; 
 
 const setUser = (user) => {
     return {
@@ -13,6 +15,19 @@ const removeUser = () => {
         type: REMOVE_USER, 
     };
 };
+
+const setErrors = ({errors}) => {
+    return {
+        type: SET_ERRORS, 
+        payload: errors, 
+    }
+}
+
+export const removeErrors = () => {
+    return {
+        type: REMOVE_ERRORS,
+    }
+}
 
 export const signUp = (user) => async (dispatch) => {
     const { username, email, password, confirm } = user; 
@@ -32,6 +47,9 @@ export const signUp = (user) => async (dispatch) => {
         if (response.ok) {
             const data = await response.json();
             dispatch(setUser(data)); 
+        } else {
+            const errors = await response.json(); 
+            dispatch(setErrors(errors));
         }
     } catch (err) {
         console.log(err.message);
@@ -51,12 +69,14 @@ export const logIn = (user) => async (dispatch) => {
                 password,
             }),
         });
-        if (response.ok) { 
+        if (response.ok) {  
             const data = await response.json(); 
-            console.log(data); 
             dispatch(setUser(data)); 
+        } else {
+            const errors = await response.json();  
+            dispatch(setErrors(errors));
         }
-    } catch (err) {
+    } catch (err) { 
         console.log(err); 
     }
 }
@@ -72,20 +92,28 @@ export const logout = () => async (dispatch) => {
     }
 }
 
-const initialState = { user: null }; 
+const initialState = { user: null, errors: null }; 
 
 const sessionReducer = (state = initialState, action) => {
     let newState; 
     switch (action.type) {
         case SET_USER: 
             //create a copy, do not mutate existing to avoid race conditions 
-            newState = Object.assign({}, state); 
+            newState = Object.assign({}, state);
+            newState.error = null;  
             newState.user = action.payload; 
             return newState; 
         case REMOVE_USER: 
             newState = Object.assign({}, state); 
             newState.user = null; 
             return newState; 
+        case SET_ERRORS: 
+            newState = state; 
+            newState.errors = action.payload;
+            return newState;
+        case REMOVE_ERRORS: 
+            newState = state; 
+            newState.errors = action.payload;  
         default: 
             return state; 
     }
