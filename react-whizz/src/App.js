@@ -5,11 +5,13 @@ import LogoutButton from './components/auth/LogoutButton';
 import SignUpForm from './components/auth/SignUpForm'; 
 import MathGame from './components/games/math/MathGame';
 import MemoryGame from './components/games/memory/MemoryGame';
+import SplashAuth from './components/splash/SplashAuth'; 
 
 
 function App() {
   return (
     <BrowserRouter>
+      <Route path='/' component={SplashAuth} />
       <Route path='/signup' component={SignUpForm} />
       <Route path='/login' component={LoginForm} />
       <Route path='/logout' component={LogoutButton} />
