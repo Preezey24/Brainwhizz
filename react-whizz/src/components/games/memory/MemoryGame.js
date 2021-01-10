@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
 import {useHistory} from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Clock from './Clock'; 
 import Modal from './Modal'; 
 import Light from './Light'; 
@@ -11,6 +12,13 @@ import './Memory.css';
 let answerArr = []; 
 
 const MemoryGame = () => {
+    const history = useHistory(); 
+    //validate user is authenticated
+    const user = useSelector(state => state.session.user);
+    if (!user) {
+        history.push('/'); 
+    }; 
+
     //memory light color array, that contains the correct answers
     const [colors, setColors] = useState([]); 
     const [score, setScore] = useState(0);  
@@ -19,8 +27,7 @@ const MemoryGame = () => {
     const [time, setTime] = useState('02:00'); 
     const [counter, setCounter] = useState(3);
     //modal states 
-    const [isOpen, setIsOpen] = useState(false); 
-    const history = useHistory(); 
+    const [isOpen, setIsOpen] = useState(false);  
 
     //test button click 
     const mainClick = () => {

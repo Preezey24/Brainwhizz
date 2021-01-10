@@ -1,15 +1,15 @@
 import React, { useState } from 'react'; 
-import { useDispatch } from 'react-redux';  
+import { useDispatch, useSelector } from 'react-redux';  
 import { logIn } from '../../store/reducers/session'
 
 const LoginForm = () => {
-    const dispatch = useDispatch(); 
+    const dispatch = useDispatch();  
     const [email, setEmail] = useState(''); 
     const [password, setPassword] = useState('');
 
     const submitHandler = async (e) => {
         e.preventDefault(); 
-        dispatch(logIn({ email, password }));
+        dispatch(logIn({ email, password })); 
     }
 
     const emailHandler = e => {
@@ -20,7 +20,8 @@ const LoginForm = () => {
         setPassword(e.target.value); 
     }
 
-    return (
+
+    return ( 
         <form onSubmit={submitHandler}>
             <div>
                 <label>Email</label>
@@ -44,7 +45,7 @@ const LoginForm = () => {
                 Log In 
             </button>
         </form>
-    )
+    );
 }
 
 export default LoginForm; 
