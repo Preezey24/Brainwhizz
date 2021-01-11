@@ -1,24 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom'; 
-import LoginForm from './components/auth/LoginForm'
-import LogoutButton from './components/auth/LogoutButton';
-import SignUpForm from './components/auth/SignUpForm'; 
+import { useSelector } from 'react-redux'; 
+import SplashAuth from './components/splash/SplashAuth'; 
+import NavBar from './components/navigation/NavBar';
 import MathGame from './components/games/math/MathGame';
 import MemoryGame from './components/games/memory/MemoryGame';
-import SplashAuth from './components/splash/SplashAuth'; 
-import NavBar from './components/navigation/NavBar'
-
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const user = useSelector(state => state.session.user); 
+  useEffect(() => {
+    if (user) {
+      setIsAuthenticated(true); 
+    }
+  }, [user])
+
   return (
     <>
       <NavBar />
       <Switch>
-        <Route exact path='/'>
+        <Route exact path='/home'>
+          {isAuthenticated &&
           <SplashAuth/>
+          }
         </Route>
-        <Route path='/math' component={MathGame} /> 
-        <Route path='/memory' component={MemoryGame} /> 
+        <Route path='/math'>
+          <MathGame />
+        </Route>
+        <Route path='/memory'>
+          <MemoryGame />
+        </Route>
       </Switch>
     </>
   );

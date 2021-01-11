@@ -9,6 +9,7 @@ import os
 from .config import Config   
 from app.models import db, User 
 from app.api.auth_routes import auth_routes
+from app.api.home_routes import home_route
 from app.api.score_routes import score_routes 
 
 app = Flask(__name__)
@@ -26,6 +27,7 @@ def load_user(id):
 app.config.from_object(Config)
 #establish blueprints for each of the routes
 app.register_blueprint(auth_routes) 
+app.register_blueprint(home_route)
 app.register_blueprint(score_routes)
 
 db.init_app(app)

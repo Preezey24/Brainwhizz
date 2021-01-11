@@ -142,7 +142,9 @@ const MathGame = () => {
             }
         }
         updateScore(); 
-        history.push('/')
+        gameScore = 0;
+        score = 0;
+        history.push('/home')
     }
     
     return (

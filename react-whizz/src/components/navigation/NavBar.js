@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux'; 
 import ProfileButton from './ProfileButton'; 
 import LoginFormModal from '../auth/LoginFormModal'; 
-import LogoutButton from '../auth/LogoutButton'; 
 import SignUpModal from '../auth/SignUpModal'; 
 import './Navigation.css'; 
 
@@ -31,13 +30,15 @@ const Navigation = () => {
     }
     return (
         <div>
-            <div>
-                <button>
-                    <NavLink exact to="/">
-                        Home
-                    </NavLink>
-                </button>
-            </div>
+            {sessionUser && 
+                <div>
+                    <button>
+                        <NavLink to="/home">
+                            Home
+                        </NavLink>
+                    </button>
+                </div>
+            }
             {sessionLinks}
         </div>
     )

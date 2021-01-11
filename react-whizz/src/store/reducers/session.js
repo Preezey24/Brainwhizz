@@ -3,7 +3,7 @@ const REMOVE_USER = 'session/removeUser';
 const SET_ERRORS = 'session/setErrors';
 const REMOVE_ERRORS = 'session/removeErrors'; 
 
-const setUser = (user) => {
+export const setUser = (user) => {
     return {
         type: SET_USER, 
         payload: user, 
