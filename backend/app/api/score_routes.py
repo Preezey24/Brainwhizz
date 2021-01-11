@@ -17,7 +17,7 @@ def math_high():
         user.math_high = score 
         db.session.commit()      
         return user.high_score()
-    return 
+    return None 
 
 @score_routes.route('/math', methods=['PUT'])
 def math(): 
@@ -36,7 +36,7 @@ def math():
         user.math_total = score + user.math_total 
         user.total_score = score + user.total_score
         db.session.commit() 
-    return user.to_dict() 
+    return None
 
 @score_routes.route('/memory', methods=['PUT'])
 def memory(): 

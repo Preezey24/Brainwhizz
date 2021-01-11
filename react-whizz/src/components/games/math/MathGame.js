@@ -7,9 +7,10 @@ import mathProblems from '../../component_utils/math_tables';
 import { scoreStoreUp } from '../../../store/reducers/session'
 
 //establish score outside of functional component so that it persists after the components re-renders
+//total score during game session 
 let score = 0;
+//high score during game session 
 let gameScore = 0; 
-let userUpdate;   
 
 const MathGame = () => {
     const history = useHistory(); 
@@ -132,7 +133,7 @@ const MathGame = () => {
     const exitGame = () => {
         const updateScore = async () => {
             try {
-                const response = await fetch('/score/math', {
+                await fetch('/score/math', {
                     method: 'PUT', 
                     headers: {
                         'Content-Type': 'application/json'
@@ -142,11 +143,6 @@ const MathGame = () => {
                         score, 
                     }),
                 });
-                if (response.ok) {
-                    const data = await response.json(); 
-                    //IMPLEMENT THIS INTO MODAL!!! 
-                    dispatch(scoreStoreUp(data)); 
-                }
             } catch (err) {
                 console.log(err); 
             }
