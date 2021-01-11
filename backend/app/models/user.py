@@ -39,3 +39,6 @@ class User(db.Model, UserMixin):
             "memory_total": self.memory_total,
             "total_score": self.total_score,
         }
+    
+    def high_score(self): 
+        return {"New high score!!!": self.math_high}

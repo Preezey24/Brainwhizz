@@ -20,7 +20,7 @@ const OVERLAY_STYLE = {
     zIndex: 1000, 
 }
 
-const Modal = ({open, playAgain, score, exitGame}) => {
+const Modal = ({open, score, playAgain, gameScore, exitGame}) => {
     if (!open) return null;    
     
     return (
@@ -29,6 +29,7 @@ const Modal = ({open, playAgain, score, exitGame}) => {
             <div style={MODAL_STYLES}>
                 <button onClick={playAgain}>Play Again</button>
                 <button onClick={exitGame}>Home Page</button>
+                <p>{gameScore}</p>
                 <p>{score}</p>
             </div>
         </>

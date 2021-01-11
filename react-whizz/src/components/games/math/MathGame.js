@@ -1,15 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom'; 
-import { useSelector } from 'react-redux'; 
+import { useSelector, useDispatch } from 'react-redux'; 
 import Clock from './Clock'; 
 import Modal from './Modal'; 
 import mathProblems from '../../component_utils/math_tables';
+import { scoreStoreUp } from '../../../store/reducers/session'
 
 //establish score outside of functional component so that it persists after the components re-renders
-let score = 0;  
+let score = 0;
+let gameScore = 0; 
+let userUpdate;   
 
 const MathGame = () => {
     const history = useHistory(); 
+    const dispatch = useDispatch(); 
     //validate user is authenticated
     const user = useSelector(state => state.session.user);
     if (!user) {
@@ -62,6 +66,7 @@ const MathGame = () => {
         //check answers of user input versus correct answers  
         ansArr.forEach((correct, i) => {
            if (correct == answers[i]) {
+               gameScore += 1; 
                score += 1; 
            } 
         });  
@@ -85,14 +90,14 @@ const MathGame = () => {
             //update score database, check if high score
             const updateScore = async () => {
                 try {
-                    const response = await fetch('/score/math', {
+                    const response = await fetch('/score/math/high', {
                         method: 'PUT', 
                         headers: {
                             'Content-Type': 'application/json'
                         }, 
                         body: JSON.stringify({
                             email: user.email, 
-                            score,
+                            gameScore,
                         }),
                     });
                     if (response.ok) {
@@ -116,15 +121,37 @@ const MathGame = () => {
         setTimeUp(false); 
         setIsOpen(false); 
         setCounter(20);
-        score = 0; 
+        gameScore = 0; 
         //clean up input fields, reset answers and give a new set of questions 
         for (let i = 0; i < 10; i++) {
             document.getElementById(i).value = null; 
         }
     }
-
+    
     // when button is clicked on modal to quit game 
-    const exitGame = () => { 
+    const exitGame = () => {
+        const updateScore = async () => {
+            try {
+                const response = await fetch('/score/math', {
+                    method: 'PUT', 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }, 
+                    body: JSON.stringify({
+                        email: user.email, 
+                        score, 
+                    }),
+                });
+                if (response.ok) {
+                    const data = await response.json(); 
+                    //IMPLEMENT THIS INTO MODAL!!! 
+                    dispatch(scoreStoreUp(data)); 
+                }
+            } catch (err) {
+                console.log(err); 
+            }
+        }
+        updateScore(); 
         history.push('/')
     }
     
@@ -142,7 +169,7 @@ const MathGame = () => {
             <button onClick={submitHandler}>Next</button>
             {timeUp &&
                 <div>
-                    <Modal open={isOpen} score={score} playAgain={playAgain} exitGame={exitGame}/>
+                    <Modal open={isOpen} gameScore={gameScore} score={score} playAgain={playAgain} exitGame={exitGame}/>
                 </div> 
             }
         </>
