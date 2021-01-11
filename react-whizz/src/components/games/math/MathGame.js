@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom'; 
-import { useSelector, useDispatch } from 'react-redux'; 
+import { useSelector } from 'react-redux'; 
 import Clock from './Clock'; 
 import Modal from './Modal'; 
 import mathProblems from '../../component_utils/math_tables';
-import { scoreStoreUp } from '../../../store/reducers/session'
 
 //establish score outside of functional component so that it persists after the components re-renders
 //total score during game session 
@@ -14,13 +13,8 @@ let gameScore = 0;
 
 const MathGame = () => {
     const history = useHistory(); 
-    const dispatch = useDispatch(); 
     //validate user is authenticated
     const user = useSelector(state => state.session.user);
-    if (!user) {
-        history.push('/'); 
-    }; 
-
     //math questions & answers 
     const [questions, setQuestions] = useState(mathProblems())
     const [answers, setAnswers] = useState({});

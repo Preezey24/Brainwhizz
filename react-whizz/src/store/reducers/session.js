@@ -2,7 +2,6 @@ const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser'; 
 const SET_ERRORS = 'session/setErrors';
 const REMOVE_ERRORS = 'session/removeErrors'; 
-const UPDATE_SCORE = 'session/updateScore'; 
 
 const setUser = (user) => {
     return {
@@ -27,13 +26,6 @@ const setErrors = ({errors}) => {
 export const removeErrors = () => {
     return {
         type: REMOVE_ERRORS,
-    }
-}
-
-export const scoreStoreUp = (user) => {
-    return {
-        type: UPDATE_SCORE, 
-        payload: user, 
     }
 }
 
@@ -127,10 +119,6 @@ const sessionReducer = (state = initialState, action) => {
         case REMOVE_ERRORS: 
             newState = state; 
             newState.errors = action.payload;  
-        case UPDATE_SCORE: 
-            newState = Object.assign({}, state); 
-            newState = action.payload; 
-            return newState; 
         default: 
             return state; 
     }

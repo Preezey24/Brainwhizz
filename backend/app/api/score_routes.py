@@ -1,10 +1,12 @@
 from flask import Blueprint, request, session 
 from app.models import User, db 
 from sqlalchemy import case 
+from flask_login import login_required 
 
 score_routes = Blueprint('score', __name__, url_prefix='/score')
 
 @score_routes.route('/math/high', methods=['PUT'])
+@login_required
 def math_high(): 
     email = request.get_json().get('email')
     score = request.get_json().get('gameScore')
@@ -20,6 +22,7 @@ def math_high():
     return None 
 
 @score_routes.route('/math', methods=['PUT'])
+@login_required
 def math(): 
     email = request.get_json().get('email')
     score = request.get_json().get('score')
