@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom';
 import { useSelector } from 'react-redux'; 
 import Clock from './Clock'; 
 import Modal from './Modal'; 
-import mathProblems from '../../component_utils/math_tables'
+import mathProblems from '../../component_utils/math_tables';
 
 //establish score outside of functional component so that it persists after the components re-renders
 let score = 0;  
@@ -83,7 +83,27 @@ const MathGame = () => {
             setTime(null); 
             setIsOpen(true); 
             //update score database, check if high score
-            
+            const updateScore = async () => {
+                try {
+                    const response = await fetch('/score/math', {
+                        method: 'PUT', 
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }, 
+                        body: JSON.stringify({
+                            email: user.email, 
+                            score,
+                        }),
+                    });
+                    if (response.ok) {
+                        const data = await response.json(); 
+                        console.log(data); 
+                    }
+                } catch (err) {
+                    console.log(err); 
+                }
+            }
+            updateScore(); 
         }
     }, [time]);
 
@@ -95,7 +115,12 @@ const MathGame = () => {
         setTime('02:00');
         setTimeUp(false); 
         setIsOpen(false); 
-        setCounter(20)
+        setCounter(20);
+        score = 0; 
+        //clean up input fields, reset answers and give a new set of questions 
+        for (let i = 0; i < 10; i++) {
+            document.getElementById(i).value = null; 
+        }
     }
 
     // when button is clicked on modal to quit game 

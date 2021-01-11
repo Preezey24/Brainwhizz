@@ -11,7 +11,7 @@ function SignUpModal() {
 
     const modalClose = () => {
         setShowModal(false); 
-        dispatch(removeErrors()); 
+        if (errors) dispatch(removeErrors()); 
     }
 
     return (

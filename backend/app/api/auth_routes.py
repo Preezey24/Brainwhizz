@@ -41,7 +41,6 @@ def signup():
 @auth_routes.route('/login', methods=['POST'])
 def login():
     form = LoginForm()
-    print(form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User.query.filter(User.email == form.data['email']).first()

@@ -105,7 +105,7 @@ const sessionReducer = (state = initialState, action) => {
         case SET_USER: 
             //create a copy, do not mutate existing to avoid race conditions 
             newState = Object.assign({}, state);
-            newState.error = null;  
+            newState.errors = null;  
             newState.user = action.payload; 
             return newState; 
         case REMOVE_USER: 
