@@ -40,8 +40,6 @@ const SplashAuth = () => {
                 <NavLink to='/math'>Math Game</NavLink>
                 <NavLink to='/memory'>Memory Game</NavLink> 
             </div>
-            <Route path='/math' component={MathGame} /> 
-            <Route path='/memory' component={MemoryGame} />
         </>
     )
 }
