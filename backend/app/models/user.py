@@ -11,6 +11,11 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
+    math_high = db.Column(db.Integer)
+    math_total = db.Column(db.Integer)
+    memory_high = db.Column(db.Integer)
+    memory_total = db.Column(db.Integer)
+    total_score = db.Column(db.Integer)
 
     @property
     def password(self):
@@ -28,4 +33,9 @@ class User(db.Model, UserMixin):
             "id": self.id, 
             "username": self.username, 
             "email": self.email, 
+            "math_high": self.math_high,
+            "math_total": self.math_total,
+            "memory_high": self.memory_high,
+            "memory_total": self.memory_total,
+            "total_score": self.total_score,
         }

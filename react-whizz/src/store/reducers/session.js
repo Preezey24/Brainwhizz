@@ -42,6 +42,11 @@ export const signUp = (user) => async (dispatch) => {
                 email,
                 password,
                 confirm,
+                math_high: null, 
+                math_total: null, 
+                memory_high: null,
+                memory_total: null, 
+                total_score: null,
             }),
         }); 
         if (response.ok) {

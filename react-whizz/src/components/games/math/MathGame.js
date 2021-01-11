@@ -22,7 +22,7 @@ const MathGame = () => {
     //countdown clock
     const [time, setTime] = useState('02:00'); 
     const [timeUp, setTimeUp] = useState(false);
-    const [counter, setCounter] = useState(10);
+    const [counter, setCounter] = useState(20);
     //modal states 
     const [isOpen, setIsOpen] = useState(false);  
 
@@ -62,7 +62,7 @@ const MathGame = () => {
         //check answers of user input versus correct answers  
         ansArr.forEach((correct, i) => {
            if (correct == answers[i]) {
-               score += 10; 
+               score += 1; 
            } 
         });  
 
@@ -78,9 +78,12 @@ const MathGame = () => {
     //useEffect was used to combat constant re-rendering of the page as state changed
     useEffect(() => {
         if (time === '00:00') {
+            //reset state
             setTimeUp(true); 
             setTime(null); 
             setIsOpen(true); 
+            //update score database, check if high score
+            
         }
     }, [time]);
 
@@ -92,7 +95,7 @@ const MathGame = () => {
         setTime('02:00');
         setTimeUp(false); 
         setIsOpen(false); 
-        setCounter(10)
+        setCounter(20)
     }
 
     // when button is clicked on modal to quit game 
