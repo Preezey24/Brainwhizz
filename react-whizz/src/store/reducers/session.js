@@ -3,7 +3,7 @@ const REMOVE_USER = 'session/removeUser';
 const SET_ERRORS = 'session/setErrors';
 const REMOVE_ERRORS = 'session/removeErrors'; 
 
-const setUser = (user) => {
+export const setUser = (user) => {
     return {
         type: SET_USER, 
         payload: user, 
@@ -42,6 +42,11 @@ export const signUp = (user) => async (dispatch) => {
                 email,
                 password,
                 confirm,
+                math_high: null, 
+                math_total: null, 
+                memory_high: null,
+                memory_total: null, 
+                total_score: null,
             }),
         }); 
         if (response.ok) {
@@ -100,7 +105,7 @@ const sessionReducer = (state = initialState, action) => {
         case SET_USER: 
             //create a copy, do not mutate existing to avoid race conditions 
             newState = Object.assign({}, state);
-            newState.error = null;  
+            newState.errors = null;  
             newState.user = action.payload; 
             return newState; 
         case REMOVE_USER: 

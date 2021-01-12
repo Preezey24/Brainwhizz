@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; 
-import { useDispatch, useSelector } from 'react-redux';  
+import { useDispatch } from 'react-redux';  
 import { logIn } from '../../store/reducers/session'
 
 const LoginForm = () => {
@@ -19,7 +19,7 @@ const LoginForm = () => {
     const passwordHandler = e => {
         setPassword(e.target.value); 
     }
-
+    
 
     return ( 
         <form onSubmit={submitHandler}>

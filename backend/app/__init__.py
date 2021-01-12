@@ -9,6 +9,7 @@ import os
 from .config import Config   
 from app.models import db, User 
 from app.api.auth_routes import auth_routes
+from app.api.score_routes import score_routes 
 
 app = Flask(__name__)
 
@@ -25,12 +26,21 @@ def load_user(id):
 app.config.from_object(Config)
 #establish blueprints for each of the routes
 app.register_blueprint(auth_routes) 
+app.register_blueprint(score_routes)
 
 db.init_app(app)
 Migrate(app, db)
 
 #enable cross domain AJAX calls 
 CORS(app) 
+
+@app.before_request
+def https_redirect():
+    if os.environ.get('FLASK_ENV') == 'production':
+        if request.headers.get('X-Forwarded-Proto') == 'http':
+            url = request.url.replace('http://', 'https://', 1)
+            code = 301
+            return redirect(url, code=code)
 
 @app.after_request
 def inject_csrf_token(response):

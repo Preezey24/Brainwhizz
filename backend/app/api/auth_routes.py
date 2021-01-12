@@ -14,14 +14,16 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f"{field} : {error}")
     return errorMessages
 
-@auth_routes.route('/')
-def authenticate(): 
-    if current_user.is_authenticated: 
-        return current_user.to_dict()
-    return {'errors': ['Unauthorized']}, 401
+# @auth_routes.route('/')
+# def authenticate(): 
+#     if current_user.is_authenticated: 
+#         return current_user.to_dict()
+#     return {'errors': ['Unauthorized']}, 401
 
 @auth_routes.route('/signup', methods=['POST'])
 def signup(): 
+    if request.method == 'GET':
+        return 'Welcome to BrainWhizz!'
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit(): 
@@ -38,10 +40,11 @@ def signup():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
     
 
-@auth_routes.route('/login', methods=['POST'])
+@auth_routes.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'GET':
+        return 'Welcome to BrainWhizz!'
     form = LoginForm()
-    print(form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User.query.filter(User.email == form.data['email']).first()
