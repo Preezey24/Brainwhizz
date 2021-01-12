@@ -40,9 +40,7 @@ function App() {
         }
         </Route>
         <Route path='/drawing'>
-          {isAuthenticated &&
             <Drawing /> 
-          }
         </Route>
       </Switch>
     </>

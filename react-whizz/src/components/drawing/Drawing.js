@@ -1,6 +1,9 @@
 import React, {useRef, useEffect, useState} from 'react'; 
+import './Drawing.css';
 
 const Drawing = () => {
+
+    //establish initial functionality and setup of canvas
     const canvasRef = useRef(null); 
     //this is set to persist data through re-renders 
     const contextRef = useRef(null); 
@@ -11,13 +14,11 @@ const Drawing = () => {
     useEffect(() => {
         const canvas = canvasRef.current;
         //support higher resolution computers 
-        canvas.width = window.innerWidth * 2;
-        canvas.height = window.innerHeight * 2;
-        canvas.style.width = `${window.innerWidth}px`;
-        canvas.style.height = `${window.innerHeight}px`; 
+        canvas.width = 500;
+        canvas.height = 500;
         //define 2D api for canvas to draw on
-        const context = canvas.getContext();
-        context.scale(2, 2);
+        const context = canvas.getContext("2d");
+        // context.scale(2, 2);
         context.lineCap = "round";
         context.strokeStyle = "black";
         context.lineWidth = 5; 
@@ -29,6 +30,7 @@ const Drawing = () => {
         contextRef.current.beginPath(); 
         contextRef.current.moveTo(offsetX, offsetY);
         setIsDrawing(true); 
+        draw(nativeEvent);
     }
     const finishDrawing = () => {
         contextRef.current.closePath(); 
@@ -44,13 +46,20 @@ const Drawing = () => {
     }
 
     return (
-        <canvas
-            onMouseDown={startDrawing}
-            onMouseUp={finishDrawing}
-            onMouseMove={draw}
-            ref={canvasRef}
-        />
+        <>
+            <canvas
+                style={{border: "black solid"}}
+                onMouseDown={startDrawing}
+                onMouseUp={finishDrawing}
+                onMouseMove={draw}
+                ref={canvasRef}
+            />
+            <button id={'red'}>Red</button>
+            <button id={'green'}>Green</button>
+            <button id={'blue'}>Blue</button>
+        </>
     )
 }
+
 
 export default Drawing; 

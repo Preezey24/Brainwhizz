@@ -11,6 +11,7 @@ const SplashAuth = () => {
             <div>
                 <NavLink to='/math'>Math Game</NavLink>
                 <NavLink to='/memory'>Memory Game</NavLink> 
+                <NavLink to='/drawing'>Drawing</NavLink> 
             </div>
         </>
     )
