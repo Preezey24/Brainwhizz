@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
 import {useHistory} from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Clock from './Clock'; 
 import Modal from './Modal'; 
 import Light from './Light'; 
@@ -10,19 +10,18 @@ import './Memory.css';
 
 //so data persists passed certain re-rendering
 let answerArr = []; 
+//total score during game session 
+let score = 0;
+//high score during game session 
+let gameScore = 0; 
 
 const MemoryGame = () => {
-    const history = useHistory(); 
+    const history = useHistory();
+    const dispatch = useDispatch();  
     //validate user is authenticated
     const user = useSelector(state => state.session.user);
-    if (!user) {
-        history.push('/'); 
-    }; 
-
     //memory light color array, that contains the correct answers
-    const [colors, setColors] = useState([]); 
-    const [score, setScore] = useState(0);  
-
+    const [colors, setColors] = useState([]);  
     //countdown clock
     const [time, setTime] = useState('02:00'); 
     const [counter, setCounter] = useState(3);
@@ -36,7 +35,8 @@ const MemoryGame = () => {
             nextColor = randColor(); 
         }
         setColors([...colors, nextColor]); 
-        setScore((score+1)); 
+        score++; 
+        gameScore++; 
         setCounter(3); 
         answerArr = []; 
         const container = document.getElementById('lights'); 
@@ -51,6 +51,12 @@ const MemoryGame = () => {
             const container = document.getElementById('lights'); 
             container.setAttribute('style', 'display: block;'); 
         }
+        if (colors.length === 0) {
+            const container = document.getElementById('lights'); 
+            container.setAttribute('style', 'display: block;'); 
+            const button = document.getElementById('go'); 
+            button.setAttribute('style', 'display: block;'); 
+        }
     }, [time])
 
     //color transitiion on light click for the user
@@ -63,7 +69,6 @@ const MemoryGame = () => {
         //check answer
         answerArr.forEach((answer, i) => {
             if (answer !== colors[i]) {
-                setScore(score*10); 
                 setIsOpen(true); 
             }
         });
@@ -80,7 +85,7 @@ const MemoryGame = () => {
         setTime('02:00');
         setIsOpen(false); 
         setCounter(3)
-        setScore(0); 
+        gameScore=0; 
         setColors([]); 
     }
 
