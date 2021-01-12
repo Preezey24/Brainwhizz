@@ -13,11 +13,11 @@ def math_high():
     if not user.math_high:  
         user.math_high = score 
         db.session.commit()
-        return user.high_score()
+        return user.math_hiscore()
     elif score > user.math_high: 
         user.math_high = score 
         db.session.commit()      
-        return user.high_score()
+        return user.math_hiscore()
     return user.to_dict()
 
 @score_routes.route('/math', methods=['PUT'])
@@ -41,21 +41,23 @@ def math():
     return user.to_dict()
 
 @score_routes.route('/memory/high', methods=['PUT'])
+@login_required
 def memory_high():
     email = request.get_json().get('email')
     score = request.get_json().get('gameScore')
     user = User.query.filter(User.email == email).first()
-    if not user.math_high:  
-        user.math_high = score 
+    if not user.memory_high:  
+        user.memory_high = score 
         db.session.commit()
-        return user.high_score()
-    elif score > user.math_high: 
-        user.math_high = score 
+        return user.memory_hiscore()
+    elif score > user.memory_high: 
+        user.memory_high = score 
         db.session.commit()      
-        return user.high_score()
+        return user.memory_hiscore()
     return user.to_dict()  
     
-@score_routes.route('/memory', methods=['PUT']) 
+@score_routes.route('/memory', methods=['PUT'])
+@login_required 
 def memory(): 
     email = request.get_json().get('email')
     score = request.get_json().get('score')
@@ -72,6 +74,6 @@ def memory():
         user.memory_total = score + user.memory_total 
         user.total_score = score + user.total_score
         db.session.commit() 
-    return None
+    return user.to_dict()
    
 

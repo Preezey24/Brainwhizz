@@ -29,10 +29,14 @@ function App() {
           }
         </Route>
         <Route path='/math'>
-          <MathGame />
+          {isAuthenticated &&
+            <MathGame />
+          }
         </Route>
         <Route path='/memory'>
+        {isAuthenticated &&
           <MemoryGame />
+        }
         </Route>
       </Switch>
     </>
