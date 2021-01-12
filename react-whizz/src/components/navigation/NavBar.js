@@ -33,7 +33,7 @@ const Navigation = () => {
             {sessionUser && 
                 <div>
                     <button>
-                        <NavLink to="/home">
+                        <NavLink to="/">
                             Home
                         </NavLink>
                     </button>

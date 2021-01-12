@@ -146,7 +146,7 @@ const MathGame = () => {
         updateScore(); 
         gameScore = 0;
         score = 0;
-        history.push('/home')
+        history.push('/')
     }
     
     return (

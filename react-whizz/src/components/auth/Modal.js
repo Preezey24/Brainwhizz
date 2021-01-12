@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const MODAL_STYLES = {
     position: 'fixed', 
@@ -21,6 +21,23 @@ const OVERLAY_STYLE = {
 }
 
 const Modal = ({open, onClose, children}) => {
+
+    //make initial request on modal mount for csrf token
+    useEffect(() => {
+        const genCSRF = async () => {
+            try {
+                const response = await fetch('/auth/login');   
+                if (response.ok) {
+                    const data = await response.text();
+                    console.log(data); 
+                } 
+            } catch (err) {
+                console.log(err); 
+            }
+        }
+        genCSRF(); 
+    }, [])
+
     if (!open) return null;    
     
     return (
