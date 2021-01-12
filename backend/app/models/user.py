@@ -44,4 +44,4 @@ class User(db.Model, UserMixin):
         return {"New high score!!!": self.math_high}
 
     def memory_hiscore(self): 
-        return {"New high score!!!": self.math_high}
+        return {"New high score!!!": self.memory_high}

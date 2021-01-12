@@ -51,24 +51,6 @@ const MemoryGame = () => {
         if (time === '00:00') {
             const container = document.getElementById('lights'); 
             container.setAttribute('style', 'display: block;'); 
-            //update score database, check if high score
-            const updateScore = async () => {
-                try {
-                    const response = await fetch('/score/math/high', {
-                        method: 'PUT', 
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }, 
-                        body: JSON.stringify({
-                            email: user.email, 
-                            gameScore,
-                        }),
-                    });
-                } catch (err) {
-                    console.log(err); 
-                }
-            }
-            updateScore(); 
         }
         if (colors.length === 0) {
             const container = document.getElementById('lights'); 
@@ -88,6 +70,28 @@ const MemoryGame = () => {
         //check answer
         answerArr.forEach((answer, i) => {
             if (answer !== colors[i]) {
+                //update score database, check if high score
+                const updateScore = async () => {
+                    try {
+                        const response = await fetch('/score/memory/high', {
+                            method: 'PUT', 
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }, 
+                            body: JSON.stringify({
+                                email: user.email, 
+                                gameScore,
+                            }),
+                        });
+                        if (response.ok) {
+                            const data = await response.json(); 
+                            console.log(data);
+                        }
+                    } catch (err) {
+                        console.log(err); 
+                    }
+                }
+                updateScore(); 
                 setIsOpen(true); 
             }
         });
@@ -110,29 +114,29 @@ const MemoryGame = () => {
 
     // when button is clicked on modal to quit game 
     const exitGame = () => { 
-        // const updateScore = async () => {
-        //     try {
-        //         const response = await fetch('/score/math', {
-        //             method: 'PUT', 
-        //             headers: {
-        //                 'Content-Type': 'application/json'
-        //             }, 
-        //             body: JSON.stringify({
-        //                 email: user.email, 
-        //                 score, 
-        //             }),
-        //         });
-        //         if (response.ok) {
-        //             const data = await response.json(); 
-        //             dispatch(setUser(data)); 
-        //         }
-        //     } catch (err) {
-        //         console.log(err); 
-        //     }
-        // }
-        // updateScore(); 
-        // gameScore = 0;
-        // score = 0;
+        const updateScore = async () => {
+            try {
+                const response = await fetch('/score/memory', {
+                    method: 'PUT', 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }, 
+                    body: JSON.stringify({
+                        email: user.email, 
+                        score, 
+                    }),
+                });
+                if (response.ok) {
+                    const data = await response.json(); 
+                    dispatch(setUser(data)); 
+                }
+            } catch (err) {
+                console.log(err); 
+            }
+        }
+        updateScore(); 
+        gameScore = 0;
+        score = 0;
         history.push('/');
     }
     

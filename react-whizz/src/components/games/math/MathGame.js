@@ -97,6 +97,10 @@ const MathGame = () => {
                             gameScore,
                         }),
                     });
+                    if (response.ok) {
+                        const data = await response.json(); 
+                        console.log(data);
+                    }
                 } catch (err) {
                     console.log(err); 
                 }

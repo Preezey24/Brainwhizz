@@ -63,15 +63,15 @@ def memory():
     score = request.get_json().get('score')
     user = User.query.filter(User.email == email).first()
     if not user.total_score: 
-        user.math_total = score 
+        user.memory_total = score 
         user.total_score = score 
         db.session.commit()
-    elif not user.math_total: 
-        user.math_total = score
+    elif not user.memory_total: 
+        user.memory_total = score
         user.total_score = score + user.total_score
         db.session.commit()    
     else: 
-        user.math_total = score + user.math_total 
+        user.memory_total = score + user.memory_total 
         user.total_score = score + user.total_score
         db.session.commit() 
     return user.to_dict()
