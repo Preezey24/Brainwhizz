@@ -13,11 +13,11 @@ def math_high():
     if not user.math_high:  
         user.math_high = score 
         db.session.commit()
-        return user.high_score()
+        return user.math_hiscore()
     elif score > user.math_high: 
         user.math_high = score 
         db.session.commit()      
-        return user.high_score()
+        return user.math_hiscore()
     return user.to_dict()
 
 @score_routes.route('/math', methods=['PUT'])
@@ -49,11 +49,11 @@ def memory_high():
     if not user.memory_high:  
         user.memory_high = score 
         db.session.commit()
-        return user.high_score()
+        return user.memory_hiscore()
     elif score > user.memory_high: 
         user.memory_high = score 
         db.session.commit()      
-        return user.high_score()
+        return user.memory_hiscore()
     return user.to_dict()  
     
 @score_routes.route('/memory', methods=['PUT'])
