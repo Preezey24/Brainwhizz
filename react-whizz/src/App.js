@@ -5,6 +5,7 @@ import SplashAuth from './components/splash/SplashAuth';
 import NavBar from './components/navigation/NavBar';
 import MathGame from './components/games/math/MathGame';
 import MemoryGame from './components/games/memory/MemoryGame';
+import Drawing from './components/drawing/Drawing'; 
 
 export const AuthContext = React.createContext();
 
@@ -37,6 +38,11 @@ function App() {
         {isAuthenticated &&
           <MemoryGame />
         }
+        </Route>
+        <Route path='/drawing'>
+          {isAuthenticated &&
+            <Drawing /> 
+          }
         </Route>
       </Switch>
     </>
