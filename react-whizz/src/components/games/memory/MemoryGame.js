@@ -7,6 +7,7 @@ import Light from './Light';
 import Main from './Main'; 
 import { randColor } from '../../component_utils/memory';
 import './Memory.css'; 
+import { setUser } from '../../../store/reducers/session';
 
 //so data persists passed certain re-rendering
 let answerArr = []; 
@@ -50,6 +51,24 @@ const MemoryGame = () => {
         if (time === '00:00') {
             const container = document.getElementById('lights'); 
             container.setAttribute('style', 'display: block;'); 
+            //update score database, check if high score
+            const updateScore = async () => {
+                try {
+                    const response = await fetch('/score/math/high', {
+                        method: 'PUT', 
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }, 
+                        body: JSON.stringify({
+                            email: user.email, 
+                            gameScore,
+                        }),
+                    });
+                } catch (err) {
+                    console.log(err); 
+                }
+            }
+            updateScore(); 
         }
         if (colors.length === 0) {
             const container = document.getElementById('lights'); 
@@ -91,7 +110,30 @@ const MemoryGame = () => {
 
     // when button is clicked on modal to quit game 
     const exitGame = () => { 
-        history.push('/')
+        // const updateScore = async () => {
+        //     try {
+        //         const response = await fetch('/score/math', {
+        //             method: 'PUT', 
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //             }, 
+        //             body: JSON.stringify({
+        //                 email: user.email, 
+        //                 score, 
+        //             }),
+        //         });
+        //         if (response.ok) {
+        //             const data = await response.json(); 
+        //             dispatch(setUser(data)); 
+        //         }
+        //     } catch (err) {
+        //         console.log(err); 
+        //     }
+        // }
+        // updateScore(); 
+        // gameScore = 0;
+        // score = 0;
+        history.push('/');
     }
     
     return (
