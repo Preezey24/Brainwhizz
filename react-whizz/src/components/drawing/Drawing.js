@@ -3,12 +3,13 @@ import './Drawing.css';
 
 const Drawing = () => {
 
-    //establish initial functionality and setup of canvas
     const canvasRef = useRef(null); 
     //this is set to persist data through re-renders 
     const contextRef = useRef(null); 
     //remember that the button is pressed 
     const [isDrawing, setIsDrawing] = useState(false);
+    //establishing line weight for drawing 
+    // const [weight, setWeight] = useState(5)
 
     //access canvas API when component mounts
     useEffect(() => {
@@ -18,10 +19,9 @@ const Drawing = () => {
         canvas.height = 500;
         //define 2D api for canvas to draw on
         const context = canvas.getContext("2d");
-        // context.scale(2, 2);
         context.lineCap = "round";
         context.strokeStyle = "black";
-        context.lineWidth = 5; 
+        context.lineWidth = 2; 
         contextRef.current = context; 
     }, [])
 
@@ -45,6 +45,26 @@ const Drawing = () => {
         contextRef.current.stroke(); 
     }
 
+    const changeColor = (e) => {
+        const color = e.target.id; 
+        contextRef.current.strokeStyle = color; 
+    }
+
+    const changeLine = (e) => {
+        const weight = e.target.value; 
+        
+        switch (weight) {
+            case 'light': 
+                contextRef.current.lineWidth = 2; 
+                break
+            case 'medium': 
+                contextRef.current.lineWidth = 5;
+                break
+            case 'heavy': 
+                contextRef.current.lineWidth = 10; 
+        }
+    }
+
     return (
         <>
             <canvas
@@ -54,9 +74,14 @@ const Drawing = () => {
                 onMouseMove={draw}
                 ref={canvasRef}
             />
-            <button id={'red'}>Red</button>
-            <button id={'green'}>Green</button>
-            <button id={'blue'}>Blue</button>
+            <select id={"line-weight"} onChange={changeLine}>
+                <option value={'light'}>Light</option>
+                <option value={'medium'}>Medium</option>
+                <option value={'heavy'}>Heavy</option>
+            </select>
+            <button id={'red'} onClick={changeColor}>Red</button>
+            <button id={'green'} onClick={changeColor}>Green</button>
+            <button id={'blue'} onClick={changeColor}>Blue</button>
         </>
     )
 }
