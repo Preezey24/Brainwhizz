@@ -1,11 +1,13 @@
 import React, {useRef, useEffect, useState} from 'react'; 
 import { useSelector, useDispatch } from 'react-redux'; 
+import {useHistory} from 'react-router-dom'; 
 import './Drawing.css';
 import { setUser } from '../../store/reducers/session';
 
 const Drawing = () => {
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch(); 
+    const history = useHistory(); 
     const canvasRef = useRef(null); 
     //this is set to persist data through re-renders 
     const contextRef = useRef(null); 
@@ -93,6 +95,7 @@ const Drawing = () => {
             if (response.ok) {
                 const data = await response.json(); 
                 dispatch(setUser(data));
+                history.push('/');
             }
         } catch (err) {
             console.log(err); 

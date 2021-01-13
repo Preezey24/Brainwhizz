@@ -5,6 +5,23 @@ import './SplashAuth.css';
 
 
 const SplashAuth = () => {
+    const imageURL = useSelector(state => state.session.user.image_url);  
+
+    let drawing; 
+    if (imageURL) {
+        drawing = (
+            <>
+                <img src={imageURL}/>
+            </>
+        )
+    } else {
+        drawing = (
+            <p>
+                Open up your creative side, 
+                draw yourself! 
+            </p>
+        )
+    }
 
     return (
         <>  
@@ -12,6 +29,9 @@ const SplashAuth = () => {
                 <NavLink to='/math'>Math Game</NavLink>
                 <NavLink to='/memory'>Memory Game</NavLink> 
                 <NavLink to='/drawing'>Drawing</NavLink> 
+            </div>
+            <div>
+                {drawing}
             </div>
         </>
     )
