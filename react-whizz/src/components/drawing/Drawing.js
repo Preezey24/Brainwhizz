@@ -1,8 +1,11 @@
 import React, {useRef, useEffect, useState} from 'react'; 
+import { useSelector, useDispatch } from 'react-redux'; 
 import './Drawing.css';
+import { setUser } from '../../store/reducers/session';
 
 const Drawing = () => {
-
+    const user = useSelector(state => state.session.user);
+    const dispatch = useDispatch(); 
     const canvasRef = useRef(null); 
     //this is set to persist data through re-renders 
     const contextRef = useRef(null); 
@@ -70,15 +73,30 @@ const Drawing = () => {
     }
 
     const save = () => {
-        setImage(contextRef.current.getImageData(0, 0, contextRef.current.canvas.width, contextRef.current.canvas.height));
-        console.log(canvasRef.current.toDataURL())
-        console.log(canvasRef)
-        console.log(image);
+        setImage(contextRef.current.getImageData(0, 0, 
+            contextRef.current.canvas.width, contextRef.current.canvas.height));
     }
 
-    const final = () => {
+    const final = async () => {
         const imageURL = canvasRef.current.toDataURL(); 
-        
+        try {
+            const response =  await fetch('/drawing', {
+                method: 'PUT', 
+                headers: {
+                    'Content-Type': 'application/json'
+                }, 
+                body: JSON.stringify({
+                    email: user.email, 
+                    imageURL,
+                })
+            })
+            if (response.ok) {
+                const data = await response.json(); 
+                dispatch(setUser(data));
+            }
+        } catch (err) {
+            console.log(err); 
+        }
     }
 
     return (
