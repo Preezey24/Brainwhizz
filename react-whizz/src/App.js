@@ -30,9 +30,9 @@ function App() {
           }
         </Route>
         <Route path='/math'>
-          {isAuthenticated &&
+          {/* {isAuthenticated && */}
             <MathGame />
-          }
+          {/* } */}
         </Route>
         <Route path='/memory'>
         {isAuthenticated &&

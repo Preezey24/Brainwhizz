@@ -5,6 +5,7 @@ import Clock from './Clock';
 import Modal from './Modal'; 
 import mathProblems from '../../component_utils/math_tables';
 import { setUser } from '../../../store/reducers/session';
+import './MathGame.css'; 
 
 //establish score outside of functional component so that it persists after the components re-renders
 //total score during game session 
@@ -21,9 +22,9 @@ const MathGame = () => {
     const [questions, setQuestions] = useState(mathProblems())
     const [answers, setAnswers] = useState({});
     //countdown clock
-    const [time, setTime] = useState('02:00'); 
+    const [time, setTime] = useState(60); 
     const [timeUp, setTimeUp] = useState(false);
-    const [counter, setCounter] = useState(20);
+    const [counter, setCounter] = useState(60);
     //modal states 
     const [isOpen, setIsOpen] = useState(false);  
 
@@ -117,7 +118,7 @@ const MathGame = () => {
         setTime('02:00');
         setTimeUp(false); 
         setIsOpen(false); 
-        setCounter(20);
+        setCounter(60);
         gameScore = 0; 
         //clean up input fields, reset answers and give a new set of questions 
         for (let i = 0; i < 10; i++) {
