@@ -8,8 +8,8 @@ const Drawing = () => {
     const contextRef = useRef(null); 
     //remember that the button is pressed 
     const [isDrawing, setIsDrawing] = useState(false);
-    //establishing line weight for drawing 
-    // const [weight, setWeight] = useState(5)
+    //saving the canvas image 
+    const [image, setImage] = useState({})
 
     //access canvas API when component mounts
     useEffect(() => {
@@ -65,6 +65,22 @@ const Drawing = () => {
         }
     }
 
+    const reset = () => {
+        contextRef.current.putImageData(image, 0, 0); 
+    }
+
+    const save = () => {
+        setImage(contextRef.current.getImageData(0, 0, contextRef.current.canvas.width, contextRef.current.canvas.height));
+        console.log(canvasRef.current.toDataURL())
+        console.log(canvasRef)
+        console.log(image);
+    }
+
+    const final = () => {
+        const imageURL = canvasRef.current.toDataURL(); 
+        
+    }
+
     return (
         <>
             <canvas
@@ -82,6 +98,9 @@ const Drawing = () => {
             <button id={'red'} onClick={changeColor}>Red</button>
             <button id={'green'} onClick={changeColor}>Green</button>
             <button id={'blue'} onClick={changeColor}>Blue</button>
+            <button onClick={reset}>Reset</button>
+            <button onClick={save}>Save</button>
+            <button onClick={final}>Final Submit</button>
         </>
     )
 }
