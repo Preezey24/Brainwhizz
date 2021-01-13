@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
     memory_high = db.Column(db.Integer)
     memory_total = db.Column(db.Integer)
     total_score = db.Column(db.Integer)
+    image_url = db.Column(db.String)
 
     @property
     def password(self):
@@ -38,6 +39,7 @@ class User(db.Model, UserMixin):
             "memory_high": self.memory_high,
             "memory_total": self.memory_total,
             "total_score": self.total_score,
+            "image_url": self.image_url, 
         }
     
     def math_hiscore(self): 

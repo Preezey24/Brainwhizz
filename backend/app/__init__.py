@@ -10,6 +10,7 @@ from .config import Config
 from app.models import db, User 
 from app.api.auth_routes import auth_routes
 from app.api.score_routes import score_routes 
+from app.api.drawing_route import drawing_route
 
 app = Flask(__name__)
 
@@ -27,6 +28,7 @@ app.config.from_object(Config)
 #establish blueprints for each of the routes
 app.register_blueprint(auth_routes) 
 app.register_blueprint(score_routes)
+app.register_blueprint(drawing_route)
 
 db.init_app(app)
 Migrate(app, db)
