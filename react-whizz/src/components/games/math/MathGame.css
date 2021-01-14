@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+.chalkboard__div {
+    width: 800px; 
+    height: 550px; 
+    position: fixed;
+    border: black solid;  
+    top: 60%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    background: url('../../../images/textured-blackboard-with-chalks-eraser.jpg');
+    background-size: cover;
+}
+
+.chalkboard__heading {
+    position: absolute;
+    top: 20px; 
+    left: 230px; 
+    font-family: 'Fredericka the Great';
+    font-size: 40px; 
+    color: rgba(255, 255, 255, 0.747); 
+}
+
+.questions__div_one {
+    position: absolute; 
+    top: 100px; 
+    left: 120px; 
+    font-family: 'Fredericka the Great';
+    font-size: 40px; 
+    color: white; 
+}
+
+.questions__div_two {
+    position: absolute; 
+    top: 100px; 
+    left: 450px; 
+    font-family: 'Fredericka the Great';
+    font-size: 40px; 
+    color: white; 
+}
+
+.questions__question {
+    padding: 10px 0px; 
+}
+
+.questions__answer {
+    width: 30px; 
+    height: 30px;
+    background-color: none; 
+    border-bottom: white solid;
+    border-top: none; 
+    border-left: none;
+    border-right: none;
+    border-radius: 5px;
+    background-color: green;
+}
+
+.questions__answer:hover {
+    background-color: white;
+}
+
+@keyframes move {
+    33% {
+        transform: translate(55vw, 0);
+    }
+
+    66% {
+        transform: translate(-50vw, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(50vw, 0); 
+    }
+}

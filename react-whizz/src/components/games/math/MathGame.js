@@ -151,19 +151,50 @@ const MathGame = () => {
         score.current = 0;
         history.push('/')
     }
+
+    //animate div movement 
+    const move = () => {
+        const container = document.querySelector('.questions__div'); 
+        container.style.animation = "move 2s linear"; 
+        // setTimeout(() => {
+        //     container.style.opacity = 0; 
+        // }, 500);
+        // setTimeout(() => {
+        //     container.style.opacity = 1; 
+        // }, 2000);
+    }
     
     return (
         <>
             <Clock time={time} setTime={setTime} counter={counter} setCounter={setCounter} />
-            {questions.map((question, i) => {
-                return (
-                    <div key={i}>
-                        {question}
-                        <input type='text' value={answers[i]} onChange={answerHandler} id={i}/>
-                    </div>
-                )
-            })}
-            <button onClick={submitHandler}>Next</button>
+            <div className={"chalkboard__div"}>
+                <h2 className={"chalkboard__heading"}>Math Questions</h2>
+                <div className={"questions__div_one"}>
+                    {questions.map((question, i) => {
+                        if (i < 5) {
+                            return (
+                                    <div className={"questions__question"} key={i}>
+                                        {`${question} = `}
+                                        <input className={"questions__answer"} type='text' value={answers[i]} onChange={answerHandler} id={i}/>
+                                    </div>
+                            )
+                        }
+                    })}
+                </div>
+                <div className={"questions__div_two"}>
+                    {questions.map((question, i) => {
+                        if (i >= 5) {
+                            return (
+                                    <div className={"questions__question"} key={i}>
+                                        {`${question} = `}
+                                        <input className={"questions__answer"} type='text' value={answers[i]} onChange={answerHandler} id={i}/>
+                                    </div>
+                            )
+                        }
+                    })}
+                </div>
+            </div>
+            <button onClick={submitHandler} onClick={move}>Next</button>
             {timeUp &&
                 <div>
                     <Modal open={isOpen} gameScore={gameScore} score={score} playAgain={playAgain} exitGame={exitGame}/>
