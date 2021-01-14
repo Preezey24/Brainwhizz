@@ -1,7 +1,7 @@
 .base-timer {
     position: relative; 
-    height: 300px; 
-    width: 300px; 
+    height: 200px; 
+    width: 200px; 
 }
 
 .base-timer__svg {
@@ -20,8 +20,8 @@
 
 .base-timer__label {
     position: absolute; 
-    width: 300px; 
-    height: 300px; 
+    width: 200px; 
+    height: 200px; 
     top: 0; 
     display: flex;
     align-items: center;

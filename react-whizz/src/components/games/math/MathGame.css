@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 
 .chalkboard__div {
     width: 800px; 
     height: 550px; 
-    position: fixed;
-    border: black solid;  
+    position: fixed; 
     top: 60%; 
     left: 50%; 
     transform: translate(-50%, -50%);
@@ -15,7 +15,7 @@
 .chalkboard__heading {
     position: absolute;
     top: 20px; 
-    left: 230px; 
+    left: 250px; 
     font-family: 'Fredericka the Great';
     font-size: 40px; 
     color: rgba(255, 255, 255, 0.747); 
@@ -59,17 +59,33 @@
     background-color: white;
 }
 
+.questions__button {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    height: 60px; 
+    width: 140px; 
+    position: fixed; 
+    top: 120px; 
+    left: 680px;
+    border-radius: 5px;
+    font-size: 32px;
+    font-family: 'Gloria Hallelujah';
+    background-color: red;
+}
+
+
+
 @keyframes move {
     33% {
-        transform: translate(55vw, 0);
+        transform: translate(55vw, -275px);
     }
 
-    66% {
-        transform: translate(-50vw, 0);
+    66% { 
+        transform: translate(-120vw, -275px);
     }
 
     100% {
-        opacity: 1;
-        transform: translate(50vw, 0); 
+        transform: translate(-50%, -50%); 
     }
 }

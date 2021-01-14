@@ -41,6 +41,16 @@ const MathGame = () => {
             [id]: value
         }))  
     };  
+
+    //change submithandler below from red to green once all input fields filled out
+    useEffect(() => {
+        let valArr = Object.values(answers); 
+        console.log(valArr.length)
+        if (valArr.length === 10) {
+            const go = document.querySelector('.questions__button');
+            go.style.backgroundColor = 'lightgreen';
+        }
+    }, [answers])
     
     //when button is clicked to move onto the next set of math questions 
     const submitHandler = () => {
@@ -66,13 +76,17 @@ const MathGame = () => {
                score.current += 1;
            } 
         });  
+        move(); 
 
         //clean up input fields, reset answers and give a new set of questions 
         for (let i = 0; i < 10; i++) {
             document.getElementById(i).value = null; 
         }
         setAnswers({}); 
-        setQuestions(mathProblems());        
+        setQuestions(mathProblems()); 
+        //reset button color to red
+        const go = document.querySelector('.questions__button');
+        go.style.backgroundColor = 'red';        
     }
 
     //when time runs out and the modal appears, showing your score and asking whether you want to play again
@@ -152,17 +166,17 @@ const MathGame = () => {
         history.push('/')
     }
 
-    //animate div movement 
-    const move = () => {
-        const container = document.querySelector('.questions__div'); 
+    //animate div movement from right to left, as if it were being replaced 
+    function move() {
+        const container = document.querySelector('.chalkboard__div'); 
         container.style.animation = "move 2s linear"; 
-        // setTimeout(() => {
-        //     container.style.opacity = 0; 
-        // }, 500);
-        // setTimeout(() => {
-        //     container.style.opacity = 1; 
-        // }, 2000);
-    }
+        setTimeout(() => {
+            container.style.opacity = 0; 
+        }, 667);
+        setTimeout(() => {
+            container.style.opacity = 1; 
+        }, 1334);
+    };
     
     return (
         <>
@@ -194,7 +208,7 @@ const MathGame = () => {
                     })}
                 </div>
             </div>
-            <button onClick={submitHandler} onClick={move}>Next</button>
+            <button className={"questions__button"} onClick={submitHandler}>GO >>></button>
             {timeUp &&
                 <div>
                     <Modal open={isOpen} gameScore={gameScore} score={score} playAgain={playAgain} exitGame={exitGame}/>
