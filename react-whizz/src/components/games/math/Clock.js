@@ -2,9 +2,19 @@ import React, { useEffect, useRef } from 'react';
 import { timeConversion } from '../../component_utils/clock_helper'; 
 import './Clock.css'; 
 
+const WARNING_THRESHOLD = 20; 
+const ALERT_THRESHOLD = 10; 
 const COLOR_CODES = {
     info: {
         color: "green"
+    },
+    warning: {
+        color: "orange",
+        threshold: WARNING_THRESHOLD
+    }, 
+    alert: {
+        color: "red",
+        threshold: ALERT_THRESHOLD
     }
 }; 
 
@@ -14,9 +24,8 @@ const Clock = ({time, setTime, counter, setCounter}) => {
     const timeLimit = useRef(time); 
 
     function timeRemaining() {
-        console.log(time)
-        console.log(time/timeLimit.current)
-        return time/timeLimit.current; 
+        const timeLeft = counter/timeLimit.current;
+        return (timeLeft - (1 / timeLimit.current) * (1 - timeLeft));
     }
     
     function setCircleDasharray() {
@@ -26,13 +35,23 @@ const Clock = ({time, setTime, counter, setCounter}) => {
         document.getElementById('base-timer-path-remaining')
                 .setAttribute('stroke-dasharray', circleDasharray)
     }
-    
 
+    function setPathColor(timeLeft) {
+        const {alert, warning} = COLOR_CODES; 
+
+        if (timeLeft <= alert.threshold) {
+            remainingPathColor = "red";
+        } else if (timeLeft <= warning.threshold) {
+            remainingPathColor = "orange"; 
+        }
+    }
+    
     useEffect(() => {
         const timer = counter > 0 && setInterval(() => {
-            setCounter(counter - 1); 
-            setCircleDasharray();  
+            setCounter(counter - 1);   
         }, 1000);
+        setCircleDasharray();
+        setPathColor(counter);   
         setTime(counter); 
         return () => clearInterval(timer); 
     }, [counter]); 
@@ -44,8 +63,9 @@ const Clock = ({time, setTime, counter, setCounter}) => {
                    <circle className={"base-timer__path-elapsed"} cx="50" cy="50" r="45" />
                    <path 
                         id="base-timer-path-remaining"
-                        stroke-dasharray="283"
-                        className={`base-timer__path-remaining ${remainingPathColor}`}
+                        strokeDasharray="283"
+                        className={'base-timer__path-remaining'}
+                        style={{stroke: `${remainingPathColor}`}}
                         d="
                             M 50, 50
                             m -45, 0

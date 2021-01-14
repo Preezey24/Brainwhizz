@@ -11,6 +11,7 @@
 .base-timer__circle {
     fill: none; 
     stroke: none; 
+    animation: shake 1.25s cubic-bezier(.36,.07,.19,.97) both;
 }
 
 .base-timer__path-elapsed {
@@ -37,3 +38,21 @@
     transition: 1s linear all; 
     stroke: currentColor; 
 }
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate(-1px, 0);
+    }
+    
+    20%, 80% {
+      transform: translate(2px, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate(-4px, 0);
+    }
+  
+    40%, 60% {
+      transform: translate(4px, 0);
+    }
+  }
