@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
 .base-timer {
-    position: relative; 
+    position: fixed;
+    left: 1200px;
+    top: 60px;   
     height: 200px; 
     width: 200px; 
 }
@@ -9,7 +13,7 @@
 }
 
 .base-timer__circle {
-    fill: none; 
+    fill: rgb(218, 214, 214); 
     stroke: none; 
 }
 
@@ -27,6 +31,7 @@
     align-items: center;
     justify-content: center;
     font-size: 48px;
+    font-family: 'Gloria Hallelujah';
 }
 
 .base-timer__path-remaining {
