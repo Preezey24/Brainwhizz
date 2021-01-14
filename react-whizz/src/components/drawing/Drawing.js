@@ -100,7 +100,7 @@ const Drawing = () => {
         } catch (err) {
             console.log(err); 
         }
-    }
+    };
 
     return (
         <>

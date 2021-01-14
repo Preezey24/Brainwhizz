@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { timeConversion } from '../../component_utils/clock_helper'; 
 import './Clock.css'; 
 
-const WARNING_THRESHOLD = 20; 
+const WARNING_THRESHOLD = 30; 
 const ALERT_THRESHOLD = 10; 
 const COLOR_CODES = {
     info: {
@@ -26,7 +26,7 @@ const Clock = ({time, setTime, counter, setCounter}) => {
     function timeRemaining() {
         const timeLeft = counter/timeLimit.current;
         return (timeLeft - (1 / timeLimit.current) * (1 - timeLeft));
-    }
+    };
     
     function setCircleDasharray() {
         const circleDasharray = `${(
@@ -34,7 +34,7 @@ const Clock = ({time, setTime, counter, setCounter}) => {
         ).toFixed(0)} 283`;
         document.getElementById('base-timer-path-remaining')
                 .setAttribute('stroke-dasharray', circleDasharray)
-    }
+    };
 
     function setPathColor(timeLeft) {
         const {alert, warning} = COLOR_CODES; 
@@ -43,6 +43,18 @@ const Clock = ({time, setTime, counter, setCounter}) => {
             remainingPathColor = "red";
         } else if (timeLeft <= warning.threshold) {
             remainingPathColor = "orange"; 
+        } else {
+            remainingPathColor = 'green'; 
+        }
+    };
+
+    function shake(timeLeft) {
+        const circle = document.querySelector('.base-timer__circle'); 
+        if (timeLeft <= 10) {
+            circle.style.animation = "shake 0.5s cubic-bezier(0.42, 0.0, 0.58, 1.0) both"; 
+            setTimeout(() => {
+                circle.removeAttribute("style"); 
+            }, 500);  
         }
     }
     
@@ -52,7 +64,8 @@ const Clock = ({time, setTime, counter, setCounter}) => {
         }, 1000);
         setCircleDasharray();
         setPathColor(counter);   
-        setTime(counter); 
+        setTime(counter);
+        shake(counter); 
         return () => clearInterval(timer); 
     }, [counter]); 
 
@@ -76,7 +89,7 @@ const Clock = ({time, setTime, counter, setCounter}) => {
                </g>
            </svg>
            <span className={"base-timer__label"}>
-               {time}
+               {timeConversion(time)}
            </span>
        </div> 
     )

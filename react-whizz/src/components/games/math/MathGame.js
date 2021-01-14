@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {useHistory} from 'react-router-dom'; 
 import { useSelector, useDispatch } from 'react-redux'; 
 import Clock from './Clock'; 
@@ -7,13 +7,11 @@ import mathProblems from '../../component_utils/math_tables';
 import { setUser } from '../../../store/reducers/session';
 import './MathGame.css'; 
 
-//establish score outside of functional component so that it persists after the components re-renders
-//total score during game session 
-let score = 0;
-//high score during game session 
-let gameScore = 0; 
-
 const MathGame = () => {
+    //useRef for the score components so that they do not update on re-render
+    const gameScore = useRef(0);
+    const score = useRef(0); 
+     
     const history = useHistory(); 
     const dispatch = useDispatch(); 
     //validate user is authenticated
@@ -64,8 +62,8 @@ const MathGame = () => {
         //check answers of user input versus correct answers  
         ansArr.forEach((correct, i) => {
            if (correct == answers[i]) {
-               gameScore += 1; 
-               score += 1; 
+               gameScore.current += 1; 
+               score.current += 1;
            } 
         });  
 
@@ -80,7 +78,7 @@ const MathGame = () => {
     //when time runs out and the modal appears, showing your score and asking whether you want to play again
     //useEffect was used to combat constant re-rendering of the page as state changed
     useEffect(() => {
-        if (time === '00:00') {
+        if (time === 0) {
             //reset state
             setTimeUp(true); 
             setTime(null); 
@@ -95,7 +93,7 @@ const MathGame = () => {
                         }, 
                         body: JSON.stringify({
                             email: user.email, 
-                            gameScore,
+                            gameScore: gameScore.current,
                         }),
                     });
                     if (response.ok) {
@@ -115,11 +113,11 @@ const MathGame = () => {
         //reset everything for new game
         setAnswers({}); 
         setQuestions(mathProblems()); 
-        setTime('02:00');
+        setTime(60);
         setTimeUp(false); 
         setIsOpen(false); 
         setCounter(60);
-        gameScore = 0; 
+        gameScore.current = 0; 
         //clean up input fields, reset answers and give a new set of questions 
         for (let i = 0; i < 10; i++) {
             document.getElementById(i).value = null; 
@@ -137,7 +135,7 @@ const MathGame = () => {
                     }, 
                     body: JSON.stringify({
                         email: user.email, 
-                        score, 
+                        score: score.current, 
                     }),
                 });
                 if (response.ok) {
@@ -149,8 +147,8 @@ const MathGame = () => {
             }
         }
         updateScore(); 
-        gameScore = 0;
-        score = 0;
+        gameScore.current = 0;
+        score.current = 0;
         history.push('/')
     }
     

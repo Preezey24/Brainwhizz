@@ -29,8 +29,8 @@ const Modal = ({open, score, playAgain, gameScore, exitGame}) => {
             <div style={MODAL_STYLES}>
                 <button onClick={playAgain}>Play Again</button>
                 <button onClick={exitGame}>Home Page</button>
-                <p>{gameScore}</p>
-                <p>{score}</p>
+                <p>{gameScore.current}</p>
+                <p>{score.current}</p>
             </div>
         </>
     )
