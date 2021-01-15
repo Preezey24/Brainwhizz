@@ -45,7 +45,6 @@ const MathGame = () => {
     //change submithandler below from red to green once all input fields filled out
     useEffect(() => {
         let valArr = Object.values(answers); 
-        console.log(valArr.length)
         if (valArr.length === 10) {
             const go = document.querySelector('.questions__button');
             go.style.backgroundColor = 'lightgreen';
@@ -86,7 +85,7 @@ const MathGame = () => {
         setQuestions(mathProblems()); 
         //reset button color to red
         const go = document.querySelector('.questions__button');
-        go.style.backgroundColor = 'red';        
+        go.style.backgroundColor = 'red';      
     }
 
     //when time runs out and the modal appears, showing your score and asking whether you want to play again
@@ -176,6 +175,9 @@ const MathGame = () => {
         setTimeout(() => {
             container.style.opacity = 1; 
         }, 1334);
+        setTimeout(() => {
+            container.style.removeProperty('animation'); 
+        }, 2000)
     };
     
     return (
@@ -189,7 +191,8 @@ const MathGame = () => {
                             return (
                                     <div className={"questions__question"} key={i}>
                                         {`${question} = `}
-                                        <input className={"questions__answer"} type='text' value={answers[i]} onChange={answerHandler} id={i}/>
+                                        <input className={"questions__answer"} type='text' value={answers[i]} 
+                                        onChange={answerHandler} id={i}/>
                                     </div>
                             )
                         }
@@ -201,7 +204,8 @@ const MathGame = () => {
                             return (
                                     <div className={"questions__question"} key={i}>
                                         {`${question} = `}
-                                        <input className={"questions__answer"} type='text' value={answers[i]} onChange={answerHandler} id={i}/>
+                                        <input className={"questions__answer"} type='text' value={answers[i]} 
+                                        onChange={answerHandler} id={i}/>
                                     </div>
                             )
                         }
