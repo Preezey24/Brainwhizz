@@ -181,7 +181,7 @@ const MathGame = () => {
     };
     
     return (
-        <>
+        <div className={"page"}>
             <Clock time={time} setTime={setTime} counter={counter} setCounter={setCounter} />
             <div className={"chalkboard__div"}>
                 <h2 className={"chalkboard__heading"}>Math Questions</h2>
@@ -218,7 +218,7 @@ const MathGame = () => {
                     <Modal open={isOpen} gameScore={gameScore} score={score} playAgain={playAgain} exitGame={exitGame}/>
                 </div> 
             }
-        </>
+        </div>
     )
 }
 

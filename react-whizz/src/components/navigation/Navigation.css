@@ -1,0 +1,33 @@
+.nav__container {
+    display: grid; 
+    box-sizing: border-box;
+    height: 40px;
+    grid-template-columns: 20fr 60fr 20fr;
+    grid-template-areas: 
+    "home logo auth";
+}
+
+.nav__div-home {
+    grid-area: home;
+    display: flex;
+    justify-content: center;
+}
+
+.nav__div-auth {
+    grid-area: auth;
+    display: flex; 
+    justify-content: space-evenly;
+}
+
+.nav__div-prof {
+    grid-area: auth;
+    display: flex;
+    justify-content: center;
+}
+
+.nav__div-title {
+    grid-area: logo;
+    display: flex; 
+    justify-content: center;
+    font-size: 28px;
+}

@@ -12,26 +12,26 @@ const Navigation = () => {
     let sessionLinks; 
     if (sessionUser) {
         sessionLinks = (
-            <>
+            <div className={"nav__div-prof"}>
                 <ProfileButton/>
-            </>
+            </div>
         );
     } else {
         sessionLinks = (
-            <>
+            <div className={"nav__div-auth"}>
                 <div>
                     <LoginFormModal/>
                 </div>
                 <div>
                     <SignUpModal/>
                 </div>
-            </>
+            </div>
         )
     }
     return (
-        <div>
+        <div className={"nav__container"}>
             {sessionUser && 
-                <div>
+                <div className={"nav__div-home"}>  
                     <button>
                         <NavLink to="/">
                             Home
@@ -39,6 +39,10 @@ const Navigation = () => {
                     </button>
                 </div>
             }
+            <div className={"nav__div-title"}>
+                <img src='../../images/brain_icon.png' />
+                Brainwhizz
+            </div>
             {sessionLinks}
         </div>
     )

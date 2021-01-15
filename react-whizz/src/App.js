@@ -6,6 +6,7 @@ import NavBar from './components/navigation/NavBar';
 import MathGame from './components/games/math/MathGame';
 import MemoryGame from './components/games/memory/MemoryGame';
 import Drawing from './components/drawing/Drawing'; 
+import './index.css'; 
 
 export const AuthContext = React.createContext();
 

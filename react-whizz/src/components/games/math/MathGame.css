@@ -2,6 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 
 html {
+    overflow: hidden;
+}
+
+.page {
+    width: 100vw; 
+    height: calc(100vh - 50px); 
     background: url('../../../images/math-background-13108.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -84,7 +90,7 @@ html {
     width: 140px; 
     position: fixed; 
     top: 80px; 
-    left: 680px;
+    left: 700px;
     border-radius: 5px;
     font-size: 32px;
     font-family: 'Gloria Hallelujah';

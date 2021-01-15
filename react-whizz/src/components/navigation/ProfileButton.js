@@ -25,7 +25,7 @@ const ProfileButton = () => {
    }, [showMenu]);
 
    return (
-       <div>
+       <>
            <button onClick={openMenu}>
                Open
            </button>
@@ -38,7 +38,7 @@ const ProfileButton = () => {
                    </li>
                </ul>
            )}
-       </div>
+       </>
    );
 }
 
