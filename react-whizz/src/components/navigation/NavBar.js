@@ -40,7 +40,7 @@ const Navigation = () => {
                 </div>
             }
             <div className={"nav__div-title"}>
-                <img src='../../images/brain_icon.png' />
+                <img src='./../../images/brain_icon.png' />
                 Brainwhizz
             </div>
             {sessionLinks}

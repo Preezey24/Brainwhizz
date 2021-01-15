@@ -8,7 +8,7 @@ html {
 .page {
     width: 100vw; 
     height: calc(100vh - 50px); 
-    background: url('../../../images/math-background-13108.jpeg') no-repeat center center fixed;
+    background: url('../../../images/math-background.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
