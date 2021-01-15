@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../auth/LoginFormModal'; 
 import SignUpModal from '../auth/SignUpModal'; 
 import './Navigation.css'; 
+import icon from '../../images/brain_icon.png'; 
 
 const Navigation = () => {
     const sessionUser = useSelector(state => state.session.user); 
@@ -40,7 +41,7 @@ const Navigation = () => {
                 </div>
             }
             <div className={"nav__div-title"}>
-                <img src='./../../images/brain_icon.png' />
+                <span className={"nav__icon"}/>
                 Brainwhizz
             </div>
             {sessionLinks}

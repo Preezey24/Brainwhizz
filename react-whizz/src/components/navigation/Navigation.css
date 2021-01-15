@@ -1,7 +1,7 @@
 .nav__container {
     display: grid; 
     box-sizing: border-box;
-    height: 40px;
+    height: 100%;
     grid-template-columns: 20fr 60fr 20fr;
     grid-template-areas: 
     "home logo auth";
@@ -27,7 +27,16 @@
 
 .nav__div-title {
     grid-area: logo;
+    height: 100%;
     display: flex; 
     justify-content: center;
+    align-items: center;
     font-size: 28px;
+}
+
+.nav__icon {
+    width: 40px; 
+    height: 40px; 
+    background: url('../../images/brain_icon.png');
+    background-size: cover;
 }
