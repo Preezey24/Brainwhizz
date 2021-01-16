@@ -18,6 +18,10 @@
     background-color: rgb(96, 255, 255);
 }
 
+.math__div:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
 .math__link-span {
     position: absolute; 
     width: 100%; 
@@ -37,6 +41,19 @@
     background-color: rgb(96, 255, 255);
 }
 
+.memory__link-span {
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    top: 0; 
+    left: 0; 
+    z-index: 1;
+}
+
+.memory__div:hover {
+    animation: rotate 1s linear both;
+}
+
 .drawing__div {
     width: 250px;
     height: 175px; 
@@ -44,5 +61,73 @@
     top: 100px;
     left: 640px;  
     border-radius: 5px;
-    background-color: rgb(96, 255, 255);
+    background-color: rgb(96, 255, 255); 
+}
+
+.drawing__div:hover {
+    animation: zoom 1.5s linear both; 
+    z-index: 1000;
+}
+
+.drawing__link-span {
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    top: 0; 
+    left: 0; 
+    z-index: 1;
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate(-1px, 0);
+    }
+    
+    20%, 80% {
+      transform: translate(2px, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate(-4px, 0);
+    }
+  
+    40%, 60% {
+      transform: translate(4px, 0);
+    }
+  }
+
+@keyframes rotate {
+    20% {
+      transform: rotate(0.15turn);
+    }
+    
+    40% {
+      transform: rotate(-0.15turn);;
+    }
+  
+    60% {
+      transform: rotate(0.15turn);;
+    }
+  
+    80% {
+      transform: rotate(-0.15turn);;
+    }
+
+    100% {
+        transform: rotate(0 turn); 
+    }
+}
+
+@keyframes zoom {
+    33% {
+        transform: scale(1,1) 
+    }
+    
+    66% {
+        transform: scale(2,2)
+    }
+
+    100% {
+        transform: scale(1,1) 
+    }
 }

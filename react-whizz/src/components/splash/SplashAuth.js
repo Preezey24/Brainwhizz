@@ -26,13 +26,19 @@ const SplashAuth = () => {
     return (
         <>  
             <div className={"math__div"}>
-                <NavLink to='/math'>Math Game</NavLink>
+                <NavLink to='/math'>
+                    <span className={"math__link-span"}>Math Game</span>
+                </NavLink>
             </div>
             <div className={"memory__div"}>
-                <NavLink to='/memory'>Memory Game</NavLink> 
+                <NavLink to='/memory'>
+                    <span className={"memory__link-span"}>Memory Game</span>
+                </NavLink> 
             </div>
             <div className={"drawing__div"}>
-                <NavLink to='/drawing'>Drawing</NavLink> 
+                <NavLink to='/drawing'>
+                    <span className={"drawing__link-span"}>Drawing</span>
+                </NavLink> 
             </div>
             <div className={"picture__div"}>
                 {drawing}
