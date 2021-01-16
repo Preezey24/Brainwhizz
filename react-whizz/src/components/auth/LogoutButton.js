@@ -3,6 +3,7 @@ import { logout } from "../../store/reducers/session";
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../../App';
+import '../navigation/ProfileButton.css';
 
 const LogoutButton = () => {
     const dispatch = useDispatch(); 
@@ -15,7 +16,9 @@ const LogoutButton = () => {
         history.push('/')
     };
     
-    return <button onClick={onLogout}>Logout</button>;
+    return <button onClick={onLogout} className={"nav__logout-button"}>
+                Log Out
+            </button>;
 };
 
 export default LogoutButton;

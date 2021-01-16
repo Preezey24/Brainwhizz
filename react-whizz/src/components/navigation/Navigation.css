@@ -26,6 +26,7 @@
 
 .nav__div-prof {
     grid-area: auth;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;

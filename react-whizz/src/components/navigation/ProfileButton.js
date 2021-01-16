@@ -30,10 +30,10 @@ const ProfileButton = () => {
                Open
            </button>
            {showMenu && (
-               <ul>
+               <ul className={"nav__logout-menu"}>
                    <li>{user.username}</li>
                    <li>{user.email}</li>
-                   <li>
+                   <li className={"nav__logout-li-button"}>
                        <LogoutButton />
                    </li>
                </ul>

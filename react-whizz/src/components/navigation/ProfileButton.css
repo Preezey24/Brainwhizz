@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 .nav__profile-button {
     width: 100px;
     height: 40px; 
@@ -17,3 +20,49 @@
     font-weight: bold;
 }
 
+.nav__logout-menu {
+    position: absolute; 
+    box-sizing: border-box;
+    top: 32px;
+    left: 102px; 
+    height: 180px; 
+    width: 160px;
+    border-radius: 8px;
+    list-style-type: '-';
+    font-family: 'Gloria Hallelujah';
+    font-size: 24px;
+    padding: 0;
+    background-color: rgb(96, 255, 255);
+    z-index: 1;
+}
+
+.nav__logout-menu li {
+    box-sizing: border-box;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding-left: 6px; 
+}
+
+.nav__logout-li-button {
+    list-style: none;
+    position: relative;
+}
+
+.nav__logout-button { 
+    position: absolute; 
+    left: 17px; 
+    top: 0px;
+    width: 100px;
+    height: 40px; 
+    font-size: 20px;
+    background-color: rgb(255, 191, 252);
+    border-radius: 3px;
+    border: none; 
+    cursor: pointer; 
+}
+
+.nav__logout-button:hover {
+    color: rgb(197, 6, 255); 
+    background-color:purple;
+    font-weight: bold;
+}
