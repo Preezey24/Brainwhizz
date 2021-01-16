@@ -32,7 +32,7 @@ const ProfileButton = () => {
            {showMenu && (
                <ul className={"nav__logout-menu"}>
                    <li>{user.username}</li>
-                   <li>{user.email}</li>
+                   <li className={"nav__logout-li-email"}>{user.email}</li>
                    <li className={"nav__logout-li-button"}>
                        <LogoutButton />
                    </li>

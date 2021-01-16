@@ -20,8 +20,8 @@ const Drawing = () => {
     useEffect(() => {
         const canvas = canvasRef.current;
         //support higher resolution computers 
-        canvas.width = 500;
-        canvas.height = 500;
+        canvas.width = 400;
+        canvas.height = 400;
         //define 2D api for canvas to draw on
         const context = canvas.getContext("2d");
         context.lineCap = "round";

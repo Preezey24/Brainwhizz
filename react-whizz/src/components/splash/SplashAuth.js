@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react'; 
-import { useSelector, useDispatch } from 'react-redux'; 
-import { NavLink, Route } from 'react-router-dom';
+import React from 'react'; 
+import { useSelector } from 'react-redux'; 
+import { NavLink } from 'react-router-dom';
 import './SplashAuth.css'; 
 
 
@@ -30,7 +30,7 @@ const SplashAuth = () => {
                 <NavLink to='/memory'>Memory Game</NavLink> 
                 <NavLink to='/drawing'>Drawing</NavLink> 
             </div>
-            <div>
+            <div className={"drawing__div"}>
                 {drawing}
             </div>
         </>

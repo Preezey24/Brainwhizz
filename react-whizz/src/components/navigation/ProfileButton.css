@@ -43,6 +43,10 @@
     padding-left: 6px; 
 }
 
+.nav__logout-li-email {
+    font-size: 18px;
+}
+
 .nav__logout-li-button {
     list-style: none;
     position: relative;
