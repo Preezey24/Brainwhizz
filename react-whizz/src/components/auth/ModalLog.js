@@ -9,8 +9,8 @@ const MODAL_STYLES = {
     transform: 'translate(-50%, -50%)', 
     backgroundColor: 'rgb(96, 255, 255)', 
     zIndex: 1000,
-    height: '470px',
-    width: '330px'
+    height: '410px',
+    width: '360px'
 }
 
 const OVERLAY_STYLE = {
@@ -23,7 +23,7 @@ const OVERLAY_STYLE = {
     zIndex: 1000, 
 }
 
-const Modal = ({open, onClose, children}) => {
+const ModalLog = ({open, children}) => {
 
     //make initial request on modal mount for csrf token
     useEffect(() => {
@@ -48,10 +48,9 @@ const Modal = ({open, onClose, children}) => {
             <div style={OVERLAY_STYLE} />
             <div style={MODAL_STYLES}>
                 {children}
-                <button onClick={onClose} className={"button__home"}>Return</button>
             </div>
         </>
     )
 }
 
-export default Modal; 
+export default ModalLog; 

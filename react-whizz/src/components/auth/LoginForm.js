@@ -1,10 +1,11 @@
 import React, { useState } from 'react'; 
-import { useDispatch } from 'react-redux';  
+import { useDispatch, useSelector } from 'react-redux';  
 import { logIn } from '../../store/reducers/session'; 
 import './Auth.css'; 
 
-const LoginForm = () => {
-    const dispatch = useDispatch();  
+const LoginForm = ({onClose}) => {
+    const dispatch = useDispatch(); 
+    const errors = useSelector(state => state.session.errors); 
     const [email, setEmail] = useState(''); 
     const [password, setPassword] = useState('');
 
@@ -51,6 +52,18 @@ const LoginForm = () => {
                 <button type="submit" className={"button__login"}>
                     Log In 
                 </button>
+                <button onClick={onClose} className={"button__home-login"}>
+                    Return
+                </button>
+                <div className={"errors__container"}>
+                    {errors && errors.map(error => {
+                        return (
+                            <>
+                                <span>{error}</span>
+                            </>
+                        )
+                    })}
+                </div>
             </form>
         </>
     );

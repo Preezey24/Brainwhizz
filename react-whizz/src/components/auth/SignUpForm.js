@@ -1,10 +1,11 @@
 import React, { useState } from 'react'; 
-import { useDispatch } from 'react-redux';  
+import { useDispatch, useSelector } from 'react-redux';  
 import { signUp } from '../../store/reducers/session';
 import './Auth.css'; 
 
-const SignUpForm = () => {
+const SignUpForm = ({onClose}) => {
     const dispatch = useDispatch(); 
+    const errors = useSelector(state => state.session.errors);
     const [username, setUserName] = useState(''); 
     const [email, setEmail] = useState(''); 
     const [password, setPassword] = useState('');
@@ -32,12 +33,17 @@ const SignUpForm = () => {
         setConfirm(e.target.value); 
     }
 
+    if (errors) {
+        const container = document.querySelector('.errors__container'); 
+        container.style.display = 'block'; 
+    } 
+
     return (
         <>
             <div className={"signin__heading"}>
                 Sign Up
             </div>
-            <form onSubmit={submitHandler} className={"form__login"}>
+            <form onSubmit={submitHandler} className={"form__signin"}>
                 <div>
                     <label className={"form__signin-label"}>Username</label>
                     <input 
@@ -81,6 +87,18 @@ const SignUpForm = () => {
                 <button type="submit" className={"button__signin"}>
                     Sign Up
                 </button>
+                <button onClick={onClose} className={"button__home-signin"}>
+                    Return
+                </button>
+                <div className={"errors__container"}>
+                    {errors && errors.map(error => {
+                        return (
+                            <>
+                                <span>{error}</span>
+                            </>
+                        )
+                    })}
+                </div>
             </form>
         </>
     )

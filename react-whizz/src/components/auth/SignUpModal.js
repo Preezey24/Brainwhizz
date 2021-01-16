@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; 
 import { useSelector, useDispatch } from 'react-redux'; 
-import Modal from './Modal'; 
+import Modal from './ModalSign'; 
 import SignUpForm from './SignUpForm'; 
 import { removeErrors } from '../../store/reducers/session';
 import './Auth.css'
@@ -21,14 +21,7 @@ function SignUpModal() {
                 Sign Up
             </button>
             <Modal open={showModal} onClose={modalClose}>
-                <ul>
-                    {errors && errors.map(error => {
-                        return (
-                            <li>{error}</li>
-                        )
-                    })}
-                </ul>
-                <SignUpForm/>
+                <SignUpForm onClose={modalClose}/>
             </Modal>
         </>
     );

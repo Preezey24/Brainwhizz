@@ -46,7 +46,7 @@
     padding-left: 30px;  
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+    margin-left: 25px;
 }
 
 .form__login-label {
@@ -63,7 +63,7 @@
     box-sizing: border-box; 
     border: none;
     padding: 10px; 
-    margin-bottom: 15px;
+    
     background-color: rgb(255, 191, 252);
     border-radius: 3px;
 }
@@ -84,8 +84,7 @@
     transition: background-color 0.4s;
     cursor: pointer;  
     font-family: 'Roboto';
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
 .button__login:hover {
@@ -93,9 +92,7 @@
     background-color: rgb(255, 0, 0);
 }
 
-.button__home{
-    position: absolute;
-    top: 405px; 
+.button__home-login { 
     height: 50px; 
     width: 250px; 
     border-radius: 3px; 
@@ -107,10 +104,10 @@
     transition: background-color 0.4s;
     cursor: pointer;  
     font-family: 'Roboto';
-    margin-left: 40px; 
+    margin-top: 15px;
 }
 
-.button__home:hover {
+.button__home-login:hover {
     color: rgb(197, 6, 255); 
     background-color:purple;
 }
@@ -119,13 +116,24 @@
     width: 100%;
     display: flex; 
     justify-content: center;
-    align-items:flex-end;
+    align-items:center;
     height: 60px;
     font-family: 'Gloria Hallelujah'; 
     font-size: 44px;
 }
 
 /* signin form */ 
+.form__signin {
+    height: 86%; 
+    width: 300px;
+    box-sizing: border-box; 
+    padding-left: 30px;  
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    margin-top: 15px; 
+}
+
 .form__signin-label {
     display: block; 
     padding-left: 5px;
@@ -161,7 +169,7 @@
     cursor: pointer;  
     font-family: 'Roboto';
     margin-bottom: 15px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .button__signin:hover {
@@ -170,11 +178,35 @@
 }
 
 .signin__heading {
-    width: 100%;
     display: flex; 
     justify-content: center;
     align-items:center;
     height: 40px;
     font-family: 'Gloria Hallelujah'; 
     font-size: 44px;
+    padding-top: 10px;
+}
+
+.button__home-signin { 
+    height: 50px; 
+    width: 250px; 
+    border-radius: 3px; 
+    border: rgba(0,0,0,0.3) 0px solid; 
+    box-sizing:border-box;
+    background:  cornflowerblue;
+    font-weight:bold;
+    font-size: 28px;
+    transition: background-color 0.4s;
+    cursor: pointer;  
+    font-family: 'Roboto';
+}
+
+.button__home-signin:hover {
+    color: rgb(197, 6, 255); 
+    background-color:purple;
+}
+
+.errors__container {
+    /* display:none;  */
+    height: 90px; 
 }
