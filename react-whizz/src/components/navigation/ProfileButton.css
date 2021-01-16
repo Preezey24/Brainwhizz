@@ -1,0 +1,19 @@
+.nav__profile-button {
+    width: 100px;
+    height: 40px; 
+    margin: 10px 5px; 
+    border-radius: 3px; 
+    border: none; 
+    font-family: 'Roboto';
+    background-color: cornflowerblue;
+    cursor: pointer;
+    font-size: 28px;
+    text-decoration: none;
+}
+
+.nav__profile-button:hover {
+    color: rgb(197, 6, 255); 
+    background-color:purple;
+    font-weight: bold;
+}
+

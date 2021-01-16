@@ -26,7 +26,7 @@ const ProfileButton = () => {
 
    return (
        <>
-           <button onClick={openMenu}>
+           <button onClick={openMenu} className={"nav__profile-button"}>
                Open
            </button>
            {showMenu && (

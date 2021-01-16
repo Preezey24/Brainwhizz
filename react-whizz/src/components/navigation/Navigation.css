@@ -28,6 +28,7 @@
     grid-area: auth;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .nav__div-title {
@@ -46,4 +47,29 @@
     margin-right: 15px; 
     background: url('../../images/brain_icon.png');
     background-size: cover;
+}
+
+.nav__home-button {
+    height: 40px; 
+    width: 100px; 
+    border-radius: 3px; 
+    border: rgba(0,0,0,0.3) 0px solid; 
+    box-sizing:border-box;
+    background: greenyellow;
+    font-weight:bold;
+    font-size: 28px;
+    transition: background-color 0.4s;
+    cursor: pointer;  
+    font-family: 'Roboto';
+    margin-top: 15px;
+}
+
+.nav__home-button:hover {
+    color: rgb(255, 145, 0); 
+    background-color: rgb(255, 0, 0);
+}
+
+.active {
+    font-weight: bold;
+    font-size: x-large;
 }

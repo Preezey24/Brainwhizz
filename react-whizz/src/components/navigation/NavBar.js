@@ -1,5 +1,5 @@
 import React from 'react'; 
-import { NavLink } from 'react-router-dom'; 
+import { Link } from 'react-router-dom'; 
 import { useSelector } from 'react-redux'; 
 import ProfileButton from './ProfileButton'; 
 import LoginFormModal from '../auth/LoginFormModal'; 
@@ -32,10 +32,10 @@ const Navigation = () => {
         <div className={"nav__container"}>
             {sessionUser && 
                 <div className={"nav__div-home"}>  
-                    <button>
-                        <NavLink to="/">
+                    <button className={"nav__home-button"}>
+                        <Link style={{"text-decoration": "none"}} to="/">
                             Home
-                        </NavLink>
+                        </Link>
                     </button>
                 </div>
             }
