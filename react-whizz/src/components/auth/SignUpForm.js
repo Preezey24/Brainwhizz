@@ -33,51 +33,56 @@ const SignUpForm = () => {
     }
 
     return (
-        <form onSubmit={submitHandler}>
-            <div>
-                <label className={"form__login-label"}>Username</label>
-                <input 
-                    type="text"
-                    name="username"
-                    value={username}
-                    onChange={userHandler}
-                    className={"textbox__signin"}
-                />
-            </div>
-            <div>
-                <label className={"form__signin-label"}>Email</label>
-                <input 
-                    type="text"
-                    name="email"
-                    value={email}
-                    onChange={emailHandler}
-                    className={"textbox__signin"}
-                />
-            </div>
-            <div>
-                <label className={"form__signin-label"}>Password</label>
-                <input 
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={passwordHandler}
-                    className={"textbox__signin"}
-                />
-            </div>
-            <div>
-                <label className={"form__signin-label"}>Confirm Password</label>
-                <input 
-                    type="password"
-                    name="confirm"
-                    value={confirm}
-                    onChange={confirmHandler}
-                    className={"textbox__signin"}
-                />
-            </div>
-            <button type="submit">
+        <>
+            <div className={"signin__heading"}>
                 Sign Up
-            </button>
-        </form>
+            </div>
+            <form onSubmit={submitHandler} className={"form__login"}>
+                <div>
+                    <label className={"form__signin-label"}>Username</label>
+                    <input 
+                        type="text"
+                        name="username"
+                        value={username}
+                        onChange={userHandler}
+                        className={"textbox__signin"}
+                    />
+                </div>
+                <div>
+                    <label className={"form__signin-label"}>Email</label>
+                    <input 
+                        type="text"
+                        name="email"
+                        value={email}
+                        onChange={emailHandler}
+                        className={"textbox__signin"}
+                    />
+                </div>
+                <div>
+                    <label className={"form__signin-label"}>Password</label>
+                    <input 
+                        type="password"
+                        name="password"
+                        value={password}
+                        onChange={passwordHandler}
+                        className={"textbox__signin"}
+                    />
+                </div>
+                <div>
+                    <label className={"form__signin-label"}>Confirm Password</label>
+                    <input 
+                        type="password"
+                        name="confirm"
+                        value={confirm}
+                        onChange={confirmHandler}
+                        className={"textbox__signin"}
+                    />
+                </div>
+                <button type="submit" className={"button__signin"}>
+                    Sign Up
+                </button>
+            </form>
+        </>
     )
 }
 
