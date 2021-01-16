@@ -105,6 +105,7 @@
     cursor: pointer;  
     font-family: 'Roboto';
     margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 .button__home-login:hover {
@@ -120,6 +121,12 @@
     height: 60px;
     font-family: 'Gloria Hallelujah'; 
     font-size: 44px;
+}
+
+.errors__container-login {
+    color: red; 
+    font-size: large;
+    font-weight: bold;
 }
 
 /* signin form */ 
@@ -157,7 +164,7 @@
 }
 
 .button__signin{
-    height: 50px; 
+    height: 45px; 
     width: 250px; 
     border-radius: 3px; 
     border: rgba(0,0,0,0.3) 0px solid; 
@@ -168,8 +175,8 @@
     transition: background-color 0.4s;
     cursor: pointer;  
     font-family: 'Roboto';
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-bottom: 12px;
+    margin-top: 12px;
 }
 
 .button__signin:hover {
@@ -188,7 +195,7 @@
 }
 
 .button__home-signin { 
-    height: 50px; 
+    height: 45px; 
     width: 250px; 
     border-radius: 3px; 
     border: rgba(0,0,0,0.3) 0px solid; 
@@ -199,6 +206,7 @@
     transition: background-color 0.4s;
     cursor: pointer;  
     font-family: 'Roboto';
+    margin-bottom: 10px;
 }
 
 .button__home-signin:hover {
@@ -206,7 +214,8 @@
     background-color:purple;
 }
 
-.errors__container {
-    /* display:none;  */
-    height: 90px; 
+.errors__container-signin {
+    color: red; 
+    font-size: large;
+    font-weight: bold;
 }

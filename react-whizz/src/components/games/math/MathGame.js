@@ -47,7 +47,7 @@ const MathGame = () => {
         let valArr = Object.values(answers); 
         if (valArr.length === 10) {
             const go = document.querySelector('.questions__button');
-            go.style.backgroundColor = 'lightgreen';
+            go.style.backgroundColor = 'rgb(60, 255, 0)';
         }
     }, [answers])
     

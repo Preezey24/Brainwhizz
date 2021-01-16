@@ -7,11 +7,14 @@ import MathGame from './components/games/math/MathGame';
 import MemoryGame from './components/games/memory/MemoryGame';
 import Drawing from './components/drawing/Drawing'; 
 import './index.css'; 
+import chalkboard from './images/chalkboard.jpg';
+import math from './images/math-background.jpeg';
 
 export const AuthContext = React.createContext();
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); 
 
   const user = useSelector(state => state.session.user); 
   useEffect(() => {
@@ -32,9 +35,9 @@ function App() {
           }
         </Route>
         <Route path='/math'>
-          {/* {isAuthenticated && */}
+          {isAuthenticated &&
             <MathGame />
-          {/* } */}
+          }
         </Route>
         <Route path='/memory'>
         {isAuthenticated &&
@@ -45,6 +48,10 @@ function App() {
             <Drawing /> 
         </Route>
       </Switch>
+      <div id="preload">
+        <img src={chalkboard}/>
+        <img src={math}/>
+      </div>
     </>
   );
 }

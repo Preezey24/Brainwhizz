@@ -33,11 +33,6 @@ const SignUpForm = ({onClose}) => {
         setConfirm(e.target.value); 
     }
 
-    if (errors) {
-        const container = document.querySelector('.errors__container'); 
-        container.style.display = 'block'; 
-    } 
-
     return (
         <>
             <div className={"signin__heading"}>
@@ -90,11 +85,11 @@ const SignUpForm = ({onClose}) => {
                 <button onClick={onClose} className={"button__home-signin"}>
                     Return
                 </button>
-                <div className={"errors__container"}>
+                <div className={"errors__container-signin"}>
                     {errors && errors.map(error => {
                         return (
                             <>
-                                <span>{error}</span>
+                                <div>{error}</div>
                             </>
                         )
                     })}

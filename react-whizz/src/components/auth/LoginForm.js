@@ -55,11 +55,11 @@ const LoginForm = ({onClose}) => {
                 <button onClick={onClose} className={"button__home-login"}>
                     Return
                 </button>
-                <div className={"errors__container"}>
+                <div className={"errors__container-login"}>
                     {errors && errors.map(error => {
                         return (
                             <>
-                                <span>{error}</span>
+                                <div>{error}</div>
                             </>
                         )
                     })}
