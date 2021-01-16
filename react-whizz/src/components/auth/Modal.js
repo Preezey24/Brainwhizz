@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
+import './Auth.css';
 
 const MODAL_STYLES = {
     position: 'fixed', 
     top: '50%', 
     left: '50%', 
+    borderRadius: '5px',
     transform: 'translate(-50%, -50%)', 
-    backgroundColor: 'red', 
-    padding: '50px', 
-    zIndex: 1000
+    backgroundColor: 'rgb(96, 255, 255)', 
+    zIndex: 1000,
+    height: '430px',
+    width: '300px'
 }
 
 const OVERLAY_STYLE = {
@@ -45,7 +48,7 @@ const Modal = ({open, onClose, children}) => {
             <div style={OVERLAY_STYLE} />
             <div style={MODAL_STYLES}>
                 {children}
-                <button onClick={onClose}>Home Page</button>
+                <button onClick={onClose} className={"button__home"}>Return</button>
             </div>
         </>
     )

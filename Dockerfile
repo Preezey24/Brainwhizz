@@ -4,7 +4,7 @@ WORKDIR /react-whizz
 COPY react-whizz/. .
 
 # You have to set this because it should be set during build time.
-ENV REACT_APP_BASE_URL=https://brainwhizz.herokuapp.com
+ENV REACT_APP_BASE_URL=https://brainwhizz.herokuapp.com/
 
 # Build our React App
 RUN npm install

@@ -4,8 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton'; 
 import LoginFormModal from '../auth/LoginFormModal'; 
 import SignUpModal from '../auth/SignUpModal'; 
-import './Navigation.css'; 
-import icon from '../../images/brain_icon.png'; 
+import './Navigation.css';  
 
 const Navigation = () => {
     const sessionUser = useSelector(state => state.session.user); 

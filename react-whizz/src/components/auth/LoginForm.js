@@ -1,6 +1,7 @@
 import React, { useState } from 'react'; 
 import { useDispatch } from 'react-redux';  
-import { logIn } from '../../store/reducers/session'
+import { logIn } from '../../store/reducers/session'; 
+import './Auth.css'; 
 
 const LoginForm = () => {
     const dispatch = useDispatch();  
@@ -22,29 +23,36 @@ const LoginForm = () => {
     
 
     return ( 
-        <form onSubmit={submitHandler}>
-            <div>
-                <label>Email</label>
-                <input 
-                    type="text"
-                    name="email"
-                    value={email}
-                    onChange={emailHandler}
-                />
+        <>
+            <div className={"login__heading"}>
+                Login
             </div>
-            <div>
-                <label>Password</label>
-                <input 
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={passwordHandler}
-                />
-            </div>
-            <button type="submit">
-                Log In 
-            </button>
-        </form>
+            <form onSubmit={submitHandler} className={"form__login"}>
+                <div>
+                    <label className={"form__login-label"}>Email</label>
+                    <input 
+                        type="text"
+                        name="email"
+                        value={email}
+                        onChange={emailHandler}
+                        className={"textbox__login"}
+                    />
+                </div>
+                <div>
+                    <label className={"form__login-label"}>Password</label>
+                    <input 
+                        type="password"
+                        name="password"
+                        value={password}
+                        onChange={passwordHandler}
+                        className={"textbox__login"}
+                    />
+                </div>
+                <button type="submit" className={"button__login"}>
+                    Log In 
+                </button>
+            </form>
+        </>
     );
 }
 

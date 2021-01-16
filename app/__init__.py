@@ -1,4 +1,4 @@
-from flask import Flask, request 
+from flask import Flask, request, redirect 
 from flask_sqlalchemy import SQLAlchemy 
 from flask_migrate import Migrate
 from flask_login import LoginManager  
@@ -55,4 +55,10 @@ def inject_csrf_token(response):
                         httponly=True)
     return response  
 
-# @app.route('/', defaults={'path': ''})
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def react_root(path):
+    print("path", path)
+    if path == 'favicon.ico':
+        return app.send_static_file('favicon.ico')
+    return app.send_static_file('index.html')

@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
+/* nav buttons */
+.nav__login-button {
+    width: 100px;
+    height: 40px; 
+    margin: 10px 5px; 
+    border-radius: 3px; 
+    border: none; 
+    font-family: 'Roboto';
+    background-color: cornflowerblue;
+    cursor: pointer;
+    font-size: 28px;
+}
+
+.nav__login-button:hover {
+    color: rgb(197, 6, 255); 
+    background-color:purple;
+    font-weight: bold;
+}
+
+.nav__signup-button {
+    width: 120px;
+    height: 40px; 
+    margin: 10px 5px; 
+    border-radius: 3px; 
+    border: none; 
+    font-family: 'Roboto';
+    background-color: greenyellow;
+    cursor: pointer;
+    font-size: 28px;
+}
+
+.nav__signup-button:hover {
+    color: rgb(238, 255, 0); 
+    background-color: rgb(255, 0, 0);
+    font-weight: bold;
+}
+
+/* login form */
+.form__login {
+    height: 86%; 
+    width: 300px;
+    box-sizing: border-box; 
+    padding-left: 30px;  
+    display: flex;
+    flex-direction: column;
+    margin-right: 0px;
+}
+
+.form__login-label {
+    display: block; 
+    padding-left: 5px;
+    font-family: 'Gloria Hallelujah';
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.textbox__login {
+    height:40px; 
+    width: 250px; 
+    box-sizing: border-box; 
+    border: none;
+    padding: 10px; 
+    margin-bottom: 15px;
+    background-color: rgb(255, 191, 252);
+}
+
+.textbox__login:focus{
+    background: white; 
+}
+
+.button__login{
+    height: 50px; 
+    width: 250px; 
+    border-radius: 3px; 
+    border: rgba(0,0,0,0.3) 0px solid; 
+    box-sizing:border-box;
+    background: greenyellow;
+    font-weight:bold;
+    font-size: 28px;
+    transition: background-color 0.4s;
+    cursor: pointer;  
+    font-family: 'Roboto';
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.button__login:hover {
+    color: rgb(255, 145, 0); 
+    background-color: rgb(255, 0, 0);
+}
+
+.button__home{
+    position: absolute;
+    top: 350px; 
+    height: 50px; 
+    width: 250px; 
+    border-radius: 3px; 
+    border: rgba(0,0,0,0.3) 0px solid; 
+    box-sizing:border-box;
+    background:  cornflowerblue;
+    font-weight:bold;
+    font-size: 28px;
+    transition: background-color 0.4s;
+    cursor: pointer;  
+    font-family: 'Roboto';
+    margin-left: 30px; 
+}
+
+.button__home:hover {
+    color: rgb(197, 6, 255); 
+    background-color:purple;
+}
+
+.login__heading {
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items:flex-end;
+    height: 60px;
+    font-family: 'Gloria Hallelujah'; 
+    font-size: 44px;
+}
+
+/* signin form */ 
+.textbox__signin {
+    height:20px; 
+    width: 250px; 
+    box-sizing: border-box; 
+    border: none;
+    padding: 10px; 
+    margin-bottom: 15px;
+    background-color: rgb(255, 191, 252);
+}
+
+.textbox__signin:focus{
+    background: white; 
+}

@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
 .nav__container {
     display: grid; 
     box-sizing: border-box;
+    border-bottom: solid rgb(249, 253, 5);
     height: 100%;
     grid-template-columns: 20fr 60fr 20fr;
     grid-template-areas: 
     "home logo auth";
+    background-color: rgb(250, 246, 207);
 }
 
 .nav__div-home {
@@ -17,6 +21,7 @@
     grid-area: auth;
     display: flex; 
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .nav__div-prof {
@@ -31,12 +36,14 @@
     display: flex; 
     justify-content: center;
     align-items: center;
-    font-size: 28px;
+    font-size: 34px;
+    font-family: 'Gloria Hallelujah';
 }
 
 .nav__icon {
-    width: 40px; 
-    height: 40px; 
+    width: 50px; 
+    height: 55px;
+    margin-right: 15px; 
     background: url('../../images/brain_icon.png');
     background-size: cover;
 }

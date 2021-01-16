@@ -1,6 +1,7 @@
 import React, { useState } from 'react'; 
 import { useDispatch } from 'react-redux';  
-import { signUp } from '../../store/reducers/session'
+import { signUp } from '../../store/reducers/session';
+import './Auth.css'; 
 
 const SignUpForm = () => {
     const dispatch = useDispatch(); 
@@ -34,39 +35,43 @@ const SignUpForm = () => {
     return (
         <form onSubmit={submitHandler}>
             <div>
-                <label>Username</label>
+                <label className={"form__login-label"}>Username</label>
                 <input 
                     type="text"
                     name="username"
                     value={username}
                     onChange={userHandler}
+                    className={"textbox__signin"}
                 />
             </div>
             <div>
-                <label>Email</label>
+                <label className={"form__signin-label"}>Email</label>
                 <input 
                     type="text"
                     name="email"
                     value={email}
                     onChange={emailHandler}
+                    className={"textbox__signin"}
                 />
             </div>
             <div>
-                <label>Password</label>
+                <label className={"form__signin-label"}>Password</label>
                 <input 
                     type="password"
                     name="password"
                     value={password}
                     onChange={passwordHandler}
+                    className={"textbox__signin"}
                 />
             </div>
             <div>
-                <label>Confirm Password</label>
+                <label className={"form__signin-label"}>Confirm Password</label>
                 <input 
                     type="password"
                     name="confirm"
                     value={confirm}
                     onChange={confirmHandler}
+                    className={"textbox__signin"}
                 />
             </div>
             <button type="submit">

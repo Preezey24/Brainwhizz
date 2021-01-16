@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Modal from './Modal'; 
 import LoginForm from './LoginForm'; 
 import { removeErrors } from '../../store/reducers/session'
+import './Auth.css'; 
 
 function LoginFormModal() {
     const [showModal, setShowModal] = useState(false); 
@@ -16,7 +17,7 @@ function LoginFormModal() {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>
+            <button className={"nav__login-button"} onClick={() => setShowModal(true)}>
                 Log In
             </button>
             <Modal open={showModal} onClose={modalClose}>

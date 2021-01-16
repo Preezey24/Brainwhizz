@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'; 
 import Modal from './Modal'; 
 import SignUpForm from './SignUpForm'; 
-import { removeErrors } from '../../store/reducers/session'
+import { removeErrors } from '../../store/reducers/session';
+import './Auth.css'
 
 function SignUpModal() { 
     const [showModal, setShowModal] = useState(false); 
@@ -16,7 +17,7 @@ function SignUpModal() {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>
+            <button className={"nav__signup-button"} onClick={() => setShowModal(true)}>
                 Sign Up
             </button>
             <Modal open={showModal} onClose={modalClose}>
