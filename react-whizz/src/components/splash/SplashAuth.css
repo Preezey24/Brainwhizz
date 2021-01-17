@@ -1,3 +1,9 @@
+@font-face {
+    src: url('../../images/fonts/Sabo-Filled.otf');
+    font-family: sabo;
+}
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
+
 .picture__div {
     position: fixed; 
     height: 400px;
@@ -10,12 +16,16 @@
 
 .math__div {
     width: 400px;
-    height: 300px;
+    height: 275px;
     position: fixed;
     top: 100px; 
     left: 95px;
     border-radius: 5px;
+    border: 5px solid rgb(255, 191, 252);
     background-color: rgb(96, 255, 255);
+    font-family: sabo;
+    font-size: 70px;
+    color: rgb(255, 191, 252);
 }
 
 .math__div:hover {
@@ -28,17 +38,45 @@
     height: 100%; 
     top: 0; 
     left: 0; 
-    z-index: 1;
+}
+
+.math__heading {
+    position: absolute; 
+    left: 90px; 
+}
+
+.math__calculator {
+    position: absolute;
+    top: 180px; 
+    left: 40px;
+    transform: rotate(-0.05turn);
+}
+
+.math__divide {
+    position: absolute;
+    top: 180px; 
+    left: 160px; 
+}
+
+.math__equals {
+    position: absolute; 
+    top: 180px; 
+    left: 285px; 
+    transform: rotate(0.05turn);
 }
 
 .memory__div {
     width: 400px;
-    height: 300px;
+    height: 275px;
     position: fixed;
     top: 100px;
     left: 1050px; 
     border-radius: 5px;
+    border: 5px solid rgb(255, 191, 252);
     background-color: rgb(96, 255, 255);
+    font-family: sabo;
+    color: rgb(255, 191, 252);
+    font-size: 70px;
 }
 
 .memory__link-span {
@@ -47,11 +85,47 @@
     height: 100%; 
     top: 0; 
     left: 0; 
-    z-index: 1;
 }
 
 .memory__div:hover {
     animation: rotate 1s linear both;
+}
+
+.memory__heading_one {
+    position: absolute; 
+    left: 40px; 
+}
+
+.memory__heading_two {
+    position: absolute;
+    top: 80px; 
+    left: 90px; 
+}
+
+.memory__eye {
+    position: absolute;
+    top: 180px; 
+    left: 40px;
+    width: 80px; 
+    height: 80px;
+    transform: rotate(-0.05turn);
+}
+
+.memory__light {
+    position: absolute;
+    top: 180px; 
+    left: 280px;
+    width: 80px; 
+    height: 80px;
+    transform: rotate(0.05turn);
+}
+
+.memory__mind {
+    position: absolute;
+    top: 180px; 
+    left: 160px;
+    width: 80px; 
+    height: 80px;
 }
 
 .drawing__div {
@@ -61,7 +135,11 @@
     top: 100px;
     left: 640px;  
     border-radius: 5px;
+    border: 5px solid rgb(255, 191, 252);
     background-color: rgb(96, 255, 255); 
+    font-family: "Londrina Outline";
+    color: rgb(255, 191, 252);
+    font-size: 75px;
 }
 
 .drawing__div:hover {
@@ -76,6 +154,24 @@
     top: 0; 
     left: 0; 
     z-index: 1;
+}
+
+.drawing__pic {
+    position: absolute;
+    top: 90px; 
+    left: 10px;
+    width: 80px; 
+    height: 80px;
+    transform: rotate(-0.02turn);
+}
+
+.drawing__gallery {
+    position: absolute;
+    top: 90px; 
+    left: 160px;
+    width: 80px; 
+    height: 80px;
+    transform: rotate(0.02turn);
 }
 
 @keyframes shake {

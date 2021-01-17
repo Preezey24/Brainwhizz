@@ -33,7 +33,7 @@ const Navigation = () => {
             {sessionUser && 
                 <div className={"nav__div-home"}>  
                     <button className={"nav__home-button"}>
-                        <Link style={{"text-decoration": "none"}} to="/">
+                        <Link style={{"textDecoration": "none"}} to="/">
                             Home
                         </Link>
                     </button>
