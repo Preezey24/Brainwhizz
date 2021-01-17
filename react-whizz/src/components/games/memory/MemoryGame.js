@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect, useRef } from 'react'; 
 import {useHistory} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Clock from './Clock'; 
@@ -8,15 +8,17 @@ import Main from './Main';
 import { randColor } from '../../component_utils/memory';
 import './Memory.css'; 
 import { setUser } from '../../../store/reducers/session';
+import {FcElectronics} from 'react-icons/fc';
+import {IoLogoXbox} from 'react-icons/io5'; 
 
 //so data persists passed certain re-rendering
 let answerArr = []; 
-//total score during game session 
-let score = 0;
-//high score during game session 
-let gameScore = 0; 
 
 const MemoryGame = () => {
+    //useRef for the score components so that they do not update on re-render
+    const gameScore = useRef(0);
+    const score = useRef(0);
+
     const history = useHistory();
     const dispatch = useDispatch();  
     //validate user is authenticated
@@ -36,8 +38,8 @@ const MemoryGame = () => {
             nextColor = randColor(); 
         }
         setColors([...colors, nextColor]); 
-        score++; 
-        gameScore++; 
+        score.current += 1; 
+        gameScore.current += 1; 
         setCounter(3); 
         answerArr = []; 
         const container = document.getElementById('lights'); 
@@ -80,7 +82,7 @@ const MemoryGame = () => {
                             }, 
                             body: JSON.stringify({
                                 email: user.email, 
-                                gameScore,
+                                gameScore: gameScore.current,
                             }),
                         });
                         if (response.ok) {
@@ -108,7 +110,7 @@ const MemoryGame = () => {
         setTime('02:00');
         setIsOpen(false); 
         setCounter(3)
-        gameScore=0; 
+        gameScore.current = 0; 
         setColors([]); 
     }
 
@@ -123,7 +125,7 @@ const MemoryGame = () => {
                     }, 
                     body: JSON.stringify({
                         email: user.email, 
-                        score, 
+                        score: score.current, 
                     }),
                 });
                 if (response.ok) {
@@ -141,21 +143,29 @@ const MemoryGame = () => {
     }
     
     return (
-        <>
+        <div className={"page__memory"}>
             <Main mainClick={mainClick} colors={colors}/>
             <div className={"container__lights"} id={'lights'}>
-                <Light lightClick={lightClick} id={'red'} style={{backgroundColor: 'red'}}/>
-                <Light lightClick={lightClick} id={'blue'} style={{backgroundColor: 'blue'}}/>
-                <Light lightClick={lightClick} id={'green'} style={{backgroundColor: 'green'}}/>
-                <Light lightClick={lightClick} id={'yellow'} style={{backgroundColor: 'yellow'}}/>
-                <Light lightClick={lightClick} id={'purple'} style={{backgroundColor: 'purple'}}/>
+                <FcElectronics className={"container__electronics"}/>
+                <IoLogoXbox className={"container__xbox"}/>
+                <div className={"container__xbox-dot"} />
+                <Light lightClick={lightClick} id={'red'} style={{backgroundColor: 'red',
+                position: 'absolute', top: '210px', left: '230px'}}/>
+                <Light lightClick={lightClick} id={'blue'} style={{backgroundColor: 'blue',
+                position: 'absolute', top: '210px', left: '-140px'}}/>
+                <Light lightClick={lightClick} id={'green'} style={{backgroundColor: 'green', 
+                position: 'absolute', top: '120px', left: '-40px', width: "80px", height: "80px"}}/>
+                <Light lightClick={lightClick} id={'yellow'} style={{backgroundColor: 'yellow',
+                position: 'absolute', top: '120px', left: '140px', width: "80px", height: "80px"}}/>
+                <Light lightClick={lightClick} id={'purple'} style={{backgroundColor: 'purple',
+                position: 'absolute', top: '210px', left: '40px'}}/>
             </div>
             <button onClick={mainClick} id={'go'} className={"button__go"}>Go</button>  
             <Clock time={time} setTime={setTime} counter={counter} setCounter={setCounter}/>
             <div>
                 <Modal open={isOpen} score={score} playAgain={playAgain} exitGame={exitGame}/>
             </div>
-        </>
+        </div>
     )
 }
 

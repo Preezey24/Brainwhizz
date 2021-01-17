@@ -11,17 +11,8 @@ const Clock = ({time, setTime, counter, setCounter}) => {
     }, [counter]); 
 
     return (
-       <div>
-           <h1>Countdown</h1>
-           <p>
-            <span>
-                Time: 
-            </span>
-            <span>
-                {time}  
-            </span>
-           </p>
-       </div> 
+       <>
+       </> 
     )
 }
 

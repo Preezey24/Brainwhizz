@@ -1,3 +1,13 @@
+.page__memory {
+    width: 100vw; 
+    height: calc(100vh - 40px);
+    background: url('../../../images/pastel-light-goo.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .main {
     position: fixed;
     top: 30%;
@@ -12,19 +22,63 @@
 
 .container__lights {
     position: fixed; 
-    top: 50%;
+    top: 60%;
     left: 50%; 
     transform: translate(-50%, -50%);
-    display: none; 
+    display: none;
+    border-bottom: 300px solid grey;
+    border-left: 200px solid transparent; 
+    border-right: 200px solid transparent; 
+    height: 40px;
+    width: 200px; 
+}
+
+.container__electronics {
+    position: absolute; 
+    width: 70px; 
+    height: 70px; 
+    top: 240px;
+    left: -25px; 
+}
+
+.container__xbox {
+    position: absolute; 
+    width: 60px; 
+    height: 60px; 
+    top: 250px;
+    left: 165px; 
+}
+
+.container__xbox-dot {
+    height: 50px; 
+    width: 50px; 
+    position: absolute;
+    top: 255px;
+    left: 170px;
+    border-radius: 50%;
+    background-color: yellowgreen;
+    z-index: -1;
 }
 
 .light {
-    height: 50px; 
-    width: 50px; 
+    height: 100px; 
+    width: 100px; 
     border-radius: 50%;
     display: inline-block; 
     border: solid black; 
+    box-shadow: -5px 10px  rgba(0,0,0,0.6);;
 }
+
+.light__blue {
+    position: absolute; 
+
+}
+
+.light__yellow {
+    position: absolute; 
+    
+}
+
 
 span.light {
     margin: 0 10px; 
