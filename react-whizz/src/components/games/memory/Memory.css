@@ -10,10 +10,10 @@
 
 .main {
     position: fixed;
-    top: 30%;
+    top: 20%;
     left: 45%; 
-    height: 80px; 
-    width: 80px; 
+    height: 140px; 
+    width: 140px; 
     border-radius: 50%;
     display: inline-block; 
     border: solid black; 
@@ -22,7 +22,7 @@
 
 .container__lights {
     position: fixed; 
-    top: 60%;
+    top: 75%;
     left: 50%; 
     transform: translate(-50%, -50%);
     display: none;
@@ -60,25 +60,53 @@
     z-index: -1;
 }
 
+.container__dashboard {
+    position:absolute; 
+    top: 150px;
+    left: 80px;  
+    width: 50px; 
+    height: 50px; 
+}
+
+.container__turret {
+    position: absolute; 
+    left: -5px; 
+    top: -20px; 
+    width: 200px; 
+    height: 200px; 
+}
+
+/*laser animation */
+.container__laser-one-div {
+    position: absolute; 
+    top: -110px; 
+    left: 69px; 
+    width: 15px; 
+    height: 140px; 
+    background-color:red;
+}
+
+.container__laser-two-div {
+    position: absolute; 
+    top: -110px; 
+    left: 105px; 
+    width: 15px; 
+    height: 140px; 
+    background-color:red;
+}
+
 .light {
     height: 100px; 
     width: 100px; 
     border-radius: 50%;
     display: inline-block; 
     border: solid black; 
-    box-shadow: -5px 10px  rgba(0,0,0,0.6);;
+    box-shadow: -5px 10px  rgba(0,0,0,0.6);
 }
 
-.light__blue {
-    position: absolute; 
-
+.light:hover {
+    opacity: 0.6;
 }
-
-.light__yellow {
-    position: absolute; 
-    
-}
-
 
 span.light {
     margin: 0 10px; 

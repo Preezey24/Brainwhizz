@@ -10,6 +10,8 @@ import './Memory.css';
 import { setUser } from '../../../store/reducers/session';
 import {FcElectronics} from 'react-icons/fc';
 import {IoLogoXbox} from 'react-icons/io5'; 
+import {VscDashboard} from 'react-icons/vsc'; 
+import turret from '../../../images/turret.png'
 
 //so data persists passed certain re-rendering
 let answerArr = []; 
@@ -146,9 +148,19 @@ const MemoryGame = () => {
         <div className={"page__memory"}>
             <Main mainClick={mainClick} colors={colors}/>
             <div className={"container__lights"} id={'lights'}>
+                {/* <div className={"container__turret-rectangle"}/>
+                <div className={"container__turret-circle"}/> */}
+                <img src={turret} className={"container__turret"}/>
+                <div className={"container__laser-one-div"}>
+                    <svg></svg>
+                </div>
+                <div className={"container__laser-two-div"}>
+                    <svg></svg>
+                </div>
                 <FcElectronics className={"container__electronics"}/>
                 <IoLogoXbox className={"container__xbox"}/>
-                <div className={"container__xbox-dot"} />
+                <VscDashboard className={"container__dashboard"}/>
+                <div className={"container__xbox-dot"}></div>
                 <Light lightClick={lightClick} id={'red'} style={{backgroundColor: 'red',
                 position: 'absolute', top: '210px', left: '230px'}}/>
                 <Light lightClick={lightClick} id={'blue'} style={{backgroundColor: 'blue',
