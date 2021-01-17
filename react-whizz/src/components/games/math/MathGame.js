@@ -181,7 +181,7 @@ const MathGame = () => {
     };
     
     return (
-        <div className={"page"}>
+        <div className={"page__math"}>
             <Clock time={time} setTime={setTime} counter={counter} setCounter={setCounter} />
             <div className={"chalkboard__div"}>
                 <h2 className={"chalkboard__heading"}>Math Questions</h2>

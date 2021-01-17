@@ -26,7 +26,7 @@ const SplashAuth = () => {
     }
 
     return (
-        <> 
+        <div className={"page__main"}> 
             <i class="fab fa-accessible-icon"></i>
             <div className={"math__div"}>
                 <NavLink to='/math'>
@@ -65,7 +65,7 @@ const SplashAuth = () => {
             <div className={"picture__div"}>
                 {drawing}
             </div>
-        </>
+        </div>
     )
 }
 

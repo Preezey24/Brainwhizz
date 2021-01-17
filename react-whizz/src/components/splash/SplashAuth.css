@@ -4,6 +4,12 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
 
+.page__main {
+    width: 100vw; 
+    height: calc(100vh - 40px);
+    background-color: #adeecf;
+}
+
 .picture__div {
     position: fixed; 
     height: 400px;
@@ -11,7 +17,8 @@
     top: 70%; 
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: blue;
+    background-color: white;
+    border: 5px solid rgb(255, 191, 252);
 }
 
 .math__div {
@@ -137,9 +144,9 @@
     border-radius: 5px;
     border: 5px solid rgb(255, 191, 252);
     background-color: rgb(96, 255, 255); 
-    font-family: "Londrina Outline";
+    font-family: sabo;
     color: rgb(255, 191, 252);
-    font-size: 75px;
+    font-size: 50px;
 }
 
 .drawing__div:hover {
