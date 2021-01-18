@@ -95,7 +95,7 @@ const Drawing = () => {
             if (response.ok) {
                 const data = await response.json(); 
                 dispatch(setUser(data));
-                history.push('/');
+                history.push('/home');
             }
         } catch (err) {
             console.log(err); 

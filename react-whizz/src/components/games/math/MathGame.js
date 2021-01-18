@@ -162,7 +162,7 @@ const MathGame = () => {
         updateScore(); 
         gameScore.current = 0;
         score.current = 0;
-        history.push('/')
+        history.push('/home')
     }
 
     //animate div movement from right to left, as if it were being replaced 

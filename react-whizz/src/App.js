@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom'; 
+import { Switch, Route, useHistory } from 'react-router-dom'; 
 import { useSelector } from 'react-redux'; 
 import SplashAuth from './components/splash/SplashAuth'; 
 import NavBar from './components/navigation/NavBar';
@@ -14,12 +14,13 @@ export const AuthContext = React.createContext();
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); 
+  const history = useHistory(); 
 
   const user = useSelector(state => state.session.user); 
   useEffect(() => {
     if (user) {
       setIsAuthenticated(true); 
+      history.push('/home'); 
     }
   }, [user]);
 
@@ -29,15 +30,15 @@ function App() {
         <NavBar />
       </AuthContext.Provider>
       <Switch>
-        <Route exact path='/'>
-          {isAuthenticated &&
-          <SplashAuth/>
-          }
+        <Route exact path='/home'>
+          {(isAuthenticated) 
+          ? <SplashAuth/>
+          : console.log("hello there")}
         </Route>
         <Route path='/math'>
-          {isAuthenticated &&
-            <MathGame />
-          }
+          {(isAuthenticated)
+            ? <MathGame />
+          : history.push("/")}
         </Route>
         <Route path='/memory'>
         {isAuthenticated &&

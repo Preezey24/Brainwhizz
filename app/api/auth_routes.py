@@ -57,7 +57,7 @@ def login():
 @login_required
 def logout(): 
     logout_user()
-    return {'message': 'User logged out'}
+    return redirect("/")
 
 
 

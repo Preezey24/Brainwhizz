@@ -181,7 +181,7 @@ const MemoryGame = () => {
         updateScore(); 
         gameScore = 0;
         score = 0;
-        history.push('/');
+        history.push('/home');
     }
     
     return (
