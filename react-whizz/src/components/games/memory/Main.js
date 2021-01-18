@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react'; 
+import React from 'react'; 
 import { Style } from 'react-style-tag';
 import './Memory.css'; 
 
-const Main = ({mainClick, colors}) => {
-    // const [step, setStep] = useState(0);
+const Main = ({colors}) => {
     //establish text string to be input into style tag with dynamic update to steps 
     function keyFrameUpdate(colorArr) {
         let keyFrame = `@keyframes main {`; 
@@ -11,7 +10,7 @@ const Main = ({mainClick, colors}) => {
         let transition = 100/colors.length;
         colorArr.forEach((color) => {
             if (step === 0) {
-                keyFrame+=`{ ${step}% { background: white; }`
+                keyFrame+=`{ ${step}% { background: black; }`
             }
             keyFrame+=` ${step+=transition}% { background: ${color}; }`
         })

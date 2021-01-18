@@ -8,10 +8,12 @@ import Main from './Main';
 import { randColor } from '../../component_utils/memory';
 import './Memory.css'; 
 import { setUser } from '../../../store/reducers/session';
+import {IconContext} from "react-icons"; 
 import {FcElectronics} from 'react-icons/fc';
 import {IoLogoXbox} from 'react-icons/io5'; 
 import {VscDashboard} from 'react-icons/vsc'; 
-import turret from '../../../images/turret.png'
+import turret from '../../../images/turret.png';
+import {AiFillFire} from 'react-icons/ai'; 
 
 //so data persists passed certain re-rendering
 let answerArr = []; 
@@ -28,7 +30,7 @@ const MemoryGame = () => {
     //memory light color array, that contains the correct answers
     const [colors, setColors] = useState([]);  
     //countdown clock
-    const [time, setTime] = useState('02:00'); 
+    const [time, setTime] = useState('00:03'); 
     const [counter, setCounter] = useState(3);
     //modal states 
     const [isOpen, setIsOpen] = useState(false);  
@@ -69,35 +71,45 @@ const MemoryGame = () => {
     const lightClick = (e) => {
         const light = document.getElementById(e.target.id); 
         light.animate([{backgroundColor: `${light.id}`}, {backgroundColor: 'white'}, 
-                        {backgroundColor: `${light.id}`}], 1500); 
+                        {backgroundColor: `${light.id}`}], 600); 
         answerArr.push(light.id);
         //activate laser one
         const laserOne = document.getElementById("laserOne");
+        const flameOne = document.getElementById("flameOne");  
         laserOne.setAttribute("stroke", light.id); 
         let lengthOne = 0; 
         let lineDashArrayOne;
         const laserAdvanceOne = setInterval(() => {
-            lineDashArrayOne = `${lengthOne += 28} 140`
-            laserOne.setAttribute("stroke-dasharray", lineDashArrayOne)
+            lineDashArrayOne = `${lengthOne += 28} 140`;
+            laserOne.setAttribute("stroke-dasharray", lineDashArrayOne);
         }, 100);
         setTimeout(() => {
             clearInterval(laserAdvanceOne);
             laserOne.setAttribute("stroke-dasharray", "0 140");
+            flameOne.style.display = "block"; 
         }, 600);
+        setTimeout(() => {
+            flameOne.style.display = "none"; 
+        }, 800)
 
         //activate laser two
         const laserTwo = document.getElementById("laserTwo");
+        const flameTwo = document.getElementById("flameTwo");
         laserTwo.setAttribute("stroke", light.id); 
         let lengthTwo = 0; 
         let lineDashArrayTwo;
         const laserAdvanceTwo = setInterval(() => {
-            lineDashArrayTwo = `${lengthTwo += 28} 140`
-            laserTwo.setAttribute("stroke-dasharray", lineDashArrayTwo)
+            lineDashArrayTwo = `${lengthTwo += 28} 140`;
+            laserTwo.setAttribute("stroke-dasharray", lineDashArrayTwo);
         }, 100);
         setTimeout(() => {
             clearInterval(laserAdvanceTwo);
             laserTwo.setAttribute("stroke-dasharray", "0 140"); 
+            flameTwo.style.display = "block";
         }, 600);
+        setTimeout(() => {
+            flameTwo.style.display = "none"; 
+        }, 800)
         
         //check answer
         answerArr.forEach((answer, i) => {
@@ -137,7 +149,7 @@ const MemoryGame = () => {
     //when button is clicked on modal to play again 
     const playAgain = () => {
         //reset everything for new game
-        setTime('02:00');
+        setTime('00:03');
         setIsOpen(false); 
         setCounter(3)
         gameScore.current = 0; 
@@ -176,8 +188,6 @@ const MemoryGame = () => {
         <div className={"page__memory"}>
             <Main mainClick={mainClick} colors={colors}/>
             <div className={"container__lights"} id={'lights'}>
-                {/* <div className={"container__turret-rectangle"}/>
-                <div className={"container__turret-circle"}/> */}
                 <img src={turret} className={"container__turret"}/>
                 <div className={"container__laser-one-div"}>
                     <svg className={"container__laser-one-svg"} xmlns="http://www.w3.org/2000/svg">
@@ -193,8 +203,18 @@ const MemoryGame = () => {
                 </div>
                 <FcElectronics className={"container__electronics"}/>
                 <IoLogoXbox className={"container__xbox"}/>
-                <VscDashboard className={"container__dashboard"}/>
                 <div className={"container__xbox-dot"}></div>
+                <VscDashboard className={"container__dashboard"}/>
+                <div id={"flameOne"} className={"container__flame-divOne"}>
+                    <IconContext.Provider value={{color:"orange", size: "40px"}}>
+                        <AiFillFire/>
+                    </IconContext.Provider>
+                </div>
+                <div id={"flameTwo"} className={"container__flame-divTwo"}>
+                    <IconContext.Provider value={{color:"orange", size: "40px"}}>
+                        <AiFillFire/>
+                    </IconContext.Provider>
+                </div>
                 <Light lightClick={lightClick} id={'red'} style={{backgroundColor: 'red',
                 position: 'absolute', top: '210px', left: '230px'}}/>
                 <Light lightClick={lightClick} id={'blue'} style={{backgroundColor: 'blue',
@@ -206,7 +226,9 @@ const MemoryGame = () => {
                 <Light lightClick={lightClick} id={'purple'} style={{backgroundColor: 'purple',
                 position: 'absolute', top: '210px', left: '40px'}}/>
             </div>
-            <button onClick={mainClick} id={'go'} className={"button__go"}>Go</button>  
+            <button onClick={mainClick} id={'go'} className={"button__go"}>
+                <span style={{position:"absolute", top: "-10px", left: "25px"}}>Go</span>
+            </button>  
             <Clock time={time} setTime={setTime} counter={counter} setCounter={setCounter}/>
             <div>
                 <Modal open={isOpen} score={score} playAgain={playAgain} exitGame={exitGame}/>

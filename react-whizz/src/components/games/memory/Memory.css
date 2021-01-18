@@ -10,19 +10,20 @@
 
 .main {
     position: fixed;
-    top: 20%;
+    top: 15%;
     left: 45%; 
     height: 140px; 
     width: 140px; 
     border-radius: 50%;
     display: inline-block; 
-    border: solid black; 
+    border: solid black;
+    background-color: black; 
     animation: main 3s; 
 }
 
 .container__lights {
     position: fixed; 
-    top: 75%;
+    top: 68%;
     left: 50%; 
     transform: translate(-50%, -50%);
     display: none;
@@ -75,6 +76,20 @@
     width: 200px; 
     height: 200px; 
     z-index: -1;
+}
+
+.container__flame-divOne {
+    position: absolute;
+    top: -140px;
+    left: 55px; 
+    display:none;
+}
+
+.container__flame-divTwo {
+    position: absolute;
+    top: -140px;
+    left: 95px; 
+    display:none;
 }
 
 /*laser animation */
@@ -132,5 +147,14 @@ span.light {
 }
 
 .button__go {
+    position: fixed; 
+    left: 47%; 
+    top: 92%;
     display: none; 
+    width: 100px;
+    height: 50px; 
+    border-radius: 5px;
+    font-size: 32px;
+    font-family: 'Gloria Hallelujah';
+    background-color: green;
 }
