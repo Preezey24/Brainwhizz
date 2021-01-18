@@ -114,17 +114,19 @@ const Drawing = () => {
                     ref={canvasRef}
                 />
             </div>
-            <select id={"line-weight"} onChange={changeLine}>
-                <option value={'light'}>Light</option>
-                <option value={'medium'}>Medium</option>
-                <option value={'heavy'}>Heavy</option>
-            </select>
-            <button id={'red'} onClick={changeColor}>Red</button>
-            <button id={'green'} onClick={changeColor}>Green</button>
-            <button id={'blue'} onClick={changeColor}>Blue</button>
-            <button onClick={reset}>Reset</button>
-            <button onClick={save}>Save</button>
-            <button onClick={final}>Final Submit</button>
+            <div className={"container__paint"}>
+                <select id={"line-weight"} className={"dropdown"} onChange={changeLine}>
+                    <option value={'light'}>Light</option>
+                    <option value={'medium'}>Medium</option>
+                    <option value={'heavy'}>Heavy</option>
+                </select>
+                <button id={'red'} className={"paint__red"} onClick={changeColor}/>
+                <button id={'green'} className={"paint__green"} onClick={changeColor}/>
+                <button id={'blue'} className={"paint__blue"} onClick={changeColor}/>
+                <button onClick={reset} className={"paint__reset"}>Reset</button>
+                <button onClick={save} className={"paint__save"}>Save</button>
+            </div>
+                <button onClick={final} className={"paint__save"}>Final Submit</button>
         </div>
     )
 }

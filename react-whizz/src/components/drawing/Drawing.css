@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
 .page__draw {
     width: 100vw; 
     height: calc(100vh - 40px); 
@@ -24,4 +26,84 @@
     left: 28%; 
     height: 800px; 
     width: 650px; 
+}
+
+.container__paint {
+    position: fixed; 
+    top: 88%;
+    left: 33%;
+    width: 500px; 
+}
+
+.dropdown {
+    position: absolute; 
+    left: 82%;
+    font-family: 'Gloria Hallelujah';
+    font-size: 20px;
+    background-color: darkgoldenrod;
+    border: chocolate solid; 
+    border-radius: 15px;
+}
+
+.paint__green {
+    position: absolute; 
+    top: 0; 
+    left: 52%; 
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color:green;
+}
+
+.paint__blue {
+    position: absolute; 
+    top: 0; 
+    left: 62%; 
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color:blue;
+}
+
+.paint__red {
+    position: absolute; 
+    top: 0; 
+    left: 72%; 
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+}
+
+.paint__save {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    font-size: 20px; 
+    font-family: 'Gloria Hallelujah';
+    border: solid chocolate;
+    border-radius: 15%;
+    background-color:darkgoldenrod;
+}
+
+.paint__save:hover {
+    opacity: 0.7;
+}
+
+.paint__reset {
+    position: absolute; 
+    top: 0; 
+    left: 15%; 
+    font-size: 20px; 
+    font-family: 'Gloria Hallelujah';
+    border: solid chocolate;
+    border-radius: 15%;
+    background-color:darkgoldenrod;
+}
+
+.paint__reset:hover {
+    opacity: 0.7;
 }
