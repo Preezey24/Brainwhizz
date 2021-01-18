@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {useHistory} from 'react-router-dom'; 
 import './Drawing.css';
 import { setUser } from '../../store/reducers/session';
+import board from '../../images/draw_board.png'; 
 
 const Drawing = () => {
     const user = useSelector(state => state.session.user);
@@ -20,8 +21,8 @@ const Drawing = () => {
     useEffect(() => {
         const canvas = canvasRef.current;
         //support higher resolution computers 
-        canvas.width = 400;
-        canvas.height = 400;
+        canvas.width = 500;
+        canvas.height = 500;
         //define 2D api for canvas to draw on
         const context = canvas.getContext("2d");
         context.lineCap = "round";
@@ -104,13 +105,15 @@ const Drawing = () => {
 
     return (
         <div className={"page__draw"}>
-            <canvas
-                style={{border: "black solid"}}
-                onMouseDown={startDrawing}
-                onMouseUp={finishDrawing}
-                onMouseMove={draw}
-                ref={canvasRef}
-            />
+            <img src={board} className={"container__canvas-board"}/>
+            <div className={"container__canvas"}>
+                <canvas
+                    onMouseDown={startDrawing}
+                    onMouseUp={finishDrawing}
+                    onMouseMove={draw}
+                    ref={canvasRef}
+                />
+            </div>
             <select id={"line-weight"} onChange={changeLine}>
                 <option value={'light'}>Light</option>
                 <option value={'medium'}>Medium</option>

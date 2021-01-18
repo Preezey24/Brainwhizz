@@ -9,11 +9,19 @@
 }
 
 .container__canvas {
-    /* position: fixed;  */
-    top: '50%'; 
-    left: '50%'; 
-    width: 500px;
-    height: 500px; 
-    border: solid black; 
+    position: fixed; 
+    top: 54%; 
+    left: 49%; 
+    transform: translate(-50%, -50%);
+    width: 480px;
+    height: 475px;  
     overflow: hidden; 
+}
+
+.container__canvas-board {
+    position: absolute; 
+    top: 8%; 
+    left: 28%; 
+    height: 800px; 
+    width: 650px; 
 }
