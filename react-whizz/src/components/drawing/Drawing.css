@@ -107,3 +107,24 @@
 .paint__reset:hover {
     opacity: 0.7;
 }
+
+.paint__submit {
+    width: 150px;
+    position: absolute; 
+    top: 13%; 
+    left: 32.3%;
+    font-size: 26px; 
+    font-family: 'Gloria Hallelujah';
+    border: solid chocolate;
+    border-radius: 15%;
+    background-color:darkgoldenrod;
+    margin: 0; 
+    cursor: pointer;
+}
+
+.paint__submit:hover {
+    background-color: rgb(96, 255, 255);
+    color: rgb(255, 191, 252);
+    border:rgb(255, 191, 252) solid; 
+    font-weight: bold;
+}

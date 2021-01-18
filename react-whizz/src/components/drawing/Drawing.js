@@ -126,7 +126,9 @@ const Drawing = () => {
                 <button onClick={reset} className={"paint__reset"}>Reset</button>
                 <button onClick={save} className={"paint__save"}>Save</button>
             </div>
-                <button onClick={final} className={"paint__save"}>Final Submit</button>
+                <button onClick={final} className={"paint__submit"}>
+                    <span>Submit</span>
+                </button>
         </div>
     )
 }
