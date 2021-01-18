@@ -9,6 +9,7 @@ import Drawing from './components/drawing/Drawing';
 import './index.css'; 
 import chalkboard from './images/chalkboard.jpg';
 import math from './images/math-background.jpeg';
+import draw from './images/draw_background.jpg'; 
 
 export const AuthContext = React.createContext();
 
@@ -52,6 +53,7 @@ function App() {
       <div id="preload">
         <img src={chalkboard}/>
         <img src={math}/>
+        <img src={draw}/>
       </div>
     </>
   );

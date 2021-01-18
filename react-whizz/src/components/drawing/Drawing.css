@@ -1,3 +1,13 @@
+.page__draw {
+    width: 100vw; 
+    height: calc(100vh - 40px); 
+    background: url('../../images/draw_background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .container__canvas {
     /* position: fixed;  */
     top: '50%'; 
@@ -5,5 +15,5 @@
     width: 500px;
     height: 500px; 
     border: solid black; 
-    /* overflow: hidden;  */
+    overflow: hidden; 
 }

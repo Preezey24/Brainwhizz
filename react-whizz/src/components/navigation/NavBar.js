@@ -42,7 +42,9 @@ const Navigation = () => {
             }
             <div className={"nav__div-title"}>
                 <span className={"nav__icon"}/>
-                Brainwhizz
+                <span className={"nav__title"}>
+                    Brainwhizz
+                </span>
             </div>
             {sessionLinks}
         </div>

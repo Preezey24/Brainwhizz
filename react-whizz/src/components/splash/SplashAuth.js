@@ -11,19 +11,21 @@ const SplashAuth = () => {
 
     let drawing; 
     if (user) {
-        drawing = (
-            <>
-                <img src={user.image_url}/>
-            </>
-        )
-    } else {
-        drawing = (
-            <p>
-                Open up your creative side, 
-                draw yourself! 
-            </p>
-        )
-    }
+        if (user.image_url) {
+            drawing = (
+                <>
+                    <img src={user.image_url}/>
+                </>
+            )
+        } else {
+            drawing = (
+                <p>
+                    Open up your creative side, 
+                    draw yourself! 
+                </p>
+            )
+        }
+    };
 
     return (
         <div className={"page__main"}> 

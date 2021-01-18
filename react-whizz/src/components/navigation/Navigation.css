@@ -3,7 +3,6 @@
 .nav__container {
     display: grid; 
     box-sizing: border-box;
-    border-bottom: solid rgb(249, 253, 5);
     height: 100%;
     grid-template-columns: 20fr 60fr 20fr;
     grid-template-areas: 
@@ -34,18 +33,25 @@
 
 .nav__div-title {
     grid-area: logo;
-    height: 100%;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    font-size: 34px;
+    height: 115%;
+    position: relative; 
+}
+
+.nav__title {
+    position: absolute;
+    top: -25%;
+    left: 40%; 
+    font-size: 48px;
     font-family: 'Gloria Hallelujah';
 }
 
 .nav__icon {
-    width: 50px; 
-    height: 55px;
-    margin-right: 15px; 
+    position: absolute;
+    left: 32%;
+    top: -8%; 
+    width: 70px; 
+    height: 65px;
+    margin-right: 20px; 
     background: url('../../images/brain_icon.png');
     background-size: cover;
 }

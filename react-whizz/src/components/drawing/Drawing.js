@@ -103,7 +103,7 @@ const Drawing = () => {
     };
 
     return (
-        <>
+        <div className={"page__draw"}>
             <canvas
                 style={{border: "black solid"}}
                 onMouseDown={startDrawing}
@@ -122,7 +122,7 @@ const Drawing = () => {
             <button onClick={reset}>Reset</button>
             <button onClick={save}>Save</button>
             <button onClick={final}>Final Submit</button>
-        </>
+        </div>
     )
 }
 
