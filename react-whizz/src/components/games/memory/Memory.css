@@ -74,16 +74,29 @@
     top: -20px; 
     width: 200px; 
     height: 200px; 
+    z-index: -1;
 }
 
 /*laser animation */
 .container__laser-one-div {
     position: absolute; 
     top: -110px; 
-    left: 69px; 
+    left: 70px; 
     width: 15px; 
     height: 140px; 
-    background-color:red;
+}
+
+.container__laser-one-svg {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 15px; 
+    height: 140px; 
+}
+
+.container__laser-beam {
+    stroke: red; 
+    stroke-width: 28px;
 }
 
 .container__laser-two-div {
@@ -92,7 +105,14 @@
     left: 105px; 
     width: 15px; 
     height: 140px; 
-    background-color:red;
+}
+
+.container__laser-two-svg {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 15px; 
+    height: 140px; 
 }
 
 .light {

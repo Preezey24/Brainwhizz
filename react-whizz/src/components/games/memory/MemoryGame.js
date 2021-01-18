@@ -70,7 +70,32 @@ const MemoryGame = () => {
         const light = document.getElementById(e.target.id); 
         light.animate([{backgroundColor: `${light.id}`}, {backgroundColor: 'white'}, 
                         {backgroundColor: `${light.id}`}], 1500); 
-        answerArr.push(light.id);  
+        answerArr.push(light.id);
+        
+        //activate laser one
+        const laserOne = document.getElementById("laserOne");
+        let lengthOne = 0; 
+        let lineDashArrayOne;
+        const laserAdvanceOne = setInterval(() => {
+            lineDashArrayOne = `${lengthOne += 28} 140`
+            laserOne.setAttribute("stroke-dasharray", lineDashArrayOne)
+        }, 100);
+        setTimeout(() => {
+            clearInterval(laserAdvanceOne);
+        }, 500);
+
+        //activate laser two
+        const laserTwo = document.getElementById("laserTwo");
+        let lengthTwo = 0; 
+        let lineDashArrayTwo;
+        const laserAdvanceTwo = setInterval(() => {
+            lineDashArrayTwo = `${lengthTwo += 28} 140`
+            laserTwo.setAttribute("stroke-dasharray", lineDashArrayTwo)
+        }, 100);
+        setTimeout(() => {
+            clearInterval(laserAdvanceTwo);
+        }, 500);
+        
         //check answer
         answerArr.forEach((answer, i) => {
             if (answer !== colors[i]) {
@@ -152,10 +177,16 @@ const MemoryGame = () => {
                 <div className={"container__turret-circle"}/> */}
                 <img src={turret} className={"container__turret"}/>
                 <div className={"container__laser-one-div"}>
-                    <svg></svg>
+                    <svg className={"container__laser-one-svg"} xmlns="http://www.w3.org/2000/svg">
+                        <line id={"laserOne"} className={"container__laser-beam"} x1="0" y1="140" x2="0" y2="0" 
+                        strokeDasharray="0 140"/>
+                    </svg>
                 </div>
                 <div className={"container__laser-two-div"}>
-                    <svg></svg>
+                    <svg className={"container__laser-two-svg"} xmlns="http://www.w3.org/2000/svg">
+                        <line id={"laserTwo"} className={"container__laser-beam"} x1="0" y1="140" x2="0" y2="0" 
+                        strokeDasharray="0 140"/>
+                    </svg>
                 </div>
                 <FcElectronics className={"container__electronics"}/>
                 <IoLogoXbox className={"container__xbox"}/>

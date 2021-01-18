@@ -12,6 +12,7 @@ const Clock = ({time, setTime, counter, setCounter}) => {
 
     return (
        <>
+        {time}
        </> 
     )
 }
