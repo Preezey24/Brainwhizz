@@ -71,9 +71,9 @@ const MemoryGame = () => {
         light.animate([{backgroundColor: `${light.id}`}, {backgroundColor: 'white'}, 
                         {backgroundColor: `${light.id}`}], 1500); 
         answerArr.push(light.id);
-        
         //activate laser one
         const laserOne = document.getElementById("laserOne");
+        laserOne.setAttribute("stroke", light.id); 
         let lengthOne = 0; 
         let lineDashArrayOne;
         const laserAdvanceOne = setInterval(() => {
@@ -82,10 +82,12 @@ const MemoryGame = () => {
         }, 100);
         setTimeout(() => {
             clearInterval(laserAdvanceOne);
-        }, 500);
+            laserOne.setAttribute("stroke-dasharray", "0 140");
+        }, 600);
 
         //activate laser two
         const laserTwo = document.getElementById("laserTwo");
+        laserTwo.setAttribute("stroke", light.id); 
         let lengthTwo = 0; 
         let lineDashArrayTwo;
         const laserAdvanceTwo = setInterval(() => {
@@ -94,7 +96,8 @@ const MemoryGame = () => {
         }, 100);
         setTimeout(() => {
             clearInterval(laserAdvanceTwo);
-        }, 500);
+            laserTwo.setAttribute("stroke-dasharray", "0 140"); 
+        }, 600);
         
         //check answer
         answerArr.forEach((answer, i) => {
