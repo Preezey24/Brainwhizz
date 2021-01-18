@@ -33,7 +33,7 @@ function App() {
         <Route exact path='/home'>
           {(isAuthenticated) 
           ? <SplashAuth/>
-          : console.log("hello there")}
+          : history.push('/')}
         </Route>
         <Route path='/math'>
           {(isAuthenticated)

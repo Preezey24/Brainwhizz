@@ -7,13 +7,13 @@ import { FcCalculator, FcIdea, FcPicture, FcClock, FcMindMap, FcFrame } from "re
 
 
 const SplashAuth = () => {
-    const imageURL = useSelector(state => state.session.user.image_url);  
+    const user = useSelector(state => state.session.user);  
 
     let drawing; 
-    if (imageURL) {
+    if (user) {
         drawing = (
             <>
-                <img src={imageURL}/>
+                <img src={user.image_url}/>
             </>
         )
     } else {

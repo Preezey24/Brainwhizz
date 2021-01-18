@@ -27,7 +27,8 @@ const Navigation = () => {
                 </div>
             </div>
         )
-    }
+    };
+
     return (
         <div className={"nav__container"}>
             {sessionUser && 

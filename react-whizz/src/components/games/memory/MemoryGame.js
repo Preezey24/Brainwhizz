@@ -179,8 +179,8 @@ const MemoryGame = () => {
             }
         }
         updateScore(); 
-        gameScore = 0;
-        score = 0;
+        gameScore.current = 0;
+        score.current = 0;
         history.push('/home');
     }
     
