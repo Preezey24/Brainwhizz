@@ -3,6 +3,7 @@
     font-family: sabo;
 }
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 
 .page__main {
     width: 100vw; 
@@ -20,6 +21,14 @@
     background-color: white;
     border: 5px solid rgb(255, 191, 252);
     overflow: hidden;
+}
+
+.picture__text {
+    position: absolute; 
+    top: 15%;
+    left: 12%;
+    font-family: 'Gloria Hallelujah';
+    font-size: 40px; 
 }
 
 .math__div {
@@ -78,7 +87,7 @@
     height: 275px;
     position: fixed;
     top: 100px;
-    left: 1050px; 
+    left: 1035px; 
     border-radius: 5px;
     border: 5px solid rgb(255, 191, 252);
     background-color: rgb(96, 255, 255);

@@ -19,10 +19,10 @@ const SplashAuth = () => {
             )
         } else {
             drawing = (
-                <p>
+                <span className={"picture__text"}>
                     Open up your creative side, 
-                    draw yourself! 
-                </p>
+                    draw something! 
+                </span>
             )
         }
     };
