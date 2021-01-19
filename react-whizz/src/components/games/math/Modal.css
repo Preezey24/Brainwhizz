@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
+.overlay {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 1000; 
+}
+
+.modal {
+    position: fixed; 
+    top: 50%; 
+    left: 50%;
+    width: 310px;
+    height: 260px;  
+    transform: translate(-50%, -50%); 
+    background-color: rgb(96, 255, 255); 
+    color: black;
+    border:rgb(255, 191, 252) solid 8px; 
+    border-radius: 5px;
+    z-index: 1000;
+    border-radius: 15px;
+}
+
+.text__game {
+    position: absolute; 
+    top: 0; 
+    left: 5%; 
+    display: inline-block;
+    font-family: "Gloria Hallelujah";
+    font-size: 34px; 
+    font-weight: bold;
+    width: 180px;
+}
+
+.text__game::before{
+    content: "=> ";
+    color: black;
+}
+
+.text__session {
+    position: absolute; 
+    top: 25%; 
+    left: 5%; 
+    display: inline-block;
+    font-family: "Gloria Hallelujah";
+    font-size: 32px; 
+    font-weight: bold;
+    width: 350px;
+}
+
+.text__session::before{
+    content: "=> ";
+    color: black;
+}
+
+.button__again{
+    height: 60px; 
+    width: 120px; 
+    position: absolute; 
+    top: 68%;
+    left: 54%; 
+    border-radius: 3px; 
+    border: rgba(0,0,0,0.3) 0px solid; 
+    box-sizing:border-box;
+    background: greenyellow;
+    font-weight:bold;
+    font-size: 22px;
+    transition: background-color 0.4s;
+    cursor: pointer;  
+    font-family: 'Roboto';
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+.button__again:hover {
+    color: rgb(255, 145, 0); 
+    background-color: rgb(255, 0, 0);
+}
+
+.button__home { 
+    height: 60px; 
+    width: 120px;  
+    position: absolute; 
+    top: 67%;
+    left: 7%; 
+    border-radius: 3px; 
+    border: rgba(0,0,0,0.3) 0px solid; 
+    box-sizing:border-box;
+    background:  cornflowerblue;
+    font-weight:bold;
+    font-size: 22px;
+    transition: background-color 0.4s;
+    cursor: pointer;  
+    font-family: 'Roboto';
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.button__home:hover {
+    color: rgb(197, 6, 255); 
+    background-color:purple;
+}
