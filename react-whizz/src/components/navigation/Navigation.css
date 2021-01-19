@@ -12,8 +12,7 @@
 
 .nav__div-home {
     grid-area: home;
-    display: flex;
-    justify-content: center;
+    position: relative; 
 }
 
 .nav__div-auth {
@@ -57,6 +56,10 @@
 }
 
 .nav__home-button {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
     height: 40px; 
     width: 100px; 
     border-radius: 3px; 

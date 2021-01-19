@@ -231,7 +231,7 @@ const MemoryGame = () => {
             </button>  
             <Clock time={time} setTime={setTime} counter={counter} setCounter={setCounter}/>
             <div>
-                <Modal open={isOpen} score={score} playAgain={playAgain} exitGame={exitGame}/>
+                <Modal open={isOpen} gameScore={gameScore} score={score} playAgain={playAgain} exitGame={exitGame}/>
             </div>
         </div>
     )
