@@ -1,31 +1,29 @@
 import React from 'react'; 
-import { Style } from 'react-style-tag';
 import './Memory.css'; 
 
 const Main = ({colors}) => {
     //establish text string to be input into style tag with dynamic update to steps 
     function keyFrameUpdate(colorArr) {
-        let keyFrame = `@keyframes main {`; 
+        let keyFrame = []; 
         let step = 0;
-        let transition = 100/colors.length;
+        let transition = 100/colors.length/100;
         colorArr.forEach((color) => {
             if (step === 0) {
-                keyFrame+=`{ ${step}% { background: black; }`
+                keyFrame.push({ step: '{ background: black }'});
             }
-            keyFrame+=` ${step+=transition}% { background: ${color}; }`
+            step += transition; 
+            keyFrame.push({ step: `{ background: ${color} }`});
         })
-        keyFrame+=` }`
         return keyFrame;
     };
 
-    const keyFrameColors = keyFrameUpdate(colors);
+    const main = document.getElementById("main__light");
+    main.animate(keyFrameUpdate(colors))
     
     return (
         <>        
             <div className={"main"}>
-                <Style> 
-                {`${keyFrameColors}`}
-                </Style>
+                {colors && main}
             </div>
         </>
     )
