@@ -129,7 +129,7 @@ const MemoryGame = () => {
                         });
                         if (response.ok) {
                             const data = await response.json(); 
-                            console.log(data);
+                            console.log(data);  
                         }
                     } catch (err) {
                         console.log(err); 

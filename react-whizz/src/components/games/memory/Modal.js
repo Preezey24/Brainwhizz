@@ -10,8 +10,8 @@ const Modal = ({open, playAgain, score, exitGame, gameScore}) => {
             <div className={"modal"}>
                 <button onClick={playAgain} className={"button__again"}>Play Again</button>
                 <button onClick={exitGame} className={"button__home"}>Home</button>
-                <p className={"text__game"}>Score: {gameScore.current}</p>
-                <p className={"text__session"}>{score.current}</p>
+                <span className={"text__game"}>Score: {gameScore.current}</span>
+                <span className={"text__session"}>Session Score: {score.current}</span>
             </div>
         </>
     )

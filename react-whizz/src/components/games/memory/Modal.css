@@ -15,14 +15,13 @@
     position: fixed; 
     top: 50%; 
     left: 50%;
-    width: 180px;
-    height: 140px;  
+    width: 310px;
+    height: 260px;  
     transform: translate(-50%, -50%); 
     background-color: rgb(96, 255, 255); 
     color: black;
     border:rgb(255, 191, 252) solid 8px; 
     border-radius: 5px;
-    padding: 50px; 
     z-index: 1000;
     border-radius: 15px;
 }
@@ -30,25 +29,41 @@
 .text__game {
     position: absolute; 
     top: 0; 
-    width: 0; 
+    left: 5%; 
+    display: inline-block;
     font-family: "Gloria Hallelujah";
-    font-size: 28px; 
+    font-size: 34px; 
+    font-weight: bold;
+    width: 180px;
+}
+
+.text__game::before{
+    content: "=> ";
+    color: black;
 }
 
 .text__session {
     position: absolute; 
-    top: 0; 
-    width: 0; 
+    top: 25%; 
+    left: 5%; 
+    display: inline-block;
     font-family: "Gloria Hallelujah";
-    font-size: 28px; 
+    font-size: 32px; 
+    font-weight: bold;
+    width: 350px;
+}
+
+.text__session::before{
+    content: "=> ";
+    color: black;
 }
 
 .button__again{
     height: 60px; 
     width: 120px; 
     position: absolute; 
-    top: 59%;
-    left: 53%; 
+    top: 68%;
+    left: 54%; 
     border-radius: 3px; 
     border: rgba(0,0,0,0.3) 0px solid; 
     box-sizing:border-box;
@@ -71,8 +86,8 @@
     height: 60px; 
     width: 120px;  
     position: absolute; 
-    top: 58%;
-    left: 4%; 
+    top: 67%;
+    left: 7%; 
     border-radius: 3px; 
     border: rgba(0,0,0,0.3) 0px solid; 
     box-sizing:border-box;
