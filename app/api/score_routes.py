@@ -54,7 +54,7 @@ def memory_high():
         user.memory_high = score 
         db.session.commit()      
         return user.memory_hiscore()
-    return user.to_dict() 
+    return ('', 204)
     
 @score_routes.route('/memory', methods=['PUT'])
 @login_required 

@@ -33,7 +33,9 @@ const MemoryGame = () => {
     const [time, setTime] = useState('00:03'); 
     const [counter, setCounter] = useState(3);
     //modal states 
-    const [isOpen, setIsOpen] = useState(false);  
+    const [isOpen, setIsOpen] = useState(false);
+    //high score 
+    const [high, setHigh] = useState({});
 
     //test button click 
     const mainClick = () => {
@@ -129,7 +131,10 @@ const MemoryGame = () => {
                         });
                         if (response.ok) {
                             const data = await response.json(); 
-                            console.log(data);  
+                            if (data.hasOwnProperty('success')) {
+                                setHigh(data);
+                                console.log(data); 
+                            }  
                         }
                     } catch (err) {
                         console.log(err); 
@@ -231,7 +236,8 @@ const MemoryGame = () => {
             </button>  
             <Clock time={time} setTime={setTime} counter={counter} setCounter={setCounter}/>
             <div>
-                <Modal open={isOpen} gameScore={gameScore} score={score} playAgain={playAgain} exitGame={exitGame}/>
+                <Modal open={isOpen} gameScore={gameScore} score={score} playAgain={playAgain} 
+                high={high} exitGame={exitGame}/>
             </div>
         </div>
     )
