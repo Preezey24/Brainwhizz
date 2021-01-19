@@ -11,7 +11,7 @@ const Modal = ({open, playAgain, score, exitGame, gameScore, high}) => {
                 <button onClick={playAgain} className={"button__again"}>Play Again</button>
                 <button onClick={exitGame} className={"button__home"}>Home</button>
                 <span className={"text__game"}>Score: {gameScore.current}</span>
-                <span className={"text__session"}>Session Score: {score.current}</span>
+                <span className={"text__session"}>Session Score:{score.current}</span>
                 {high &&
                     <span className={"text__high"}>NEW HIGH SCORE!!</span>
                 }

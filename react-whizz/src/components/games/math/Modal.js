@@ -1,7 +1,7 @@
 import React from 'react';
 import './Modal.css';
 
-const Modal = ({open, score, playAgain, gameScore, exitGame}) => {
+const Modal = ({open, score, playAgain, gameScore, exitGame, high}) => {
     if (!open) return null;    
     
     return (
@@ -11,7 +11,10 @@ const Modal = ({open, score, playAgain, gameScore, exitGame}) => {
                 <button onClick={playAgain} className={"button__again"}>Play Again</button>
                 <button onClick={exitGame} className={"button__home"}>Home</button>
                 <span className={"text__game"}>Score: {gameScore.current}</span>
-                <span className={"text__session"}>Session Score: {score.current}</span>
+                <span className={"text__session"}>Session Score:{score.current}</span>
+                {high &&
+                    <span className={"text__high"}>NEW HIGH SCORE!!</span>   
+                }
             </div>
         </>
     )

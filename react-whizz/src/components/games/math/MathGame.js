@@ -25,6 +25,8 @@ const MathGame = () => {
     const [counter, setCounter] = useState(60);
     //modal states 
     const [isOpen, setIsOpen] = useState(false);  
+    //high score
+    const [high, setHigh] = useState({});
 
     //calculate the actual answers for comparison with user input 
     let ansArr = []; 
@@ -111,7 +113,9 @@ const MathGame = () => {
                     });
                     if (response.ok) {
                         const data = await response.json(); 
-                        console.log(data);
+                        if (data.hasOwnProperty('success')) {
+                            setHigh(data);
+                        }  
                     }
                 } catch (err) {
                     console.log(err); 
@@ -215,7 +219,8 @@ const MathGame = () => {
             <button className={"questions__button"} onClick={submitHandler}>GO >>></button>
             {timeUp &&
                 <div>
-                    <Modal open={isOpen} gameScore={gameScore} score={score} playAgain={playAgain} exitGame={exitGame}/>
+                    <Modal open={isOpen} gameScore={gameScore} score={score} playAgain={playAgain} 
+                    high={high} exitGame={exitGame}/>
                 </div> 
             }
         </div>

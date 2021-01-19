@@ -18,7 +18,7 @@ def math_high():
         user.math_high = score 
         db.session.commit()      
         return user.math_hiscore()
-    return user.to_dict()
+    return ('', 204)
 
 @score_routes.route('/math', methods=['PUT'])
 @login_required

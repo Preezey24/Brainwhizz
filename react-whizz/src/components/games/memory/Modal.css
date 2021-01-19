@@ -29,7 +29,7 @@
 .text__game {
     position: absolute; 
     top: 0; 
-    left: 5%; 
+    left: 1%; 
     display: inline-block;
     font-family: "Gloria Hallelujah";
     font-size: 34px; 
@@ -45,7 +45,7 @@
 .text__session {
     position: absolute; 
     top: 22%; 
-    left: 5%; 
+    left: 1%; 
     display: inline-block;
     font-family: "Gloria Hallelujah";
     font-size: 32px; 

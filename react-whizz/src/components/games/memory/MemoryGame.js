@@ -133,7 +133,6 @@ const MemoryGame = () => {
                             const data = await response.json(); 
                             if (data.hasOwnProperty('success')) {
                                 setHigh(data);
-                                console.log(data); 
                             }  
                         }
                     } catch (err) {

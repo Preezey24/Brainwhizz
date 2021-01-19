@@ -29,7 +29,7 @@
 .text__game {
     position: absolute; 
     top: 0; 
-    left: 5%; 
+    left: 1%; 
     display: inline-block;
     font-family: "Gloria Hallelujah";
     font-size: 34px; 
@@ -44,8 +44,8 @@
 
 .text__session {
     position: absolute; 
-    top: 25%; 
-    left: 5%; 
+    top: 22%; 
+    left: 1%; 
     display: inline-block;
     font-family: "Gloria Hallelujah";
     font-size: 32px; 
@@ -56,6 +56,17 @@
 .text__session::before{
     content: "=> ";
     color: black;
+}
+
+.text__high {
+    position: absolute; 
+    top: 45%; 
+    left: 3%; 
+    display: inline-block;
+    font-family: "Gloria Hallelujah";
+    font-size: 32px; 
+    font-weight: bold;
+    width: 350px;
 }
 
 .button__again{
