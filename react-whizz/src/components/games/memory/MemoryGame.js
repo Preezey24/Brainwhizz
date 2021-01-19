@@ -3,8 +3,7 @@ import {useHistory} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Clock from './Clock'; 
 import Modal from './Modal'; 
-import Light from './Light'; 
-import Main from './Main'; 
+import Light from './Light';  
 import { randColor } from '../../component_utils/memory';
 import './Memory.css'; 
 import { setUser } from '../../../store/reducers/session';
@@ -13,7 +12,7 @@ import {FcElectronics} from 'react-icons/fc';
 import {IoLogoXbox} from 'react-icons/io5'; 
 import {VscDashboard} from 'react-icons/vsc'; 
 import turret from '../../../images/turret.png';
-import {AiFillFire} from 'react-icons/ai'; 
+import {AiFillFire, AiOutlineConsoleSql} from 'react-icons/ai'; 
 
 //so data persists passed certain re-rendering
 let answerArr = []; 
@@ -29,6 +28,8 @@ const MemoryGame = () => {
     const user = useSelector(state => state.session.user);
     //memory light color array, that contains the correct answers
     const [colors, setColors] = useState([]);  
+    //set keyframes 
+    const [keyFrame, setKeyFrame] = useState([]); 
     //countdown clock
     const [time, setTime] = useState('00:03'); 
     const [counter, setCounter] = useState(3);
@@ -47,12 +48,20 @@ const MemoryGame = () => {
         score.current += 1; 
         gameScore.current += 1; 
         setCounter(3); 
-        answerArr = []; 
+        answerArr = [];
+        //keyframe animations for color dynamic transitions 
+        setKeyFrame([...keyFrame, {backgroundColor: `${nextColor}`}]);
+
         const container = document.getElementById('lights'); 
         container.setAttribute('style', 'display: none;'); 
         const button = document.getElementById('go'); 
         button.setAttribute('style', 'display: none;'); 
     }
+    
+    useEffect(() => {
+        const main = document.getElementById("main_light");
+        main.animate(keyFrame, 3000); 
+    }, [colors])
 
     //have the lights appear for the user to select after color transitions complete
     useEffect(() => {
@@ -129,11 +138,10 @@ const MemoryGame = () => {
                                 gameScore: gameScore.current,
                             }),
                         });
-                        if (response.ok) {
+                        if (response.ok) {  
+                            if (response.status === 204) return; 
                             const data = await response.json(); 
-                            if (data.hasOwnProperty('success')) {
-                                setHigh(data);
-                            }  
+                            setHigh(data); 
                         }
                     } catch (err) {
                         console.log(err); 
@@ -158,6 +166,8 @@ const MemoryGame = () => {
         setCounter(3)
         gameScore.current = 0; 
         setColors([]); 
+        setKeyFrame([]); 
+        setHigh({}); 
     }
 
     // when button is clicked on modal to quit game 
@@ -190,7 +200,7 @@ const MemoryGame = () => {
     
     return (
         <div className={"page__memory"}>
-            <Main mainClick={mainClick} colors={colors}/>
+            <div className={"main"} id={"main_light"}/>
             <div className={"container__lights"} id={'lights'}>
                 <img src={turret} className={"container__turret"}/>
                 <div className={"container__laser-one-div"}>

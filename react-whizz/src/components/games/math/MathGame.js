@@ -112,10 +112,9 @@ const MathGame = () => {
                         }),
                     });
                     if (response.ok) {
+                        if (response.status === 204) return;
                         const data = await response.json(); 
-                        if (data.hasOwnProperty('success')) {
-                            setHigh(data);
-                        }  
+                        setHigh(data); 
                     }
                 } catch (err) {
                     console.log(err); 
@@ -134,6 +133,7 @@ const MathGame = () => {
         setTimeUp(false); 
         setIsOpen(false); 
         setCounter(60);
+        setHigh({});
         gameScore.current = 0; 
         //clean up input fields, reset answers and give a new set of questions 
         for (let i = 0; i < 10; i++) {
