@@ -13,9 +13,9 @@
 
 .picture__div {
     position: fixed; 
-    height: 400px;
-    width: 400px; 
-    top: 70%; 
+    height: 450px;
+    width: 500px; 
+    top: 67%; 
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
@@ -35,8 +35,8 @@
     width: 400px;
     height: 275px;
     position: fixed;
-    top: 100px; 
-    left: 95px;
+    top: 15%; 
+    left: 4%;
     border-radius: 5px;
     border: 5px solid rgb(255, 191, 252);
     background-color: rgb(96, 255, 255);
@@ -86,8 +86,8 @@
     width: 400px;
     height: 275px;
     position: fixed;
-    top: 100px;
-    left: 1035px; 
+    top: 15%;
+    left: 69.5%; 
     border-radius: 5px;
     border: 5px solid rgb(255, 191, 252);
     background-color: rgb(96, 255, 255);
@@ -147,10 +147,10 @@
 
 .drawing__div {
     width: 250px;
-    height: 175px; 
+    height: 150px; 
     position: fixed;
-    top: 100px;
-    left: 640px;  
+    top: 11%;
+    left: 41%;  
     border-radius: 5px;
     border: 5px solid rgb(255, 191, 252);
     background-color: rgb(96, 255, 255); 
@@ -175,7 +175,7 @@
 
 .drawing__pic {
     position: absolute;
-    top: 90px; 
+    top: 70px; 
     left: 10px;
     width: 80px; 
     height: 80px;
@@ -184,7 +184,7 @@
 
 .drawing__gallery {
     position: absolute;
-    top: 90px; 
+    top: 70px; 
     left: 160px;
     width: 80px; 
     height: 80px;
