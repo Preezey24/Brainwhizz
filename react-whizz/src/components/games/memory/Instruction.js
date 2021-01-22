@@ -1,5 +1,6 @@
 import React from 'react'; 
 import './Modal.css'; 
+import './MemoryGame'; 
 
 const Instruction = ({isOpen, setIsOpen}) => {
     if (!isOpen) return null; 
@@ -19,7 +20,7 @@ const Instruction = ({isOpen, setIsOpen}) => {
                     Instructions: 
                         1. 
                 </p>
-                <button className={"button__again"} onClick={close}>Close</button>
+                <button className={"button__instruction"} onClick={close}>Close</button>
             </div>
         </>
     );

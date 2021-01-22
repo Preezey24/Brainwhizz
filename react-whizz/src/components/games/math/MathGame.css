@@ -110,6 +110,30 @@ html {
     color: rgb(255, 191, 252);
 }
 
+.button__instruction{
+    height: 60px; 
+    width: 120px; 
+    position: absolute; 
+    top: 68%;
+    left: 54%; 
+    border-radius: 3px; 
+    border: rgba(0,0,0,0.3) 0px solid; 
+    box-sizing:border-box;
+    background: greenyellow;
+    font-weight:bold;
+    font-size: 22px;
+    transition: background-color 0.4s;
+    cursor: pointer;  
+    font-family: 'Roboto';
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+.button__instruction:hover {
+    color: rgb(255, 145, 0); 
+    background-color: rgb(255, 0, 0);
+}
+
 @keyframes move {
     33% {
         transform: translate(55vw, -275px);
