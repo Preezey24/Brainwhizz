@@ -92,6 +92,19 @@
     display:none;
 }
 
+.memory__info {
+    width: 35px; 
+    height: 35px;
+    position: absolute; 
+    top: 750%;
+    left: -90%; 
+    color:rgb(96, 255, 255)
+}
+
+.memory__info:hover {
+    color: rgb(255, 191, 252);
+}
+
 /*laser animation */
 .container__laser-one-div {
     position: absolute; 

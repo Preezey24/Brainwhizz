@@ -224,13 +224,13 @@ const MathGame = () => {
                         }
                     })}
                 </div>
+                <div onClick={info}>
+                        <IconContext.Provider value={{className: 'math__info'}}>
+                            <IoInformationCircleSharp />
+                        </IconContext.Provider>
+                </div>
             </div>
             <button className={"questions__button"} onClick={submitHandler}>GO >>></button>
-            <div onClick={info}>
-                    <IconContext.Provider value={{className: 'math__info'}}>
-                        <IoInformationCircleSharp />
-                    </IconContext.Provider>
-            </div>
             <div>
                     <Instruction isOpen={infoModal} setIsOpen={setInfoModal}/>
             </div>

@@ -12,7 +12,9 @@ import {FcElectronics} from 'react-icons/fc';
 import {IoLogoXbox} from 'react-icons/io5'; 
 import {VscDashboard} from 'react-icons/vsc'; 
 import turret from '../../../images/turret.png';
-import {AiFillFire, AiOutlineConsoleSql} from 'react-icons/ai'; 
+import {AiFillFire} from 'react-icons/ai'; 
+import { IoInformationCircleSharp } from "react-icons/io5";
+import Instruction from './Instruction'; 
 
 //so data persists passed certain re-rendering
 let answerArr = []; 
@@ -37,6 +39,8 @@ const MemoryGame = () => {
     const [isOpen, setIsOpen] = useState(false);
     //high score 
     const [high, setHigh] = useState({});
+    //instruction modal 
+    const [infoModal, setInfoModal] = useState(false); 
 
     //test button click 
     const mainClick = () => {
@@ -158,6 +162,10 @@ const MemoryGame = () => {
         }
     };
 
+    const info = () => {
+        setInfoModal(true);  
+    }
+
     //when button is clicked on modal to play again 
     const playAgain = () => {
         //reset everything for new game
@@ -239,6 +247,14 @@ const MemoryGame = () => {
                 position: 'absolute', top: '120px', left: '140px', width: "80px", height: "80px"}}/>
                 <Light lightClick={lightClick} id={'purple'} style={{backgroundColor: 'purple',
                 position: 'absolute', top: '210px', left: '40px'}}/>
+                <div onClick={info}>
+                        <IconContext.Provider value={{className: 'memory__info'}}>
+                            <IoInformationCircleSharp />
+                        </IconContext.Provider>
+                </div>
+            </div>
+            <div>
+                    <Instruction isOpen={infoModal} setIsOpen={setInfoModal}/>
             </div>
             <button onClick={mainClick} id={'go'} className={"button__go"}>
                 <span style={{position:"absolute", top: "-10px", left: "25px"}}>Go</span>
