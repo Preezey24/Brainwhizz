@@ -4,6 +4,9 @@ import {useHistory} from 'react-router-dom';
 import './Drawing.css';
 import { setUser } from '../../store/reducers/session';
 import board from '../../images/draw_board.png'; 
+import { IoInformationCircleSharp } from "react-icons/io5";
+import { IconContext } from 'react-icons/lib';
+import Instruction from './Instruction'; 
 
 const Drawing = () => {
     const user = useSelector(state => state.session.user);
@@ -16,6 +19,8 @@ const Drawing = () => {
     const [isDrawing, setIsDrawing] = useState(false);
     //saving the canvas image 
     const [image, setImage] = useState({})
+    //modal for information
+    const [isOpen, setIsOpen] = useState(false); 
 
     //access canvas API when component mounts
     useEffect(() => {
@@ -80,6 +85,11 @@ const Drawing = () => {
             contextRef.current.canvas.width, contextRef.current.canvas.height));
     }
 
+    const info = () => {
+        console.log("hey")
+        setIsOpen(true);  
+    }
+
     const final = async () => {
         const imageURL = canvasRef.current.toDataURL(); 
         try {
@@ -123,9 +133,18 @@ const Drawing = () => {
                 <button id={'red'} className={"paint__red"} onClick={changeColor}/>
                 <button id={'green'} className={"paint__green"} onClick={changeColor}/>
                 <button id={'blue'} className={"paint__blue"} onClick={changeColor}/>
-                <button onClick={reset} className={"paint__reset"}>Reset</button>
+                <button id={'black'} className={"paint__black"} onClick={changeColor}/>
+                <button onClick={reset} className={"paint__reset"}>Clear</button>
                 <button onClick={save} className={"paint__save"}>Save</button>
             </div>
+                <div onClick={info}>
+                    <IconContext.Provider value={{className: 'paint__info'}}>
+                        <IoInformationCircleSharp />
+                    </IconContext.Provider>
+                </div>
+                <div>
+                    <Instruction isOpen={isOpen} setIsOpen={setIsOpen}/>
+                </div>                
                 <button onClick={final} className={"paint__submit"}>
                     <span>Submit</span>
                 </button>

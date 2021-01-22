@@ -78,6 +78,17 @@
     background-color: red;
 }
 
+.paint__black {
+    position: absolute; 
+    top: 0; 
+    left: 42%; 
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color:black;
+}
+
 .paint__save {
     position: absolute; 
     top: 0; 
@@ -112,7 +123,7 @@
     width: 150px;
     position: absolute; 
     top: 13%; 
-    left: 32.3%;
+    left: 56.3%;
     font-size: 26px; 
     font-family: 'Gloria Hallelujah';
     border: solid chocolate;
@@ -129,3 +140,64 @@
     font-weight: bold;
 }
 
+.paint__info {
+    width: 35px; 
+    height: 35px;
+    position: absolute; 
+    top: 16%;
+    left: 36%; 
+    color:rgb(96, 255, 255)
+}
+
+.paint__info:hover {
+    color: rgb(255, 191, 252);
+}
+
+.overlay {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 1000; 
+}
+
+.modal {
+    position: fixed; 
+    top: 50%; 
+    left: 50%;
+    width: 310px;
+    height: 260px;  
+    transform: translate(-50%, -50%); 
+    background-color: rgb(96, 255, 255); 
+    color: black;
+    border:rgb(255, 191, 252) solid 8px; 
+    border-radius: 5px;
+    z-index: 1000;
+    border-radius: 15px;
+}
+
+.button__again{
+    height: 60px; 
+    width: 120px; 
+    position: absolute; 
+    top: 68%;
+    left: 30%; 
+    border-radius: 3px; 
+    border: rgba(0,0,0,0.3) 0px solid; 
+    box-sizing:border-box;
+    background: greenyellow;
+    font-weight:bold;
+    font-size: 22px;
+    transition: background-color 0.4s;
+    cursor: pointer;  
+    font-family: 'Roboto';
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+.button__again:hover {
+    color: rgb(255, 145, 0); 
+    background-color: rgb(255, 0, 0);
+}

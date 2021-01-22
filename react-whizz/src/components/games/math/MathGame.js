@@ -6,6 +6,9 @@ import Modal from './Modal';
 import mathProblems from '../../component_utils/math_tables';
 import { setUser } from '../../../store/reducers/session';
 import './MathGame.css'; 
+import { IconContext } from 'react-icons/lib';
+import { IoInformationCircleSharp } from "react-icons/io5";
+import Instruction from './Instruction'; 
 
 const MathGame = () => {
     //useRef for the score components so that they do not update on re-render
@@ -27,6 +30,8 @@ const MathGame = () => {
     const [isOpen, setIsOpen] = useState(false);  
     //high score
     const [high, setHigh] = useState({});
+    //instruction modal 
+    const [infoModal, setInfoModal] = useState(false); 
 
     //calculate the actual answers for comparison with user input 
     let ansArr = []; 
@@ -124,6 +129,10 @@ const MathGame = () => {
         }
     }, [time]);
 
+    const info = () => {
+        setInfoModal(true);  
+    }
+
     //when button is clicked on modal to play again 
     const playAgain = () => {
         //reset everything for new game
@@ -217,6 +226,14 @@ const MathGame = () => {
                 </div>
             </div>
             <button className={"questions__button"} onClick={submitHandler}>GO >>></button>
+            <div onClick={info}>
+                    <IconContext.Provider value={{className: 'math__info'}}>
+                        <IoInformationCircleSharp />
+                    </IconContext.Provider>
+            </div>
+            <div>
+                    <Instruction isOpen={infoModal} setIsOpen={setInfoModal}/>
+            </div>
             {timeUp &&
                 <div>
                     <Modal open={isOpen} gameScore={gameScore} score={score} playAgain={playAgain} 
