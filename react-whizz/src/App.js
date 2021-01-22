@@ -6,6 +6,7 @@ import NavBar from './components/navigation/NavBar';
 import MathGame from './components/games/math/MathGame';
 import MemoryGame from './components/games/memory/MemoryGame';
 import Drawing from './components/drawing/Drawing'; 
+import Footer from './components/footer/Footer';
 import './index.css'; 
 import chalkboard from './images/chalkboard.jpg';
 import math from './images/math-background.jpeg';
@@ -43,14 +44,19 @@ function App() {
           : history.push("/")}
         </Route>
         <Route path='/memory'>
-        {isAuthenticated &&
-          <MemoryGame />
-        }
+        {(isAuthenticated) 
+          ? <MemoryGame />
+          : history.push("/")}
         </Route>
         <Route path='/drawing'>
-            <Drawing /> 
+          {(isAuthenticated)
+            ? <Drawing />
+            : history.push("/")}          
         </Route>
       </Switch>
+      {!isAuthenticated && 
+        <Footer /> 
+      }
       <div id="preload">
         <img src={chalkboard}/>
         <img src={math}/>
