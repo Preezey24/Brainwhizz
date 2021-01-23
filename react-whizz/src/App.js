@@ -54,9 +54,9 @@ function App() {
             : history.push("/")}          
         </Route>
       </Switch>
-      {!isAuthenticated && 
+      {/* {!isAuthenticated &&  */}
         <Footer /> 
-      }
+      {/* } */}
       <div id="preload">
         <img src={chalkboard}/>
         <img src={math}/>
