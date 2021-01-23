@@ -39,14 +39,14 @@
 .nav__title {
     position: absolute;
     top: -25%;
-    left: 40%; 
+    left: 38%; 
     font-size: 48px;
     font-family: 'Gloria Hallelujah';
 }
 
 .nav__icon {
     position: absolute;
-    left: 32%;
+    left: 28%;
     top: -8%; 
     width: 70px; 
     height: 65px;
