@@ -18,17 +18,19 @@
 }
 
 .footer_me {
-  grid-area: me; 
+  grid-area: me;
   display: flex; 
   flex-direction: column;
 }
 
 .footer_linked {
-  display: inline-block;
+  position: relative; 
+  height: 35px; 
 }
 
 .footer_git {
-  display: inline-block;
+  position: relative; 
+  height: 35px; 
 }
 
 .footer_icon_linked {
@@ -44,8 +46,9 @@
 }
 
 .footer_link {
+  height: 100%; 
   font-family: 'Roboto';
   font-size: 20px;
   text-decoration: none;
-  margin-left: 20px; 
+  margin-left: 20px;
 }

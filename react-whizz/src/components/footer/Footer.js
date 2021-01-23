@@ -23,17 +23,23 @@ const Footer = () => {
                             <GrLinkedin/>
                         </IconContext.Provider>
                     </span>
-                    <a className={"footer_link"} href= 'https://www.linkedin.com/in/rhysprevite/'>
-                        My LinkedIn
-                    </a>
+                    <span style={{height: "50%", position: "absolute", top: "20%"}}>
+                        <a className={"footer_link"} href= 'https://www.linkedin.com/in/rhysprevite/'>
+                            Rhys Previte
+                        </a>
+                    </span>
                 </span>
                 <span className={"footer_git"}>
-                    <IconContext.Provider value={{className: "footer_icon_git"}}>
-                        <GrGithub/>
-                    </IconContext.Provider>
-                    <a className={"footer_link"} href= 'https://github.com/Preezey24'>
-                        My GitHub
-                    </a>
+                    <span>
+                        <IconContext.Provider value={{className: "footer_icon_git"}}>
+                            <GrGithub/>
+                        </IconContext.Provider>
+                    </span>
+                    <span style={{height: "50%", position: "absolute", top: "10%"}}>
+                        <a className={"footer_link"} href= 'https://github.com/Preezey24'>
+                            My GitHub
+                        </a>
+                    </span>
                 </span>
             </div>
         </div>
