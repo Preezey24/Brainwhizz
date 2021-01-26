@@ -21,8 +21,8 @@ let answerArr = [];
 
 const MemoryGame = () => {
     //useRef for the score components so that they do not update on re-render
-    const gameScore = useRef(0);
-    const score = useRef(0);
+    const gameScore = useRef(-1);
+    const score = useRef(-1);
 
     const history = useHistory();
     const dispatch = useDispatch();  
