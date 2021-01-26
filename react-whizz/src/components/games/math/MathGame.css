@@ -114,8 +114,8 @@ html {
     height: 60px; 
     width: 120px; 
     position: absolute; 
-    top: 68%;
-    left: 54%; 
+    top: 83%;
+    left: 32%; 
     border-radius: 3px; 
     border: rgba(0,0,0,0.3) 0px solid; 
     box-sizing:border-box;
@@ -162,8 +162,8 @@ html {
     position: fixed; 
     top: 50%; 
     left: 50%;
-    width: 374px;
-    height: 520px;  
+    width: 350px;
+    height: 490px;  
     transform: translate(-50%, -50%); 
     background-color: rgb(96, 255, 255); 
     color: black;

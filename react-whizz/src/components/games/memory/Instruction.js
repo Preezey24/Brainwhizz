@@ -14,7 +14,7 @@ const Instruction = ({isOpen, setIsOpen}) => {
             <div className={"memory_overlay"} />
             <div className={"memory_modal"}>
                 <p className={"instructions_memory-heading"}>
-                    Welcome to the Memory room. Test and strengthen your memory.     
+                    Welcome to the Memory room. Test and strengthen your memory     
                 </p>
                 <ol>
                     <li className={"instructions_memory-points"}>
