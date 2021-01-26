@@ -153,7 +153,7 @@
     color: rgb(255, 191, 252);
 }
 
-.overlay {
+.draw_overlay {
     position: fixed; 
     top: 0; 
     left: 0; 
@@ -163,12 +163,12 @@
     z-index: 1000; 
 }
 
-.modal {
+.draw_modal {
     position: fixed; 
     top: 50%; 
     left: 50%;
     width: 310px;
-    height: 260px;  
+    height: 520px;  
     transform: translate(-50%, -50%); 
     background-color: rgb(96, 255, 255); 
     color: black;
@@ -178,12 +178,12 @@
     border-radius: 15px;
 }
 
-.button__again{
+.instructions_button{
     height: 60px; 
     width: 120px; 
     position: absolute; 
-    top: 68%;
-    left: 54%; 
+    top: 84%;
+    left: 30%; 
     border-radius: 3px; 
     border: rgba(0,0,0,0.3) 0px solid; 
     box-sizing:border-box;
@@ -197,7 +197,18 @@
     margin-top: 12px;
 }
 
-.button__again:hover {
+.instructions_button:hover {
     color: rgb(255, 145, 0); 
     background-color: rgb(255, 0, 0);
+}
+
+.instructions_draw-heading {
+    font-family: 'Gloria Hallelujah';
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.instructions_draw-points {
+    font-family: 'Gloria Hallelujah';
+    font-size: 14px;
 }

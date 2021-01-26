@@ -14,7 +14,7 @@
 
 .kangaroo_container {
     position: absolute; 
-    top: 10%;
-    left: 65%; 
+    top: 5%;
+    left: 60%; 
     transform: rotate(3deg); 
 }
