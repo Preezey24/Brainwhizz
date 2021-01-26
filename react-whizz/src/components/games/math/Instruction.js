@@ -11,8 +11,8 @@ const Instruction = ({isOpen, setIsOpen}) => {
     
     return (
         <>
-            <div className={"overlay"} />
-            <div className={"modal"}>
+            <div className={"math_overlay"} />
+            <div className={"math_modal"}>
                 <p>
                     Welcome to the Drawing room. Go ahead and release your creative side.     
                 </p>
@@ -20,7 +20,7 @@ const Instruction = ({isOpen, setIsOpen}) => {
                     Instructions: 
                         1. 
                 </p>
-                <button className={"button__instruction"} onClick={close}>Close</button>
+                <button className={"instructions_math-button"} onClick={close}>Close</button>
             </div>
         </>
     );

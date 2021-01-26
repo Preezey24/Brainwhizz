@@ -17,7 +17,7 @@ const Instruction = ({isOpen, setIsOpen}) => {
                 </p>
                 <ol>
                     <li className={"instructions_draw-points"}>
-                        There are 4 colours available (black, green, blue and red) and 
+                        There are 4 colors available (black, green, blue and red) and 
                         3 stroke sizes (light, medium and heavy)   
                     </li> 
                     <li className={"instructions_draw-points"}>
