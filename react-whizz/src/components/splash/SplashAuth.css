@@ -215,12 +215,20 @@
     color: rgb(255, 0, 212);
 }
 
+.math_trophy {
+    position: absolute; 
+    top: 68%;
+    left: 7%;
+    z-index: 1;
+    transform: rotate(-8deg); 
+}
+
 .memory_scores-div {
     width: 220px; 
     height: 110px; 
     position: absolute; 
     top: 62%;
-    left: 9%; 
+    left: 76%; 
     display: grid; 
     grid-template-areas: 
     'high total'
@@ -237,6 +245,20 @@
     justify-content: center; 
     align-items: center;
     color: rgb(255, 0, 212);
+}
+
+.memory_trophy {
+    position: absolute; 
+    top: 68%;
+    left: 89%;
+    z-index: 1;
+    transform: rotate(8deg); 
+}
+
+.trophy {
+    color: gold; 
+    width: 60px; 
+    height: 60px; 
 }
 
 @keyframes shake {

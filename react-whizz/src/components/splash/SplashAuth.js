@@ -44,8 +44,8 @@ const SplashAuth = () => {
                 <FaDivide className={"math__divide"}/>
                 <FcClock className={"math__equals"}/>
             </div>
-            <div>
-                <IconContext.Provider className={"trophy"}>
+            <div className={"math_trophy"}>
+                <IconContext.Provider value={{className: "trophy"}}>
                     <ImTrophy/>
                 </IconContext.Provider>   
             </div> 
@@ -79,6 +79,27 @@ const SplashAuth = () => {
                 <FaEye className={"memory__eye"}/>
                 <FcIdea className={"memory__light"}/>
                 <FcMindMap className={"memory__mind"}/>
+            </div>
+            <div className={"memory_trophy"}>
+                <IconContext.Provider value={{className: "trophy"}}>
+                    <ImTrophy/>
+                </IconContext.Provider>   
+            </div> 
+            <div className={"memory_scores-div"}>
+                <div className={"memory_scores-content"}>
+                    High 
+                </div>
+                <div className={"memory_scores-content"}>
+                    Total
+                </div>
+                <div className={"memory_scores-content"}>
+                    {user &&
+                    user.memory_high} 
+                </div>
+                <div className={"memory_scores-content"}>
+                    {user && 
+                    user.memory_total} 
+                </div>
             </div>
             <div className={"drawing__div"}>
                 <NavLink to='/drawing'>
