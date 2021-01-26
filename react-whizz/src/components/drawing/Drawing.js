@@ -86,7 +86,6 @@ const Drawing = () => {
     }
 
     const info = () => {
-        console.log("hey")
         setIsOpen(true);  
     }
 

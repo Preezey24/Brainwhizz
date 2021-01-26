@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Route, useHistory } from 'react-router-dom'; 
 import { useSelector } from 'react-redux'; 
 import SplashAuth from './components/splash/SplashAuth'; 
+import SplashUnAuth from './components/splash/SplashUnAuth'; 
 import NavBar from './components/navigation/NavBar';
 import MathGame from './components/games/math/MathGame';
 import MemoryGame from './components/games/memory/MemoryGame';
@@ -54,9 +55,10 @@ function App() {
             : history.push("/")}          
         </Route>
       </Switch>
-      {/* {!isAuthenticated &&  */}
+        <SplashUnAuth />
+      {!isAuthenticated && 
         <Footer /> 
-      {/* } */}
+      }
       <div id="preload">
         <img src={chalkboard}/>
         <img src={math}/>
