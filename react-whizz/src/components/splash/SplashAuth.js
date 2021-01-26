@@ -2,8 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux'; 
 import { NavLink } from 'react-router-dom';
 import './SplashAuth.css';
+import { IconContext } from 'react-icons/lib';
 import { FaDivide, FaEye } from "react-icons/fa";
 import { FcCalculator, FcIdea, FcPicture, FcClock, FcMindMap, FcFrame } from "react-icons/fc";
+import { ImTrophy } from 'react-icons/im'; 
 
 
 const SplashAuth = () => {
@@ -41,6 +43,27 @@ const SplashAuth = () => {
                 <FcCalculator className={"math__calculator"}/>
                 <FaDivide className={"math__divide"}/>
                 <FcClock className={"math__equals"}/>
+            </div>
+            <div>
+                <IconContext.Provider className={"trophy"}>
+                    <ImTrophy/>
+                </IconContext.Provider>   
+            </div> 
+            <div className={"math_scores-div"}>
+                <div className={"math_scores-content"}>
+                    High 
+                </div>
+                <div className={"math_scores-content"}>
+                    Total
+                </div>
+                <div className={"math_scores-content"}>
+                    {user &&
+                    user.math_high} 
+                </div>
+                <div className={"math_scores-content"}>
+                    {user && 
+                    user.math_total} 
+                </div>
             </div>
             <div className={"memory__div"}>
                 <NavLink to='/memory'>

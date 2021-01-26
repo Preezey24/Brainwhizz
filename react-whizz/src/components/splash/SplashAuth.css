@@ -191,6 +191,54 @@
     transform: rotate(0.02turn);
 }
 
+.math_scores-div {
+    width: 220px; 
+    height: 110px; 
+    position: absolute; 
+    top: 62%;
+    left: 9%; 
+    display: grid; 
+    grid-template-areas: 
+    'high total'
+    'hi_score tot_score';
+    border:rgb(255, 191, 252) solid 5px;
+    border-radius: 10px; 
+    background-color: rgb(96, 255, 255);
+}
+
+.math_scores-content {
+    font-family: sabo;
+    font-size: 28px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    color: rgb(255, 0, 212);
+}
+
+.memory_scores-div {
+    width: 220px; 
+    height: 110px; 
+    position: absolute; 
+    top: 62%;
+    left: 9%; 
+    display: grid; 
+    grid-template-areas: 
+    'high total'
+    'hi_score tot_score';
+    border:rgb(255, 191, 252) solid 5px;
+    border-radius: 10px; 
+    background-color: rgb(96, 255, 255);
+}
+
+.memory_scores-content {
+    font-family: sabo;
+    font-size: 28px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    color: rgb(255, 0, 212);
+}
+
 @keyframes shake {
     10%, 90% {
       transform: translate(-1px, 0);
