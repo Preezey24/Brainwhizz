@@ -45,13 +45,14 @@
 
 .text__high {
     position: absolute; 
-    top: 45%; 
-    left: 3%; 
+    top: 35%; 
+    left: 0; 
     display: inline-block;
-    font-family: "Gloria Hallelujah";
-    font-size: 32px; 
+    font-family: sabo;
+    font-size: 30px; 
     font-weight: bold;
     width: 350px;
+    color:rgb(255, 0, 0)
 }
 
 .button__again{

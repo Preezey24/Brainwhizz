@@ -58,11 +58,11 @@ const SplashAuth = () => {
                 </div>
                 <div className={"math_scores-content"}>
                     {user &&
-                    user.math_high} 
+                    user.math_high || 0} 
                 </div>
                 <div className={"math_scores-content"}>
                     {user && 
-                    user.math_total} 
+                    user.math_total || 0} 
                 </div>
             </div>
             <div className={"memory__div"}>
@@ -94,11 +94,11 @@ const SplashAuth = () => {
                 </div>
                 <div className={"memory_scores-content"}>
                     {user &&
-                    user.memory_high} 
+                    user.memory_high || 0} 
                 </div>
                 <div className={"memory_scores-content"}>
                     {user && 
-                    user.memory_total} 
+                    user.memory_total || 0} 
                 </div>
             </div>
             <div className={"drawing__div"}>
