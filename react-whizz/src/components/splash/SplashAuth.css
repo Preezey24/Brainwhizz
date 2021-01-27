@@ -9,13 +9,14 @@
     width: 100vw; 
     height: calc(100vh - 40px);
     background-color: #adeecf;
+    position: relative; 
 }
 
 .picture__div {
-    position: fixed; 
+    position: absolute; 
     height: 450px;
     width: 500px; 
-    top: 67%; 
+    top: 62%; 
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
@@ -34,7 +35,7 @@
 .math__div {
     width: 400px;
     height: 275px;
-    position: fixed;
+    position: absolute;
     top: 15%; 
     left: 4%;
     border-radius: 5px;
@@ -85,7 +86,7 @@
 .memory__div {
     width: 400px;
     height: 275px;
-    position: fixed;
+    position: absolute;
     top: 15%;
     left: 69.5%; 
     border-radius: 5px;
@@ -148,8 +149,8 @@
 .drawing__div {
     width: 250px;
     height: 150px; 
-    position: fixed;
-    top: 11%;
+    position: absolute;
+    top: 3%;
     left: 41%;  
     border-radius: 5px;
     border: 5px solid rgb(255, 191, 252);
