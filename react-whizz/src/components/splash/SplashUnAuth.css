@@ -89,3 +89,38 @@
 .talkbubble_char {
     display: none;
 }
+
+.logo_div {
+    height: 80px; 
+    width: 180px; 
+    position: absolute;
+    top: 38%; 
+    left: 44%; 
+    border: 5px solid rgb(255, 191, 252);
+    border-radius: 100px/50px;
+    background-color: rgb(96, 255, 255); 
+    display: none; 
+}
+
+.logo_text {
+    font-family: 'Gloria Hallelujah';
+    font-size: 30px;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+@keyframes zoom {
+    33% {
+        transform: scale(1,1) 
+    }
+    
+    66% {
+        transform: scale(2,2)
+    }
+
+    100% {
+        transform: scale(3,3) 
+    }
+}

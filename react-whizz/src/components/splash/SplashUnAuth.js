@@ -9,6 +9,7 @@ const SplashUnAuth = () => {
     const [index, setIndex] = useState(0); 
     const [indexTwo, setIndexTwo] = useState(88)
     const [next, setNext] = useState(false); 
+    const [brain, setBrain] = useState(false); 
     const i = useRef(0); 
     
     useEffect(() => {
@@ -32,6 +33,7 @@ const SplashUnAuth = () => {
             setTimeout(() => {
                 document.getElementById("talkbubble_two").style.display = "none"; 
             }, 1000);
+            setBrain(true); 
             return;
         } 
 
@@ -46,6 +48,16 @@ const SplashUnAuth = () => {
             i.current += 1; 
         }
     }, [next, indexTwo]);
+
+    useEffect(() => {
+        if (brain) {
+            setTimeout(() => {
+                const logo = document.getElementById("logo_div"); 
+                logo.style.display = "inline"; 
+                logo.style.animation = "zoom 3s linear both"
+            }, 1000)
+        }
+    }, [brain])
 
     return (
         <div className={"page_main"}>
@@ -72,6 +84,11 @@ const SplashUnAuth = () => {
                         })
                     }
                 </div>
+            </div>
+            <div className={"logo_div"} id={"logo_div"}>
+                    <div className={"logo_text"}>
+                        Brainwhizz
+                    </div>
             </div>
         </div>
     )
