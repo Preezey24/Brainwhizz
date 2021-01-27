@@ -13,7 +13,8 @@ const Instruction = ({isOpen, setIsOpen}) => {
             <div className={"draw_overlay"} />
             <div className={"draw_modal"}>
                 <p className={"instructions_draw-heading"}>
-                    Welcome to the Drawing room. Go ahead and unleash your creative side.     
+                    Welcome to the Drawing room. Go ahead and get in touch with 
+                    your creative side     
                 </p>
                 <ol>
                     <li className={"instructions_draw-points"}>
