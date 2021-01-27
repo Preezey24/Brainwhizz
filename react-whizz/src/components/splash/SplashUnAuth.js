@@ -54,7 +54,7 @@ const SplashUnAuth = () => {
             setTimeout(() => {
                 const logo = document.getElementById("logo_div"); 
                 logo.style.display = "inline"; 
-                logo.style.animation = "zoom 3s linear both"
+                logo.style.animation = "zoomUnAuth 2s linear both"
             }, 1000)
         }
     }, [brain])

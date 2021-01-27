@@ -17,6 +17,8 @@ const Drawing = () => {
     const contextRef = useRef(null); 
     //remember that the button is pressed 
     const [isDrawing, setIsDrawing] = useState(false);
+    //clearing the canvas image 
+    const [inUse, setInUse] = useState(false); 
     //saving the canvas image 
     const [image, setImage] = useState({})
     //modal for information
@@ -42,6 +44,7 @@ const Drawing = () => {
         contextRef.current.moveTo(offsetX, offsetY);
         setIsDrawing(true); 
         draw(nativeEvent);
+        setInUse(true); 
     }
     const finishDrawing = () => {
         contextRef.current.closePath(); 
@@ -77,6 +80,7 @@ const Drawing = () => {
     }
 
     const reset = () => {
+        if (!inUse) return; 
         contextRef.current.putImageData(image, 0, 0); 
     }
 
