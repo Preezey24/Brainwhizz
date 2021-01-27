@@ -5,15 +5,18 @@ import kangaroo from "../../images/kangaroo.jpg";
 
 const SplashUnAuth = () => {
     const message = "Hi, I'm Bruce the Koala and welcome to Brainwhizz!! Unleash your intelligence right here";
-    const messageTwo = "Improve your skills in Math, Memory and Drawing!!"; 
+    const messageTwo = "And I'm Damo the Kangaroo. Improve your skills in Math, Memory and Drawing!!"; 
     const [index, setIndex] = useState(0); 
-    const [indexTwo, setIndexTwo] = useState(60)
+    const [indexTwo, setIndexTwo] = useState(88)
     const [next, setNext] = useState(false); 
     const i = useRef(0); 
     
     useEffect(() => {
         if (!message[index]) { 
-            setNext(true); 
+            setTimeout(() => {
+                setNext(true); 
+                document.getElementById("talkbubble_one").style.display = "none"; 
+            }, 1000); 
             return; 
         };
 
@@ -26,13 +29,16 @@ const SplashUnAuth = () => {
 
     useEffect(() => { 
         if (!messageTwo[i.current]) {
+            setTimeout(() => {
+                document.getElementById("talkbubble_two").style.display = "none"; 
+            }, 1000);
             return;
         } 
 
-        if (index === 60) {
+        if (index >= 87) {
+            document.getElementById("talkbubble_two").style.display = "inline"; 
             setTimeout(() => {
                 const char = document.getElementById(indexTwo);
-                console.log(i.current); 
                 char.style.display = "inline";
                 setIndexTwo(indexTwo + 1);
             }, 50);
@@ -49,7 +55,7 @@ const SplashUnAuth = () => {
             <div className={"kangaroo_container"}>
                 <img src={kangaroo} />
             </div> 
-            <div className={"talkbubble_one"}>
+            <div className={"talkbubble_one"} id={"talkbubble_one"}>
                 <div className={"talkbubble_one-text"}>
                     {
                         message.split('').map((char, index) => {
@@ -58,11 +64,11 @@ const SplashUnAuth = () => {
                     }
                 </div>
             </div>
-            <div className={"talkbubble_two"}>
+            <div className={"talkbubble_two"} id={"talkbubble_two"}>
                 <div className={"talkbubble_two-text"}>
                     {
                         messageTwo.split('').map((char, index) => {
-                            return <span className={"talkbubble_char"} key={index} id={60 + index}>{char}</span>
+                            return <span className={"talkbubble_char"} key={index} id={88 + index}>{char}</span>
                         })
                     }
                 </div>
