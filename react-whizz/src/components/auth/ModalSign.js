@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Auth.css';
 
 const MODAL_STYLES = {

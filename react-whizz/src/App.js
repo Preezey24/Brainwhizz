@@ -27,7 +27,7 @@ function App() {
       setIsAuthenticated(true); 
       history.push('/home'); 
     }
-  }, [user]);
+  }, [user, history]);
 
   return (
     <>
@@ -61,11 +61,11 @@ function App() {
         <Footer /> 
       }
       <div id="preload">
-        <img src={chalkboard}/>
-        <img src={math}/>
-        <img src={draw}/>
-        <img src={board}/>
-        <img src={memory}/>
+        <img src={chalkboard} alt=""/>
+        <img src={math} alt=""/>
+        <img src={draw} alt=""/>
+        <img src={board} alt=""/>
+        <img src={memory} alt=""/>
       </div>
     </>
   );

@@ -40,6 +40,8 @@ function mathOp (operation) {
             num1 = nums[getRandInt(12)];
             num2 = nums[getRandInt(12)];
             return `${num1} * ${num2}`; 
+        default: 
+            break
     }
 };
 

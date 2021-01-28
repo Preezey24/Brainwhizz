@@ -77,7 +77,7 @@ const MathGame = () => {
 
         //check answers of user input versus correct answers  
         ansArr.forEach((correct, i) => {
-           if (correct == answers[i]) {
+           if (correct === answers[i]) {
                gameScore.current += 1; 
                score.current += 1;
            } 

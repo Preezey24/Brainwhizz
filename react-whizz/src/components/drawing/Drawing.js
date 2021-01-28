@@ -76,6 +76,9 @@ const Drawing = () => {
                 break
             case 'heavy': 
                 contextRef.current.lineWidth = 10; 
+                break
+            default: 
+                break 
         }
     }
 
@@ -119,7 +122,7 @@ const Drawing = () => {
     return (
         <div className={"page__draw"}>
             <div>
-                <img src={board} className={"container__canvas-board"}/>
+                <img src={board} className={"container__canvas-board"} alt=""/>
                 <div className={"container__canvas"}>
                     <canvas
                         onMouseDown={startDrawing}
