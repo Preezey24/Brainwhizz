@@ -167,8 +167,9 @@
     position: fixed; 
     top: 50%; 
     left: 50%;
-    width: 310px;
-    height: 520px;  
+    width: 330px;
+    height: 520px; 
+    margin-right: 10px;  
     transform: translate(-50%, -50%); 
     background-color: rgb(96, 255, 255); 
     color: black;
@@ -206,9 +207,11 @@
     font-family: 'Gloria Hallelujah';
     font-size: 20px;
     margin-left: 20px;
+    padding-right: 10px; 
 }
 
 .instructions_draw-points {
     font-family: 'Gloria Hallelujah';
     font-size: 14px;
+    margin-right: 10px; 
 }
