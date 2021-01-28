@@ -210,7 +210,7 @@ const MemoryGame = () => {
         <div className={"page__memory"}>
             <div className={"main"} id={"main_light"}/>
             <div className={"container__lights"} id={'lights'}>
-                <img src={turret} className={"container__turret"}/>
+                <img src={turret} className={"container__turret"} alt=""/>
                 <div className={"container__laser-one-div"}>
                     <svg className={"container__laser-one-svg"} xmlns="http://www.w3.org/2000/svg">
                         <line id={"laserOne"} className={"container__laser-beam"} x1="0" y1="140" x2="0" y2="0" 

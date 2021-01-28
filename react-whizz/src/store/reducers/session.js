@@ -119,6 +119,7 @@ const sessionReducer = (state = initialState, action) => {
         case REMOVE_ERRORS: 
             newState = state; 
             newState.errors = action.payload;  
+            break;
         default: 
             return state; 
     }
