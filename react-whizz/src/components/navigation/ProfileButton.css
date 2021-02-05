@@ -35,6 +35,7 @@
     background-color: rgb(96, 255, 255);
     z-index: 1;
     border: rgb(255, 191, 252) solid; 
+    overflow: auto;
 }
 
 .nav__logout-menu li {
