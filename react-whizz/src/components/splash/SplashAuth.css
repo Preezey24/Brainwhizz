@@ -5,20 +5,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 
-.page__main {
+.splashpage_auth__main {
+    grid-area: main / footer; 
     width: 100vw; 
-    height: calc(100vh - 40px);
+    height: 100vh; 
+    display: grid; 
+    grid-template-columns: 32% 36% 32%;
+    grid-template-rows: 20% 40% 30%;
+    grid-template-areas: 
+    ". drawdiv ."
+    "math draw memory"
+    "math_hi draw memory_hi";
     background-color: #adeecf;
     position: relative; 
 }
 
+.picture__container {
+    grid-area: draw; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
 .picture__div {
-    position: absolute; 
+    position: relative; 
     height: 450px;
     width: 500px; 
-    top: 62%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: white;
     border: 5px solid rgb(255, 191, 252);
     overflow: hidden;
@@ -32,12 +45,17 @@
     font-size: 40px; 
 }
 
+.math__container {
+    grid-area: math; 
+    display: flex; 
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .math__div {
+    position: relative;
     width: 400px;
     height: 275px;
-    position: absolute;
-    top: 15%; 
-    left: 4%;
     border-radius: 5px;
     border: 5px solid rgb(255, 191, 252);
     background-color: rgb(96, 255, 255);
@@ -83,12 +101,17 @@
     transform: rotate(0.05turn);
 }
 
+.memory__container {
+    grid-area: memory; 
+    display: flex; 
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .memory__div {
+    position: relative;  
     width: 400px;
     height: 275px;
-    position: absolute;
-    top: 15%;
-    left: 69.5%; 
     border-radius: 5px;
     border: 5px solid rgb(255, 191, 252);
     background-color: rgb(96, 255, 255);
@@ -146,12 +169,18 @@
     height: 80px;
 }
 
+.drawing__container {
+    grid-area: drawdiv; 
+    display: flex; 
+    justify-content: center;
+    align-items: flex-end;
+}
+
 .drawing__div {
+    position: relative;
+    top:18%;
     width: 250px;
     height: 150px; 
-    position: absolute;
-    top: 3%;
-    left: 41%;  
     border-radius: 5px;
     border: 5px solid rgb(255, 191, 252);
     background-color: rgb(96, 255, 255); 
@@ -192,12 +221,17 @@
     transform: rotate(0.02turn);
 }
 
+.math_scores__container {
+    grid-area: math_hi;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
 .math_scores-div {
+    position: relative; 
     width: 220px; 
     height: 110px; 
-    position: absolute; 
-    top: 62%;
-    left: 9%; 
     display: grid; 
     grid-template-areas: 
     'high total'
@@ -218,18 +252,23 @@
 
 .math_trophy {
     position: absolute; 
-    top: 68%;
-    left: 7%;
+    top: 40%;
+    left: -15%; 
     z-index: 1;
     transform: rotate(-8deg); 
 }
 
+.memory_scores__container {
+    grid-area: memory_hi;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
 .memory_scores-div {
+    position: relative;  
     width: 220px; 
     height: 110px; 
-    position: absolute; 
-    top: 62%;
-    left: 76%; 
     display: grid; 
     grid-template-areas: 
     'high total'
@@ -250,7 +289,7 @@
 
 .memory_trophy {
     position: absolute; 
-    top: 68%;
+    top: 40%;
     left: 89%;
     z-index: 1;
     transform: rotate(8deg); 

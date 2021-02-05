@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 
-.page_main {
+.splashpage_main {
     grid-area: main;  
     width: 100vw; 
     height: 100%;

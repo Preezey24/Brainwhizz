@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
 import './SplashUnAuth.css';
-import '../../index.css'
 import koala from "../../images/koala.jpg";
 import kangaroo from "../../images/kangaroo.jpg";
 
@@ -24,9 +23,12 @@ const SplashUnAuth = () => {
 
         setTimeout(() => {
             const char = document.getElementById(index);
+            //when user exits page early
+            if (!char) return;
             char.style.display = "inline";
             setIndex(index + 1);
         }, 50);
+
     }, [index]);
 
     useEffect(() => { 
@@ -42,6 +44,8 @@ const SplashUnAuth = () => {
             document.getElementById("talkbubble_two").style.display = "inline"; 
             setTimeout(() => {
                 const char = document.getElementById(indexTwo);
+                //when user exits page early
+                if (!char) return;
                 char.style.display = "inline";
                 setIndexTwo(indexTwo + 1);
             }, 50);
@@ -61,7 +65,7 @@ const SplashUnAuth = () => {
     }, [brain])
 
     return (
-        <div className={"page_main"}>
+        <div className={"splashpage_main"}>
             <div className={"koala_container"}>
                 <img src={koala} alt=""/>
             </div> 

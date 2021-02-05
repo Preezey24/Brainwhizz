@@ -30,82 +30,94 @@ const SplashAuth = () => {
     };
 
     return (
-        <div className={"page__main"}> 
+        <div className={"splashpage_auth__main"}> 
             <i class="fab fa-accessible-icon"></i>
-            <div className={"math__div"}>
-                <NavLink to='/math'>
-                    <span className={"math__link-span"}>
-                        <div className={"math__heading"}>
-                            Math Game
-                        </div>
-                    </span>
-                </NavLink>
-                <FcCalculator className={"math__calculator"}/>
-                <FaDivide className={"math__divide"}/>
-                <FcClock className={"math__equals"}/>
-            </div>
-            <div className={"math_trophy"}>
-                <IconContext.Provider value={{className: "trophy"}}>
-                    <ImTrophy/>
-                </IconContext.Provider>   
-            </div> 
-            <div className={"math_scores-div"}>
-                <div className={"math_scores-content"}>
-                    High 
-                </div>
-                <div className={"math_scores-content"}>
-                    Total
-                </div>
-                <div className={"math_scores-content"}>
-                    {user?.math_high || 0} 
-                </div>
-                <div className={"math_scores-content"}>
-                    {user?.math_total || 0} 
+            <div className={"math__container"}>
+                <div className={"math__div"}>
+                    <NavLink to='/math'>
+                        <span className={"math__link-span"}>
+                            <div className={"math__heading"}>
+                                Math Game
+                            </div>
+                        </span>
+                    </NavLink>
+                    <FcCalculator className={"math__calculator"}/>
+                    <FaDivide className={"math__divide"}/>
+                    <FcClock className={"math__equals"}/>
                 </div>
             </div>
-            <div className={"memory__div"}>
-                <NavLink to='/memory'>
-                    <span className={"memory__link-span"}>
-                        <div className={"memory__heading_one"}>
-                            Memory
-                        </div>
-                        <div className={"memory__heading_two"}>
-                            Game
-                        </div>
-                    </span>
-                </NavLink> 
-                <FaEye className={"memory__eye"}/>
-                <FcIdea className={"memory__light"}/>
-                <FcMindMap className={"memory__mind"}/>
-            </div>
-            <div className={"memory_trophy"}>
-                <IconContext.Provider value={{className: "trophy"}}>
-                    <ImTrophy/>
-                </IconContext.Provider>   
-            </div> 
-            <div className={"memory_scores-div"}>
-                <div className={"memory_scores-content"}>
-                    High 
-                </div>
-                <div className={"memory_scores-content"}>
-                    Total
-                </div>
-                <div className={"memory_scores-content"}>
-                    {user?.memory_high || 0} 
-                </div>
-                <div className={"memory_scores-content"}>
-                    {user?.memory_total || 0}
+            <div className={"math_scores__container"}>
+                <div className={"math_scores-div"}>
+                    <div className={"math_trophy"}>
+                        <IconContext.Provider value={{className: "trophy"}}>
+                            <ImTrophy/>
+                        </IconContext.Provider>   
+                    </div> 
+                    <div className={"math_scores-content"}>
+                        High 
+                    </div>
+                    <div className={"math_scores-content"}>
+                        Total
+                    </div>
+                    <div className={"math_scores-content"}>
+                        {user?.math_high || 0} 
+                    </div>
+                    <div className={"math_scores-content"}>
+                        {user?.math_total || 0} 
+                    </div>
                 </div>
             </div>
-            <div className={"drawing__div"}>
-                <NavLink to='/drawing'>
-                    <span className={"drawing__link-span"}>Drawing</span>
-                </NavLink> 
-                <FcPicture className={"drawing__pic"}/>
-                <FcFrame className={"drawing__gallery"}/>
+            <div className={"memory__container"}>
+                <div className={"memory__div"}>
+                    <NavLink to='/memory'>
+                        <span className={"memory__link-span"}>
+                            <div className={"memory__heading_one"}>
+                                Memory
+                            </div>
+                            <div className={"memory__heading_two"}>
+                                Game
+                            </div>
+                        </span>
+                    </NavLink> 
+                    <FaEye className={"memory__eye"}/>
+                    <FcIdea className={"memory__light"}/>
+                    <FcMindMap className={"memory__mind"}/>
+                </div>
             </div>
-            <div className={"picture__div"}>
-                {drawing}
+            <div className={"memory_scores__container"}>
+                <div className={"memory_scores-div"}>
+                    <div className={"memory_trophy"}>
+                        <IconContext.Provider value={{className: "trophy"}}>
+                            <ImTrophy/>
+                        </IconContext.Provider>   
+                    </div> 
+                    <div className={"memory_scores-content"}>
+                        High 
+                    </div>
+                    <div className={"memory_scores-content"}>
+                        Total
+                    </div>
+                    <div className={"memory_scores-content"}>
+                        {user?.memory_high || 0} 
+                    </div>
+                    <div className={"memory_scores-content"}>
+                        {user?.memory_total || 0}
+                    </div>
+                </div>
+            </div>
+            <div className={"drawing__container"}>
+                <div className={"drawing__div"}>
+                    <NavLink to='/drawing'>
+                        <span className={"drawing__link-span"}>Drawing</span>
+                    </NavLink> 
+                    <FcPicture className={"drawing__pic"}/>
+                    <FcFrame className={"drawing__gallery"}/>
+                </div>
+            </div>
+            <div className={"picture__container"}>
+                <div className={"picture__div"}>
+                    {drawing}
+                </div>
             </div>
         </div>
     )

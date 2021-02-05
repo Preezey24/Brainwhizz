@@ -35,7 +35,7 @@ function App() {
         <NavBar />
       </AuthContext.Provider>
       <Switch>
-        <Route exact path='/home'>
+        <Route path='/home'>
           {(isAuthenticated) 
           ? <SplashAuth/>
           : history.push('/')}
@@ -55,8 +55,10 @@ function App() {
             ? <Drawing />
             : history.push("/")}          
         </Route>
+        <Route exact path='/'>
+          <SplashUnAuth />
+        </Route>
       </Switch>
-        <SplashUnAuth />
       {!isAuthenticated && 
         <Footer /> 
       }
