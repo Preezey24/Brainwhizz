@@ -30,7 +30,7 @@ function App() {
   }, [user, history]);
 
   return (
-    <>
+    <div className={"app_main"}>
       <AuthContext.Provider value={setIsAuthenticated}>
         <NavBar />
       </AuthContext.Provider>
@@ -67,7 +67,7 @@ function App() {
         <img src={board} alt=""/>
         <img src={memory} alt=""/>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .footer_container {
-    position: fixed; 
+    grid-area: footer; 
     top: calc(100vh - 70px);
     width: 100vw;
     background-color: rgb(30, 33, 30);
@@ -9,7 +9,6 @@
     grid-template-columns: 25fr 50fr 25fr;
     grid-template-areas: 
     "proj empty me";
-    height: 70px;
     background-color: rgb(250, 246, 207);
   }
 

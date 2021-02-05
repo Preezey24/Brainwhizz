@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import './SplashUnAuth.css';
+import '../../index.css'
 import koala from "../../images/koala.jpg";
 import kangaroo from "../../images/kangaroo.jpg";
 
@@ -64,9 +65,6 @@ const SplashUnAuth = () => {
             <div className={"koala_container"}>
                 <img src={koala} alt=""/>
             </div> 
-            <div className={"kangaroo_container"}>
-                <img src={kangaroo} alt=""/>
-            </div> 
             <div className={"talkbubble_one"} id={"talkbubble_one"}>
                 <div className={"talkbubble_one-text"}>
                     {
@@ -85,6 +83,9 @@ const SplashUnAuth = () => {
                     }
                 </div>
             </div>
+            <div className={"kangaroo_container"}>
+                <img src={kangaroo} alt=""/>
+            </div> 
             <div className={"logo_div"} id={"logo_div"}>
                     <div className={"logo_text"}>
                         Brainwhizz
