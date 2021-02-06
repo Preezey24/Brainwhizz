@@ -33,18 +33,18 @@ const SplashAuth = () => {
         <div className={"splashpage_auth__main"}> 
             <i class="fab fa-accessible-icon"></i>
             <div className={"math__container"}>
-                <div className={"math__div"}>
-                    <NavLink to='/math'>
-                        <span className={"math__link-span"}>
-                            <div className={"math__heading"}>
-                                Math Game
-                            </div>
-                        </span>
-                    </NavLink>
-                    <FcCalculator className={"math__calculator"}/>
-                    <FaDivide className={"math__divide"}/>
-                    <FcClock className={"math__equals"}/>
-                </div>
+                <NavLink to='/math' style={{textDecoration:"none"}}>
+                    <div className={"math__div"}>
+                        <div className={"math_heading__div"}>
+                            Math Game
+                        </div>
+                        <div className={"math_icons__div"}>
+                            <FcCalculator className={"math__calculator"}/>
+                            <FaDivide />
+                            <FcClock className={"math__equals"}/>
+                        </div>
+                    </div>
+                </NavLink>
             </div>
             <div className={"math_scores__container"}>
                 <div className={"math_scores-div"}>
@@ -68,21 +68,21 @@ const SplashAuth = () => {
                 </div>
             </div>
             <div className={"memory__container"}>
-                <div className={"memory__div"}>
-                    <NavLink to='/memory'>
-                        <span className={"memory__link-span"}>
-                            <div className={"memory__heading_one"}>
-                                Memory
-                            </div>
-                            <div className={"memory__heading_two"}>
-                                Game
-                            </div>
-                        </span>
-                    </NavLink> 
-                    <FaEye className={"memory__eye"}/>
-                    <FcIdea className={"memory__light"}/>
-                    <FcMindMap className={"memory__mind"}/>
-                </div>
+                <NavLink to='/memory' style={{textDecoration:"none"}}>
+                    <div className={"memory__div"}>
+                        <div className={"memory__heading_one"}>
+                            Memory
+                        </div>
+                        <div className={"memory__heading_two"}>
+                            Game
+                        </div>
+                        <div className={"memory_icons__div"}>
+                            <FaEye className={"memory__eye"}/>
+                            <FcMindMap className={"memory__mind"}/>
+                            <FcIdea className={"memory__light"}/>
+                        </div>
+                    </div>
+                </NavLink> 
             </div>
             <div className={"memory_scores__container"}>
                 <div className={"memory_scores-div"}>

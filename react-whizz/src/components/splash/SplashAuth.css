@@ -52,7 +52,17 @@
     align-items: flex-start;
 }
 
+.math_heading__div {
+    width: 50%; 
+    margin-bottom: 10px;
+    color: rgb(27, 0, 124);
+}
+
 .math__div {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
     position: relative;
     width: 400px;
     height: 275px;
@@ -68,36 +78,17 @@
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
 }
 
-.math__link-span {
-    position: absolute; 
+.math_icons__div {
     width: 100%; 
-    height: 100%; 
-    top: 0; 
-    left: 0; 
-}
-
-.math__heading {
-    position: absolute; 
-    left: 90px; 
+    display: flex; 
+    justify-content: space-around;
 }
 
 .math__calculator {
-    position: absolute;
-    top: 180px; 
-    left: 40px;
     transform: rotate(-0.05turn);
 }
 
-.math__divide {
-    position: absolute;
-    top: 180px; 
-    left: 160px; 
-}
-
 .math__equals {
-    position: absolute; 
-    top: 180px; 
-    left: 285px; 
     transform: rotate(0.05turn);
 }
 
@@ -109,6 +100,9 @@
 }
 
 .memory__div {
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
     position: relative;  
     width: 400px;
     height: 275px;
@@ -120,51 +114,36 @@
     font-size: 70px;
 }
 
-.memory__link-span {
-    position: absolute; 
-    width: 100%; 
-    height: 100%; 
-    top: 0; 
-    left: 0; 
-}
-
 .memory__div:hover {
     animation: rotate 1s linear both;
 }
 
+.memory_icons__div {
+    width: 100%; 
+    display: flex; 
+    justify-content: space-around;
+}
+
 .memory__heading_one {
-    position: absolute; 
-    left: 40px; 
+    color: rgb(27, 0, 124);
 }
 
 .memory__heading_two {
-    position: absolute;
-    top: 80px; 
-    left: 90px; 
+    color: rgb(27, 0, 124);
+    margin-bottom: 10px;
 }
 
 .memory__eye {
-    position: absolute;
-    top: 180px; 
-    left: 40px;
-    width: 80px; 
-    height: 80px;
     transform: rotate(-0.05turn);
 }
 
 .memory__light {
-    position: absolute;
-    top: 180px; 
-    left: 280px;
     width: 80px; 
     height: 80px;
     transform: rotate(0.05turn);
 }
 
 .memory__mind {
-    position: absolute;
-    top: 180px; 
-    left: 160px;
     width: 80px; 
     height: 80px;
 }
