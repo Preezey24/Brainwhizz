@@ -7,23 +7,60 @@ html {
 
 .page__math {
     width: 100vw; 
-    height: calc(100vh - 40px); 
+    height: 100vh;  
     background: url('../../../images/math-background.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    display: grid; 
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 25% 75%;
+    grid-template-areas: 
+    ". math clock"
+    ". math .";
+}
+
+.questions_math_button_container {
+    grid-area: button;
+    justify-content: center;
+}
+
+.chalkboard_container {
+    grid-area: math;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.clock_container { 
+    grid-area: clock;
+    display: flex; 
+    justify-content: center;
 }
 
 .chalkboard__div {
+    position: relative; 
     width: 830px; 
-    height: 540px; 
-    position: fixed; 
-    top: 60%; 
-    left: 50%; 
-    transform: translate(-50%, -50%);
+    height: 540px;  
     background: url('../../../images/chalkboard.jpg') center;
     background-size: cover;
+}
+
+
+.questions_math__button {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    height: 60px; 
+    width: 140px; 
+    border-radius: 5px;
+    font-size: 32px;
+    font-family: 'Gloria Hallelujah';
+    background-color: red; 
+    margin-top: 20px;
+    margin-bottom: 20px; 
 }
 
 .chalkboard__heading {
@@ -82,20 +119,6 @@ html {
     background-color: #ffe77aff;
 }
 
-.questions__button {
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    height: 60px; 
-    width: 140px; 
-    position: fixed; 
-    top: 90px; 
-    left: 700px;
-    border-radius: 5px;
-    font-size: 32px;
-    font-family: 'Gloria Hallelujah';
-    background-color: red;
-}
 
 .math__info {
     width: 35px; 

@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 
 .base-timer {
-    position: fixed;
-    left: 82%;
-    top: 12%;   
+    position: relative; 
     height: 200px; 
     width: 200px; 
+    top: 10%; 
 }
 
 .base-timer__svg {

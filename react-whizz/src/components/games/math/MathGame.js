@@ -195,42 +195,46 @@ const MathGame = () => {
     
     return (
         <div className={"page__math"}>
-            <Clock time={time} setTime={setTime} counter={counter} setCounter={setCounter} />
-            <div className={"chalkboard__div"}>
-                <h2 className={"chalkboard__heading"}>Math Questions</h2>
-                <div className={"questions__div_one"}>
-                    {questions.map((question, i) => {
-                        if (i < 5) {
-                            return (
+            <div className={"chalkboard_container"}>
+                <button className={"questions_math__button"} onClick={submitHandler}>GO >>></button>
+                <div className={"chalkboard__div"}>
+                    <h2 className={"chalkboard__heading"}>Math Questions</h2>
+                    <div className={"questions__div_one"}>
+                        {questions.map((question, i) => {
+                            if (i < 5) {
+                                return (
+                                        <div className={"questions__question"} key={i}>
+                                            {`${question} = `}
+                                            <input className={"questions__answer"} type='text' value={answers[i]} 
+                                            onChange={answerHandler} id={i}/>
+                                        </div>
+                                )
+                            }
+                        })}
+                    </div>
+                    <div className={"questions__div_two"}>
+                        {questions.map((question, i) => {
+                            if (i >= 5) {
+                                return (
                                     <div className={"questions__question"} key={i}>
-                                        {`${question} = `}
-                                        <input className={"questions__answer"} type='text' value={answers[i]} 
-                                        onChange={answerHandler} id={i}/>
-                                    </div>
-                            )
-                        }
-                    })}
-                </div>
-                <div className={"questions__div_two"}>
-                    {questions.map((question, i) => {
-                        if (i >= 5) {
-                            return (
-                                    <div className={"questions__question"} key={i}>
-                                        {`${question} = `}
-                                        <input className={"questions__answer"} type='text' value={answers[i]} 
-                                        onChange={answerHandler} id={i}/>
-                                    </div>
-                            )
-                        }
-                    })}
-                </div>
-                <div onClick={info}>
-                        <IconContext.Provider value={{className: 'math__info'}}>
-                            <IoInformationCircleSharp />
-                        </IconContext.Provider>
+                                            {`${question} = `}
+                                            <input className={"questions__answer"} type='text' value={answers[i]} 
+                                            onChange={answerHandler} id={i}/>
+                                        </div>
+                                )
+                            }
+                        })}
+                    </div>
+                    <div onClick={info}>
+                            <IconContext.Provider value={{className: 'math__info'}}>
+                                <IoInformationCircleSharp />
+                            </IconContext.Provider>
+                    </div>
                 </div>
             </div>
-            <button className={"questions__button"} onClick={submitHandler}>GO >>></button>
+            <div className={"clock_container"}>
+                <Clock time={time} setTime={setTime} counter={counter} setCounter={setCounter} />
+            </div>
             <div>
                     <Instruction isOpen={infoModal} setIsOpen={setInfoModal}/>
             </div>
