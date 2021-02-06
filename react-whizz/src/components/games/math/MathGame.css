@@ -24,13 +24,14 @@ html {
 .questions_math_button_container {
     grid-area: button;
     justify-content: center;
+    align-items: center; 
 }
 
 .chalkboard_container {
     grid-area: math;
     display: flex; 
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 
