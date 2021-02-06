@@ -13,7 +13,7 @@ import chalkboard from './images/chalkboard.jpg';
 import math from './images/math-background.jpeg';
 import draw from './images/draw_background.jpg'; 
 import board from './images/draw_board.png';
-import memory from './images/pastel-light-goo.jpg'
+import memory from './images/pastel-light-goo.jpg';
 
 export const AuthContext = React.createContext();
 

@@ -208,61 +208,63 @@ const MemoryGame = () => {
     
     return (
         <div className={"page__memory"}>
-            <div className={"main"} id={"main_light"}/>
-            <div className={"container__lights"} id={'lights'}>
-                <img src={turret} className={"container__turret"} alt=""/>
-                <div className={"container__laser-one-div"}>
-                    <svg className={"container__laser-one-svg"} xmlns="http://www.w3.org/2000/svg">
-                        <line id={"laserOne"} className={"container__laser-beam"} x1="0" y1="140" x2="0" y2="0" 
-                        strokeDasharray="0 140"/>
-                    </svg>
-                </div>
-                <div className={"container__laser-two-div"}>
-                    <svg className={"container__laser-two-svg"} xmlns="http://www.w3.org/2000/svg">
-                        <line id={"laserTwo"} className={"container__laser-beam"} x1="0" y1="140" x2="0" y2="0" 
-                        strokeDasharray="0 140"/>
-                    </svg>
-                </div>
-                <FcElectronics className={"container__electronics"}/>
-                <IoLogoXbox className={"container__xbox"}/>
-                <div className={"container__xbox-dot"}></div>
-                <VscDashboard className={"container__dashboard"}/>
-                <div id={"flameOne"} className={"container__flame-divOne"}>
-                    <IconContext.Provider value={{color:"orange", size: "40px"}}>
-                        <AiFillFire/>
-                    </IconContext.Provider>
-                </div>
-                <div id={"flameTwo"} className={"container__flame-divTwo"}>
-                    <IconContext.Provider value={{color:"orange", size: "40px"}}>
-                        <AiFillFire/>
-                    </IconContext.Provider>
-                </div>
-                <Light lightClick={lightClick} id={'red'} style={{backgroundColor: 'red',
-                position: 'absolute', top: '210px', left: '230px'}}/>
-                <Light lightClick={lightClick} id={'blue'} style={{backgroundColor: 'blue',
-                position: 'absolute', top: '210px', left: '-140px'}}/>
-                <Light lightClick={lightClick} id={'green'} style={{backgroundColor: 'green', 
-                position: 'absolute', top: '120px', left: '-40px', width: "80px", height: "80px"}}/>
-                <Light lightClick={lightClick} id={'yellow'} style={{backgroundColor: 'yellow',
-                position: 'absolute', top: '120px', left: '140px', width: "80px", height: "80px"}}/>
-                <Light lightClick={lightClick} id={'purple'} style={{backgroundColor: 'purple',
-                position: 'absolute', top: '210px', left: '40px'}}/>
-                <div onClick={info}>
-                        <IconContext.Provider value={{className: 'memory__info'}}>
-                            <IoInformationCircleSharp />
+            <div className={"memory_container"}>
+                <div className={"main"} id={"main_light"}/>
+                <div className={"container__lights"} id={'lights'}>
+                    <img src={turret} className={"container__turret"} alt=""/>
+                    <div className={"container__laser-one-div"}>
+                        <svg className={"container__laser-one-svg"} xmlns="http://www.w3.org/2000/svg">
+                            <line id={"laserOne"} className={"container__laser-beam"} x1="0" y1="140" x2="0" y2="0" 
+                            strokeDasharray="0 140"/>
+                        </svg>
+                    </div>
+                    <div className={"container__laser-two-div"}>
+                        <svg className={"container__laser-two-svg"} xmlns="http://www.w3.org/2000/svg">
+                            <line id={"laserTwo"} className={"container__laser-beam"} x1="0" y1="140" x2="0" y2="0" 
+                            strokeDasharray="0 140"/>
+                        </svg>
+                    </div>
+                    <FcElectronics className={"container__electronics"}/>
+                    <IoLogoXbox className={"container__xbox"}/>
+                    <div className={"container__xbox-dot"}></div>
+                    <VscDashboard className={"container__dashboard"}/>
+                    <div id={"flameOne"} className={"container__flame-divOne"}>
+                        <IconContext.Provider value={{color:"orange", size: "40px"}}>
+                            <AiFillFire/>
                         </IconContext.Provider>
+                    </div>
+                    <div id={"flameTwo"} className={"container__flame-divTwo"}>
+                        <IconContext.Provider value={{color:"orange", size: "40px"}}>
+                            <AiFillFire/>
+                        </IconContext.Provider>
+                    </div>
+                    <Light lightClick={lightClick} id={'red'} style={{backgroundColor: 'red',
+                    position: 'absolute', top: '210px', left: '230px'}}/>
+                    <Light lightClick={lightClick} id={'blue'} style={{backgroundColor: 'blue',
+                    position: 'absolute', top: '210px', left: '-140px'}}/>
+                    <Light lightClick={lightClick} id={'green'} style={{backgroundColor: 'green', 
+                    position: 'absolute', top: '120px', left: '-40px', width: "80px", height: "80px"}}/>
+                    <Light lightClick={lightClick} id={'yellow'} style={{backgroundColor: 'yellow',
+                    position: 'absolute', top: '120px', left: '140px', width: "80px", height: "80px"}}/>
+                    <Light lightClick={lightClick} id={'purple'} style={{backgroundColor: 'purple',
+                    position: 'absolute', top: '210px', left: '40px'}}/>
+                    <div onClick={info}>
+                            <IconContext.Provider value={{className: 'memory__info'}}>
+                                <IoInformationCircleSharp />
+                            </IconContext.Provider>
+                    </div>
                 </div>
-            </div>
-            <div>
-                    <Instruction isOpen={infoModal} setIsOpen={setInfoModal}/>
-            </div>
-            <button onClick={mainClick} id={'go'} className={"button__go"}>
-                <span style={{position:"absolute", top: "-10px", left: "25px"}}>Go</span>
-            </button>  
-            <Clock time={time} setTime={setTime} counter={counter} setCounter={setCounter}/>
-            <div>
-                <Modal open={isOpen} gameScore={gameScore} score={score} playAgain={playAgain} 
-                high={high} exitGame={exitGame}/>
+                <div>
+                        <Instruction isOpen={infoModal} setIsOpen={setInfoModal}/>
+                </div>
+                <button onClick={mainClick} id={'go'} className={"button__go"}>
+                    <span style={{position:"absolute", top: "-10px", left: "25px"}}>Go</span>
+                </button>  
+                <Clock time={time} setTime={setTime} counter={counter} setCounter={setCounter}/>
+                <div>
+                    <Modal open={isOpen} gameScore={gameScore} score={score} playAgain={playAgain} 
+                    high={high} exitGame={exitGame}/>
+                </div>
             </div>
         </div>
     )
