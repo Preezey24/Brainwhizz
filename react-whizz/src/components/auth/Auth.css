@@ -5,7 +5,6 @@
 .nav__login-button {
     width: 100px;
     height: 40px; 
-    margin: 10px 5px; 
     border-radius: 3px; 
     border: none; 
     font-family: 'Roboto';
@@ -23,7 +22,6 @@
 .nav__signup-button {
     width: 120px;
     height: 40px; 
-    margin: 10px 5px; 
     border-radius: 3px; 
     border: none; 
     font-family: 'Roboto';

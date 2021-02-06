@@ -15,14 +15,17 @@
 
 .nav__div-home {
     grid-area: home;
-    position: relative; 
+    display: flex; 
+    justify-content: center;
+    margin-top: 8px;
 }
 
 .nav__div-auth {
     grid-area: auth;
     display: flex; 
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
+    margin-top: 15px;
 }
 
 .nav__div-prof {
@@ -30,27 +33,24 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 12px;
 }
 
 .nav__div-title {
     grid-area: logo;
-    height: 115%;
-    position: relative; 
+    position: relative;
+    display: flex; 
+    /* align-items: center;   */
+    justify-content: center;
 }
 
-.nav__title {
-    position: absolute;
-    top: -25%;
-    left: 38%; 
-    font-size: 48px;
+.nav__title { 
+    align-self: flex-start;
+    font-size: 44px;
     font-family: 'Gloria Hallelujah';
 }
 
 .nav__icon {
-    position: absolute;
-    left: 28%;
-    top: -8%; 
     width: 70px; 
     height: 65px;
     margin-right: 20px; 
@@ -59,10 +59,6 @@
 }
 
 .nav__home-button {
-    position: absolute;
-    left: 50%;
-    top: 25%;
-    transform: translate(-50%, -50%);
     height: 40px; 
     width: 100px; 
     border-radius: 3px; 
