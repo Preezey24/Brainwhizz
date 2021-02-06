@@ -31,7 +31,7 @@ html {
     grid-area: math;
     display: flex; 
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -52,7 +52,6 @@ html {
 
 .questions_math__button {
     display: flex; 
-    align-items: center;
     justify-content: center;
     height: 60px; 
     width: 140px; 

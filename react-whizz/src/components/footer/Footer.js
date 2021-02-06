@@ -11,7 +11,7 @@ const Footer = () => {
                     <IconContext.Provider value={{className: "footer_icon_git"}}>
                         <GrGithub/>
                     </IconContext.Provider>
-                    <span style={{height: "50%", position: "absolute", top: "35%"}}>
+                    <span>
                         <a className={"footer_link"} href= 'https://github.com/Preezey24/Brainwhizz'>
                             Brainwhizz
                         </a>
@@ -37,7 +37,7 @@ const Footer = () => {
                             <GrGithub/>
                         </IconContext.Provider>
                     </span>
-                    <span style={{height: "50%", position: "absolute", top: "10%"}}>
+                    <span>
                         <a className={"footer_link"} href= 'https://github.com/Preezey24'>
                             My GitHub
                         </a>

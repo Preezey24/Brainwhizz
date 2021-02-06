@@ -2,9 +2,7 @@
 
 .footer_container {
     grid-area: footer; 
-    top: calc(100vh - 70px);
     width: 100vw;
-    background-color: rgb(30, 33, 30);
     display: grid; 
     grid-template-columns: 25fr 50fr 25fr;
     grid-template-areas: 
@@ -14,23 +12,27 @@
 
 .footer_proj {
   grid-area: proj; 
-  margin-left: 25%;
-  margin-top: 20px;
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
 }
 
 .footer_me {
   grid-area: me;
   display: flex; 
   flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .footer_linked {
   position: relative; 
-  height: 35px; 
+  height: 30px; 
 }
 
 .footer_git {
-  position: relative; 
+  display: flex; 
+  align-items: center; 
+  position: relative;
   height: 35px; 
 }
 
