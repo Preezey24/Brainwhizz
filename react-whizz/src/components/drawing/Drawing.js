@@ -28,8 +28,8 @@ const Drawing = () => {
     useEffect(() => {
         const canvas = canvasRef.current;
         //support higher resolution computers 
-        canvas.width = 500;
-        canvas.height = 500;
+        canvas.width = 480;
+        canvas.height = 475;
         //define 2D api for canvas to draw on
         const context = canvas.getContext("2d");
         context.lineCap = "round";
@@ -121,8 +121,17 @@ const Drawing = () => {
 
     return (
         <div className={"page__draw"}>
-            <div>
+            <div className={"draw_container"}>
                 <img src={board} className={"container__canvas-board"} alt=""/>
+                <div className={"submission_container"}>
+                    <IconContext.Provider value={{className: 'paint__info'}}>
+                        <IoInformationCircleSharp onClick={info} />
+                    </IconContext.Provider>
+                    <Instruction isOpen={isOpen} setIsOpen={setIsOpen}/>              
+                    <button onClick={final} className={"paint__submit"}>
+                        <span>Submit</span>
+                    </button>
+                </div>
                 <div className={"container__canvas"}>
                     <canvas
                         onMouseDown={startDrawing}
@@ -132,29 +141,18 @@ const Drawing = () => {
                     />
                 </div>
                 <div className={"container__paint"}>
+                    <button onClick={save} className={"paint__save"}>Save</button>
+                    <button onClick={reset} className={"paint__reset"}>Clear</button>
+                    <button id={'black'} className={"paint__black"} onClick={changeColor}/>
+                    <button id={'green'} className={"paint__green"} onClick={changeColor}/>
+                    <button id={'blue'} className={"paint__blue"} onClick={changeColor}/>
+                    <button id={'red'} className={"paint__red"} onClick={changeColor}/>
                     <select id={"line-weight"} className={"dropdown"} onChange={changeLine}>
                         <option value={'light'}>Light</option>
                         <option value={'medium'}>Medium</option>
                         <option value={'heavy'}>Heavy</option>
                     </select>
-                    <button id={'red'} className={"paint__red"} onClick={changeColor}/>
-                    <button id={'green'} className={"paint__green"} onClick={changeColor}/>
-                    <button id={'blue'} className={"paint__blue"} onClick={changeColor}/>
-                    <button id={'black'} className={"paint__black"} onClick={changeColor}/>
-                    <button onClick={reset} className={"paint__reset"}>Clear</button>
-                    <button onClick={save} className={"paint__save"}>Save</button>
                 </div>
-                    <div onClick={info}>
-                        <IconContext.Provider value={{className: 'paint__info'}}>
-                            <IoInformationCircleSharp />
-                        </IconContext.Provider>
-                    </div>
-                    <div>
-                        <Instruction isOpen={isOpen} setIsOpen={setIsOpen}/>
-                    </div>                
-                    <button onClick={final} className={"paint__submit"}>
-                        <span>Submit</span>
-                    </button>
             </div>
         </div>
     )

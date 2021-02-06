@@ -2,42 +2,63 @@
 
 .page__draw {
     width: 100vw; 
-    height: calc(100vh - 40px); 
+    height: 100vh; 
     background: url('../../images/draw_background.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    display: flex; 
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.container__canvas {
-    position: fixed; 
-    top: 54%; 
-    left: 49%; 
-    transform: translate(-50%, -50%);
-    width: 480px;
-    height: 475px;  
-    overflow: hidden; 
+.draw_container { 
+    height: 720px; 
+    display: grid; 
+    grid-template-rows: 15% 65% 10%;
+    grid-template-areas: 
+    "submit"
+    "canvas"
+    "tools"; 
+    position: relative; 
 }
 
 .container__canvas-board {
-    position: absolute; 
-    top: 8%; 
-    left: 28%; 
+    grid-area: submit / canvas / tools;
     height: 800px; 
     width: 650px; 
 }
 
+.submission_container {
+    grid-area: submit;
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-left: 65px;
+    padding-right: 65px; 
+}
+
+.container__canvas { 
+    grid-area: canvas;
+    position: absolute; 
+    top: -2%; 
+    left: 13%; 
+    width: 480px;
+    height: 475px;  
+    z-index: 1;
+    overflow: hidden; 
+}
+
 .container__paint {
-    position: fixed; 
-    top: 88%;
-    left: 33%;
-    width: 500px; 
+    grid-area: tools; 
+    display: flex; 
+    justify-content: space-around;
+    position: relative; 
 }
 
 .dropdown {
-    position: absolute; 
-    left: 82%;
+    height: 50px; 
     font-family: 'Gloria Hallelujah';
     font-size: 20px;
     background-color: darkgoldenrod;
@@ -46,9 +67,6 @@
 }
 
 .paint__green {
-    position: absolute; 
-    top: 0; 
-    left: 52%; 
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -57,9 +75,6 @@
 }
 
 .paint__blue {
-    position: absolute; 
-    top: 0; 
-    left: 62%; 
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -68,9 +83,6 @@
 }
 
 .paint__red {
-    position: absolute; 
-    top: 0; 
-    left: 72%; 
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -79,9 +91,6 @@
 }
 
 .paint__black {
-    position: absolute; 
-    top: 0; 
-    left: 42%; 
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -90,9 +99,7 @@
 }
 
 .paint__save {
-    position: absolute; 
-    top: 0; 
-    left: 0; 
+    height: 50px; 
     font-size: 20px; 
     font-family: 'Gloria Hallelujah';
     border: solid chocolate;
@@ -105,9 +112,7 @@
 }
 
 .paint__reset {
-    position: absolute; 
-    top: 0; 
-    left: 15%; 
+    height: 50px; 
     font-size: 20px; 
     font-family: 'Gloria Hallelujah';
     border: solid chocolate;
@@ -121,9 +126,6 @@
 
 .paint__submit {
     width: 150px;
-    position: absolute; 
-    top: 13%; 
-    left: 56.3%;
     font-size: 26px; 
     font-family: 'Gloria Hallelujah';
     border: solid chocolate;
@@ -143,9 +145,6 @@
 .paint__info {
     width: 35px; 
     height: 35px;
-    position: absolute; 
-    top: 16%;
-    left: 36%; 
     color:rgb(96, 255, 255)
 }
 

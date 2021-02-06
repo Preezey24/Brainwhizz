@@ -10,6 +10,7 @@
     grid-template-areas: 
     "home logo auth";
     background-color: rgb(250, 246, 207);
+    z-index: 1; 
 }
 
 .nav__div-home {
