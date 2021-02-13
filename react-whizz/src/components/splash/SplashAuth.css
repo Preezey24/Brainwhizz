@@ -410,7 +410,7 @@
 @media only screen and (max-width: 1351px) {
     .math__div {
         height: 205px;
-        width: 300px; 
+        width: 280px; 
         font-size: 50px;
     }
     .math__calculator {
@@ -427,7 +427,7 @@
     }
     .memory__div {
         height: 205px;
-        width: 300px; 
+        width: 280px; 
         font-size: 50px;
     }
     .memory__eye {
@@ -443,21 +443,21 @@
         width: 60px; 
     }
     .math_scores-div {
-        height: 180px; 
-        width: 345px;         
+        height: 100px; 
+        width: 225px;         
     }
     .math_scores-content {
-        font-size: 38px;
+        font-size: 22px;
     }
     .memory_scores-div {
-        height: 180px; 
-        width: 345px;         
+        height: 100px; 
+        width: 225px;      
     }
     .memory_scores-content {
-        font-size: 38px;
+        font-size: 22px;
     }
     .trophy {
-        width: 100px; 
-        height: 100px; 
+        width: 50px; 
+        height: 50px; 
     }
 }
