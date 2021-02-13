@@ -67,7 +67,7 @@ const SplashUnAuth = () => {
     return (
         <div className={"splashpage_main"}>
             <div className={"koala_container"}>
-                <img src={koala} alt=""/>
+                <img src={koala} alt="" className={"koala_image"}/>
             </div> 
             <div className={"talkbubble_one"} id={"talkbubble_one"}>
                 <div className={"talkbubble_one-text"}>
@@ -88,7 +88,7 @@ const SplashUnAuth = () => {
                 </div>
             </div>
             <div className={"kangaroo_container"}>
-                <img src={kangaroo} alt=""/>
+                <img src={kangaroo} alt="" className={"kangaroo_image"}/>
             </div> 
             <div className={"logo_div"} id={"logo_div"}>
                     <div className={"logo_text"}>

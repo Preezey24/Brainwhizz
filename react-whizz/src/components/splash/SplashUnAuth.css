@@ -122,3 +122,39 @@
         transform: scale(3,3) 
     }
 }
+
+@media only screen and (min-width: 1701px) {
+    .koala_image {
+       width: 650px; 
+       height: 650px;  
+    }
+    .kangaroo_image {
+        width: 650px; 
+        height: 650px; 
+    }
+    .logo_div {
+        height: 100px; 
+        width: 250px; 
+    }
+    .logo_text {
+        font-size: 44px;
+    }
+}
+
+@media only screen and (max-width: 1351px) {
+    .koala_image {
+       width: 400px; 
+       height: 400px;  
+    }
+    .kangaroo_image {
+        width: 400px; 
+        height: 400px; 
+    }
+    .logo_div {
+        height: 60px; 
+        width: 130px; 
+    }
+    .logo_text {
+        font-size: 22px;
+    }
+}
