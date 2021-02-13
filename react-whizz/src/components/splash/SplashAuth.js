@@ -40,8 +40,8 @@ const SplashAuth = () => {
                         </div>
                         <div className={"math_icons__div"}>
                             <FcCalculator className={"math__calculator"}/>
-                            <FaDivide />
-                            <FcClock className={"math__equals"}/>
+                            <FaDivide className={"math__divide"}/>
+                            <FcClock className={"math__clock"}/>
                         </div>
                     </div>
                 </NavLink>
@@ -106,13 +106,15 @@ const SplashAuth = () => {
                 </div>
             </div>
             <div className={"drawing__container"}>
-                <div className={"drawing__div"}>
-                    <NavLink to='/drawing'>
-                        <span className={"drawing__link-span"}>Drawing</span>
-                    </NavLink> 
-                    <FcPicture className={"drawing__pic"}/>
-                    <FcFrame className={"drawing__gallery"}/>
-                </div>
+                <NavLink to='/drawing' style={{textDecoration:"none"}}>
+                    <div className={"drawing__div"}>
+                        <div className={"drawing__heading"}>Drawing</div>
+                        <div className={"drawing_icons__div"}>
+                            <FcPicture className={"drawing__pic"}/>
+                            <FcFrame className={"drawing__gallery"}/>
+                        </div>
+                    </div>
+                </NavLink> 
             </div>
             <div className={"picture__container"}>
                 <div className={"picture__div"}>

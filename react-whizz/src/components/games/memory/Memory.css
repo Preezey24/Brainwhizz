@@ -55,6 +55,7 @@
     height: 60px; 
     top: 250px;
     left: 165px; 
+    z-index: 1;
 }
 
 .container__xbox-dot {
@@ -65,7 +66,6 @@
     left: 170px;
     border-radius: 50%;
     background-color: yellowgreen;
-    z-index: -1;
 }
 
 .container__dashboard {
@@ -237,3 +237,10 @@ span.light {
     font-family: 'Gloria Hallelujah';
     font-size: 14px;
 }
+
+/* @media only screen and (min-width: 1601px) and (max-width: 2200px) {
+    .container__lights {
+        height: calc(40px + 1vh);
+        width: calc(200px + 5vw); 
+    }
+} */

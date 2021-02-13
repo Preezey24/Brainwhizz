@@ -88,7 +88,7 @@
     transform: rotate(-0.05turn);
 }
 
-.math__equals {
+.math__clock {
     transform: rotate(0.05turn);
 }
 
@@ -152,7 +152,7 @@
     grid-area: drawdiv; 
     display: flex; 
     justify-content: center;
-    align-items: flex-end;
+    margin-bottom: 100px;
 }
 
 .drawing__div {
@@ -164,8 +164,11 @@
     border: 5px solid rgb(255, 191, 252);
     background-color: rgb(96, 255, 255); 
     font-family: sabo;
-    color: rgb(255, 191, 252);
+    color: rgb(27, 0, 124);
     font-size: 50px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .drawing__div:hover {
@@ -173,28 +176,30 @@
     z-index: 1000;
 }
 
-.drawing__link-span {
-    position: absolute; 
-    width: 100%; 
-    height: 100%; 
-    top: 0; 
-    left: 0; 
-    z-index: 1;
+.drawing__heading {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.drawing_icons__div {
+    display: flex; 
+    justify-content: space-around;
 }
 
 .drawing__pic {
-    position: absolute;
+    /* position: absolute;
     top: 70px; 
-    left: 10px;
+    left: 10px; */
     width: 80px; 
     height: 80px;
     transform: rotate(-0.02turn);
 }
 
 .drawing__gallery {
-    position: absolute;
+    /* position: absolute;
     top: 70px; 
-    left: 160px;
+    left: 160px; */
     width: 80px; 
     height: 80px;
     transform: rotate(0.02turn);
@@ -331,5 +336,128 @@
 
     100% {
         transform: scale(1,1) 
+    }
+}
+
+@media only screen and (min-width: 1701px) {
+    .math__div {
+        height: 355px;
+        width: 516px; 
+        font-size: 80px;
+    }
+    .math__calculator {
+        height: 100px; 
+        width: 100px; 
+    }
+    .math__divide {
+        height: 100px; 
+        width: 100px; 
+    }
+    .math__clock {
+        height: 100px; 
+        width: 100px; 
+    }
+    .drawing__div {
+        height: 220px; 
+        width: 360px; 
+        font-size: 60px;
+    }
+    .drawing__pic {
+        height: 100px;
+        width: 100px; 
+    }
+    .drawing__gallery {
+        height: 100px;
+        width: 100px; 
+    }
+    .memory__div {
+        height: 355px;
+        width: 516px; 
+        font-size: 80px;
+    }
+    .memory__eye {
+        height: 100px; 
+        width: 100px; 
+    }
+    .memory__mind {
+        height: 100px; 
+        width: 100px; 
+    }
+    .memory__light {
+        height: 100px; 
+        width: 100px; 
+    }
+    .math_scores-div {
+        height: 180px; 
+        width: 345px;         
+    }
+    .math_scores-content {
+        font-size: 38px;
+    }
+    .memory_scores-div {
+        height: 180px; 
+        width: 345px;         
+    }
+    .memory_scores-content {
+        font-size: 38px;
+    }
+    .trophy {
+        width: 100px; 
+        height: 100px; 
+    }
+}
+
+@media only screen and (max-width: 1351px) {
+    .math__div {
+        height: 205px;
+        width: 300px; 
+        font-size: 50px;
+    }
+    .math__calculator {
+        height: 60px; 
+        width: 60px; 
+    }
+    .math__divide {
+        height: 60px; 
+        width: 60px; 
+    }
+    .math__clock {
+        height: 60px; 
+        width: 60px; 
+    }
+    .memory__div {
+        height: 205px;
+        width: 300px; 
+        font-size: 50px;
+    }
+    .memory__eye {
+        height: 60px; 
+        width: 60px; 
+    }
+    .memory__mind {
+        height: 60px; 
+        width: 60px;  
+    }
+    .memory__light {
+        height: 60px; 
+        width: 60px; 
+    }
+    .math_scores-div {
+        height: 180px; 
+        width: 345px;         
+    }
+    .math_scores-content {
+        font-size: 38px;
+    }
+    .memory_scores-div {
+        height: 180px; 
+        width: 345px;         
+    }
+    .memory_scores-content {
+        font-size: 38px;
+    }
+    .trophy {
+        width: 100px; 
+        height: 100px; 
     }
 }
