@@ -46,7 +46,7 @@
 
 .nav__title { 
     align-self: flex-start;
-    font-size: 44px;
+    font-size: 48px;
     font-family: 'Gloria Hallelujah';
 }
 
@@ -54,6 +54,7 @@
     width: 70px; 
     height: 65px;
     margin-right: 20px; 
+    margin-top: 5px;
     background: url('../../images/brain_icon.png');
     background-size: cover;
 }
@@ -81,4 +82,16 @@
 .active {
     font-weight: bold;
     font-size: x-large;
+}
+
+@media only screen and (min-width: 1701px) {
+    .nav__title {
+        font-size: 58px;
+        margin-bottom: 20px;
+    }
+    .nav__icon {
+        width: 90px; 
+        height: 85px;
+        margin-top: 0px;
+    }
 }
