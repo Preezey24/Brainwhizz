@@ -124,7 +124,7 @@
     }
 }
 
-@media only screen and (min-width: 1701px) {
+@media only screen and (min-width: 1751px) {
     .koala_image {
        width: 650px; 
        height: 650px;  
@@ -145,14 +145,14 @@
         height: 500px; 
     }
     .talkbubble_one-text {
-        font-size: 44px;
+        font-size: 38px;
     }
     .talkbubble_two {
         width: 600px; 
         height: 500px; 
     }
     .talkbubble_two-text {
-        font-size: 44px;
+        font-size: 38px;
     }
 }
 
