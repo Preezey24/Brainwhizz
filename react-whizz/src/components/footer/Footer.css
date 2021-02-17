@@ -55,3 +55,9 @@
   text-decoration: none;
   margin-left: 20px;
 }
+
+@media only screen and (min-width: 1701px) {
+  .footer_link {
+    font-size: 24px;
+  }
+}

@@ -26,6 +26,7 @@
     background-color: white;
     border-radius: 200px / 100px;
     border: 5px solid rgb(255, 191, 252);
+    z-index: 1;
 }
 
 .talkbubble_one:before {
@@ -139,9 +140,23 @@
     .logo_text {
         font-size: 44px;
     }
+    .talkbubble_one {
+        width: 600px; 
+        height: 500px; 
+    }
+    .talkbubble_one-text {
+        font-size: 44px;
+    }
+    .talkbubble_two {
+        width: 600px; 
+        height: 500px; 
+    }
+    .talkbubble_two-text {
+        font-size: 44px;
+    }
 }
 
-@media only screen and (max-width: 1351px) {
+@media only screen and (max-width: 1401px) {
     .koala_image {
        width: 400px; 
        height: 400px;  
@@ -156,5 +171,36 @@
     }
     .logo_text {
         font-size: 22px;
+    }
+    .talkbubble_one {
+        width: 400px; 
+        height: 300px; 
+    }
+    .talkbubble_one-text {
+        font-size: 27px;
+    }
+    .talkbubble_two {
+        width: 400px; 
+        height: 300px; 
+    }
+    .talkbubble_two-text {
+        font-size: 27px;
+    }
+}
+
+@media only screen and (max-width: 1131px) {
+    .talkbubble_one {
+        width: 400px; 
+        height: 300px; 
+    }
+    .talkbubble_two {
+        width: 400px; 
+        height: 300px; 
+    }
+    .talkbubble_one-text {
+        font-size: 20px;
+    }
+    .talkbubble_two-text {
+        font-size: 20px;
     }
 }
