@@ -5,7 +5,7 @@ import kangaroo from "../../images/kangaroo.jpg";
 
 const SplashUnAuth = () => {
     const message = "Hi, I'm Bruce the Koala and welcome to Brainwhizz!! Unleash your intelligence right here";
-    const messageTwo = "Sup, I'm Damo the Kangaroo. Come in and improve your skills in Math, Memory and Drawing!!"; 
+    const messageTwo = "And I'm Damo the Kangaroo. Come in and improve your skills in Math, Memory and Drawing!!"; 
     const [index, setIndex] = useState(0); 
     const [indexTwo, setIndexTwo] = useState(88)
     const [next, setNext] = useState(false); 
