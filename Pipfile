@@ -24,6 +24,7 @@ click = "*"
 itsdangerous = "*"
 markupsafe = "*"
 "flask.cli" = "*"
+faker = "*"
 
 [dev-packages]
 psycopg2-binary = "*"

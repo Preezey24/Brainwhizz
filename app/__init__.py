@@ -12,6 +12,8 @@ from app.api.auth_routes import auth_routes
 from app.api.score_routes import score_routes 
 from app.api.drawing_route import drawing_route
 
+from .seeds import seed_commands
+
 app = Flask(__name__)
 
 #connects application with Flask-Login for auth requirements (sessions, csrf) 
@@ -22,6 +24,8 @@ login_manager.init_app(app)
 def load_user(id):
     return User.query.get(int(id))
 
+#Tell flask about seed commands 
+app.cli.add_command(seed_commands)
 
 #configure class Config with DB URI etc. 
 app.config.from_object(Config)
