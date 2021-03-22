@@ -23,6 +23,7 @@ gunicorn = "*"
 click = "*"
 itsdangerous = "*"
 markupsafe = "*"
+"flask.cli" = "*"
 
 [dev-packages]
 psycopg2-binary = "*"
