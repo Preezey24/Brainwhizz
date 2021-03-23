@@ -5,9 +5,10 @@ from flask_login import LoginManager
 from flask_cors import CORS
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 import os
+import click
 
 from .config import Config   
-from app.models import db, User 
+from app.models import db, User, Total 
 from app.api.auth_routes import auth_routes
 from app.api.score_routes import score_routes 
 from app.api.drawing_route import drawing_route
