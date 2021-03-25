@@ -1,5 +1,5 @@
 from flask import Blueprint, request, session 
-from app.models import User, db 
+from app.models import User, Total, db 
 from flask_login import login_required 
 
 score_routes = Blueprint('score', __name__, url_prefix='/score')
@@ -26,6 +26,9 @@ def math():
     email = request.get_json().get('email')
     score = request.get_json().get('score')
     user = User.query.filter(User.email == email).first()
+    #update the total score for the application 
+    total = Total.query.get(1)
+    total.total_math += score 
     if not user.total_score: 
         user.math_total = score 
         user.total_score = score 
