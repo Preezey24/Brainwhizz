@@ -23,8 +23,8 @@ gunicorn = "*"
 click = "*"
 itsdangerous = "*"
 markupsafe = "*"
-"flask.cli" = "*"
 faker = "*"
+"flask.cli" = "*"
 
 [dev-packages]
 psycopg2-binary = "*"
